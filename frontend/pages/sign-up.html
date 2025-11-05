@@ -8,7 +8,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./Signup.css" />
+    <link rel="stylesheet" href="../css/sign-up.css" />
+    <link rel="signupjs" href="../js/sign-up.js" />
   </head>
   <body>
     <!-- Navbar -->
@@ -292,25 +293,35 @@
               <ul class="social-links">
                 <li>
                   <a href="#facebook"
-                    ><img src="./img/facebook.svg" alt="" />Facebook</a
+                    ><img
+                      src="../assets/images/facebook.svg"
+                      alt=""
+                    />Facebook</a
                   >
                 </li>
                 <li>
                   <a href="#instagram"
-                    ><img src="./img/instagram.svg" alt="" />Instagram</a
+                    ><img
+                      src="../assets/images/instagram.svg"
+                      alt=""
+                    />Instagram</a
                   >
                 </li>
                 <li>
-                  <a href="#X"><img src="./img/twitter-x.svg" alt="" /> X</a>
+                  <a href="#X"
+                    ><img src="../assets/images/twitter-x.svg" alt="" /> X</a
+                  >
                 </li>
                 <li>
                   <a href="#linkedin"
-                    ><img src="./img/linkedin.svg" alt="" /> Linkedin</a
+                    ><img src="../assets/images/linkedin.svg" alt="" />
+                    Linkedin</a
                   >
                 </li>
                 <li>
                   <a href="#youtube"
-                    ><img src="./img/youtube.svg" alt="" /> Youtube</a
+                    ><img src="../assets/images/youtube.svg" alt="" />
+                    Youtube</a
                   >
                 </li>
               </ul>
@@ -328,45 +339,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      // Hamburger menu toggle
-      function toggleMenu() {
-        const navLinks = document.querySelector(".nav-links");
-        navLinks.classList.toggle("active");
-      }
-
-      // Form submission handler
-      document
-        .getElementById("signupForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const formData = {
-            firstName: document.getElementById("firstName").value,
-            lastName: document.getElementById("lastName").value,
-            email: document.getElementById("email").value,
-            phone: document.getElementById("phone").value,
-            interest: document.getElementById("interest").value,
-            source: document.querySelector('input[name="source"]:checked')
-              ?.value,
-            message: document.getElementById("message").value,
-            terms: document.getElementById("terms").checked,
-          };
-
-          console.log("Form submitted:", formData);
-          alert("Thank you for signing up! Your account has been created.");
-          this.reset();
-        });
-
-      // Newsletter form handler
-      document
-        .querySelector(".newsletter-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          alert("Thank you for subscribing!");
-          this.reset();
-        });
-    </script>
   </body>
 </html>
