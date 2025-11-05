@@ -1,0 +1,253 @@
+
+.head{
+    text-align: center;
+}
+/*--------------------------Header style----------------------------------*/
+.header{
+    background-color: rgb(223, 220, 223);
+    border-radius: 5px;
+}
+.nav{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}
+.nav_item1{
+    text-align: left;
+}
+.line2{
+    text-align: right;
+    margin-right: 30px;
+}
+.login{
+    margin-right: 20px;
+}
+
+.nav_item1{
+    display: flex;
+}
+
+.nav_menu{
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    margin-top: 27px;
+}
+.nav_menu a{
+    text-decoration: none;
+    color: #000000;
+    position: relative;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+}
+.nav_menu a::after{
+    content: ' ';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    transition: width 0.3s ease;
+}
+.nav_menu a:hover{
+    color: black;
+}
+.nav_menu a:hover::after{
+    width: 100%;
+}
+.nav_btn{
+    text-align: right;
+    margin: 20px;
+}
+
+.nav_btn button{
+    border: solid 1px #000000;
+    padding: 10px;
+    margin-top: 10p;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+.nav_btn button:hover{
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/*------------------------------------------------------------*/
+.line{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    justify-content: center;
+
+}
+.fname{
+    text-align: right;
+    margin-right: 20px;
+}
+
+.lname{
+    text-align: left;
+    margin-left: 20px;
+}
+.email{
+    text-align: right;
+    margin-right: 20px;
+}
+.phone{
+    text-align: left;
+    margin-left: 20px;
+}
+.line2{
+    text-align: center;
+    
+}
+.line2 label{
+    margin-left: -110px;
+}
+.line3{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    justify-content: center;
+}
+.line3 button{
+    border: solid 1px #000000;
+    padding: 10px;
+    margin-top: 10p;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+.cbtn{
+    background-color: #000000;
+    color: white;
+    margin-right: 10px;
+}
+.btn1{
+    text-align: right;
+}
+.btn2{
+    text-align: left;
+}
+.cnbtn{
+    margin-left: 10px;
+    
+}
+.line3 button:hover{
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/*----------------------------------Footer style---------------------------------------------*/
+
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: rgb(223, 220, 223);
+    border-radius: 5px;
+}
+.column1, .column2, .column3, .column4{
+    padding: 20px;
+}
+.email2{
+    margin-left: 0px;
+}
+
+.footer button{
+    border: solid 1px #000000;
+    padding: 10px;
+    margin-top: 10p;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+.footer button:hover{
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.subscribe{
+    margin-left: 10px;
+}
+.note{
+    font-size: 11px;
+    margin-left: 20px;
+    margin-top: -5px;
+}
+
+.column2{
+    text-align: center;
+
+}
+.column3{
+    text-align: center;
+}
+.column4{
+    text-align: center;
+}
+
+.column2 a, .column3 a, .column4 a{
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+}
+.column4 i{
+    margin-right: 10px;
+}
+/*--------------------------------responsive------------------------*/
+@media screen and (max-width: 768px){
+    .nav{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .nav_item1{
+        justify-content: center;
+    }
+    .nav_menu{
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .nav_btn{
+        text-align: center;
+        margin: 10px;
+    }
+    .line{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .line3{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .btn1, .btn2{
+        text-align: center;
+        margin: 10px;
+    }
+    .footer{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .column2, .column3, .column4{
+        text-align: center;
+    }
+    .column2 a, .column3 a, .column4 a{
+        font-size: 8px;
+    }
+    .column1 p{
+        font-size: 5px;
+    }
+    .note{
+        font-size: 8px;
+        margin-left: 0px;
+        margin-top: -2px;
+    }
+}
+
