@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Vehicle Rental</title>
+
+  
+</head>
+
+<body>
+  
+
+  <header class="navbar">
+    <div class="logo">Logo</div>
+    <nav>
+      <ul>
+        <li><a href="#">Vehicles</a></li>
+        <li><a href="#">Locations</a></li>
+        <li><a href="#">Rates</a></li>
+        <li><a href="#">More ▾</a></li>
+      </ul>
+    </nav>
+    <div class="auth">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  
+  <div class="one">
+    <div class="j1">
+      <h1 style="color: #202124;">Journey</h1>
+      <p style="color: #333333;">We started with a simple dream of making vehicle rental easy and accessible for everyone.</p>
+      <div class="fbut">
+        <button onclick="openModal('exploreModal')">Explore</button>
+        <button onclick="openModal('learnModal')">Learn</button>
+    </div>
+    </div>
+  </div>
+
+  <br>
+
+  
+  <div class="one">
+    <div class="o1">
+      <h1>Our Team</h1>
+      <p>Meet the passionate professionals behind our vehicle rental service.</p>
+      <hr>
+
+      <div class="persons">
+        <div class="person">
+          <img src="download (4).jpg" width="200px" style="border-radius: 50%;padding: 10px;">
+          <h4>John</h4>
+          <p>Operations Manager</p>
+          <p>Ensures smooth day-to-day functioning and top-notch customer service.</p>
+        </div>
+
+        <div class="person">
+          <img src="Screenshot 2025-10-29 231341.png" width="200px" style="border-radius: 50%;padding: 10px;">
+          <h4>Sarah</h4>
+          <p>Marketing Lead</p>
+          <p>Spreads our story to travelers around the world.</p>
+        </div>
+
+        <div class="person">
+          <img src="download (6).jpg" width="200px" style="border-radius: 50%;padding: 10px;">
+          <h4>James</h4>
+          <p>IT & Web Administrator</p>
+          <p>Maintains the company website, online booking system, and digital security.</p>
+        </div>
+
+        <div class="person">
+          <img src="download (5).jpg" width="200px" style="border-radius: 50%;padding: 10px;">
+          <h4>Mason</h4>
+          <p>Finance Officer</p>
+          <p>Oversees budgets, billing, and financial records to maintain company profitability.</p>
+        </div>
+
+        <div class="person">
+          <img src="download (7).jpg" width="200px" style="border-radius: 50%;padding: 10px;">
+          <h4>Emma</h4>
+          <p>Marketing Specialist</p>
+          <p>Develops creative strategies to promote services and attract new customers.</p>
+        </div>
+
+        <div class="person">
+          <img src="Screenshot 2025-10-29 231536.png" width="200px" style="border-radius: 50%;padding: 10px;">
+          <h4>Daniel</h4>
+          <p>Fleet Supervisor</p>
+          <p>Manages vehicle maintenance, cleanliness, and availability to ensure quality rentals.</p>
+        </div>
+
+        <div class="person">
+          <img src="Screenshot 2025-10-29 231615.png" width="200px" style="border-radius: 50%;padding: 10px;">
+          <h4>Jack</h4>
+          <p>Customer Relations Executive</p>
+          <p>Oversees budgets, billing, and financial records to maintain company profitability.</p>
+        </div>
+      </div>
+
+      <div class="pc">
+        <h2>We're hiring!</h2>
+        <p>Join our dynamic team and help us revolutionize vehicle rental.</p>
+        <button onclick="openModal('positionsModal')">Open positions</button>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  
+  <section class="fleet-section">
+    <div class="fleet-text">
+      <h2>Our Fleet</h2>
+      <p>A visual journey through our diverse and well-maintained vehicle collection.</p>
+    </div>
+
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <div class="slide"><img src="download (3).jpg" alt="Car 1"></div>
+        <div class="slide"><img src="images (4).jpg" alt="Car 2"></div>
+        <div class="slide"><img src="360_F_321224333_47wgLRkL9I8cpepsr5JcbjzNCbzC3pox.jpg" alt="Car 3"></div>
+      </div>
+      <button class="nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="nav-btn next" onclick="moveSlide(1)">&#10095;</button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </section>
+
+  <br>
+
+  
+  <div class="one">
+    <div class="j1">
+      <h1>Why Choose Our Rental Service</h1>
+      <p>We deliver more than just vehicles. We provide freedom, reliability, and peace of mind.</p>
+      <button>Learn more</button>
+      <button>contact</button>
+    </div>
+
+    <hr>
+
+    <div class="qu">
+      <button id="btn-re" onclick="ou('re')">Reliability</button>
+      <button id="btn-co" onclick="ou('co')">Convenience</button>
+      <button id="btn-su" onclick="ou('su')">Support</button>
+    </div>
+
+    <div id="re" class="quality active">
+      <div class="item">
+        <img src="Reliability.jpg" alt="Reliability" width="350" height="350">
+        <span>
+          <h2>Modern vehicles you can trust</h2>
+          <p>Our fleet is meticulously maintained and regularly updated to ensure top performance and safety.</p>
+          <button>Details</button>
+        </span>
+      </div>
+    </div>
+
+    <div id="co" class="quality">
+      <div class="item">
+        <img src="conveniece.jpg" alt="Convenience" width="350" height="350">
+        <span>
+          <h2>Easy access to your travel needs</h2>
+          <p>Our platform provides a smooth, user-friendly experience to save your time and effort.</p>
+          <button>Details</button>
+        </span>
+      </div>
+    </div>
+
+    <div id="su" class="quality">
+      <div class="item">
+        <img src="support.jpg" alt="Support" width="350" height="350">
+        <span>
+          <h2>We’re here to help anytime</h2>
+          <p>Our customer support team ensures you always have assistance whenever you need it.</p>
+          <button>Details</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  
+  <footer>
+    <div class="footer-top">
+      <div class="footer-left">
+        <div class="logo">Logo</div>
+        <p>Stay updated with the latest vehicle rentals and travel tips</p>
+        <div class="subscribe">
+          <input type="email" placeholder="Email">
+          <button>Subscribe</button>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Vehicles</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Rates</a></li>
+            <li><a href="#">Specials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 Vehicle Rentals. All rights reserved.</p>
+      <div class="footer-terms">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Settings</a>
+      </div>
+    </div>
+  </footer>
+
+  
+  <script>
+    
+    function show(section) {
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const dotsContainer = document.getElementById("dots");
+
+    slides.forEach((_, index) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      dot.addEventListener("click", () => setSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll(".dot");
+    updateSlider();
+
+    function moveSlide(direction) {
+      currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      updateSlider();
+    }
+
+    function setSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+
+    function updateSlider() {
+      document.getElementById("slider").style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[currentSlide].classList.add("active");
+    }
+
+    
+    function ou(id) {
+      const qualities = document.querySelectorAll(".quality");
+      qualities.forEach(q => q.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+
+      const buttons = document.querySelectorAll(".qu button");
+      buttons.forEach(b => b.classList.remove("active"));
+      document.getElementById(`btn-${id}`).classList.add("active");
+    }
+
+    
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+  </script>
+  
+</body>
+</html>
