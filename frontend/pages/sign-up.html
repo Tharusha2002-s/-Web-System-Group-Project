@@ -9,26 +9,28 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/sign-up.css" />
-    <link rel="signupjs" href="../js/sign-up.js" />
+    <link rel="script" href="../js/sign-up.js" />
   </head>
   <body>
     <!-- Navbar -->
-    <header class="navbar">
+    <nav class="navbar">
       <div class="logo">Logo</div>
-      <nav>
-        <ul>
-          <li><a href="#">Vehicles</a></li>
-          <li><a href="#">Locations</a></li>
-          <li><a href="#">Rates</a></li>
-          <li><a href="#">More ▾</a></li>
-        </ul>
-      </nav>
+      <ul>
+        <li><a href="#vehicles">Vehicles</a></li>
+        <li><a href="#rent">Rent</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#more">More</a></li>
+      </ul>
       <div class="auth">
-        <button class="login">Login</button>
-        <button class="signup">Sign Up</button>
+        <button
+          class="login"
+          onclick="window.location.href='Authentication.html'"
+        >
+          Login
+        </button>
+        <button class="signup">Signup</button>
       </div>
-        
-    </header>
+    </nav>
 
     <!-- Header Section -->
     <header class="header-section">
@@ -52,14 +54,16 @@
         <div class="form-info">
           <div class="section-title">Welcome</div>
           <h2>Personal details</h2>
-          <p class="subtitle">
+          <p class="form-subtitle">
             Fill out the form below to create your rental account quickly.
           </p>
 
           <div class="contact-info">
             <div class="contact-row">
               <span>📧</span>
-              <a href="mailto:your.email@example.com">your.email@example.com</a>
+              <a href="mailto:support@vehiclerentals.com"
+                >support@vehiclerentals.com</a
+              >
             </div>
             <div class="contact-row">
               <span>📞</span>
@@ -176,7 +180,7 @@
       </div>
     </section>
 
-    <!-- CTA Section 1 -->
+    <!-- Section 1 -->
     <section class="cta-section">
       <div class="cta-container">
         <div class="cta-card">
@@ -187,7 +191,12 @@
               bookings.
             </p>
             <div class="cta-actions">
-              <button class="btn btn-primary btn-large">Sign in</button>
+              <button
+                class="btn btn-primary btn-large"
+                onclick="window.location.href='Authentication.html'"
+              >
+                Sign in
+              </button>
               <button class="btn btn-large">Back</button>
             </div>
           </div>
@@ -195,7 +204,7 @@
       </div>
     </section>
 
-    <!-- CTA Section 2 -->
+    <!-- Section 2 -->
     <section class="cta-section">
       <div class="cta-container">
         <div class="cta-card">
@@ -214,7 +223,7 @@
       </div>
     </section>
 
-    <!-- CTA Section 3 -->
+    <!-- Section 3 -->
     <section class="cta-section">
       <div class="cta-container">
         <div class="cta-card">
@@ -234,95 +243,50 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-content">
-          <div class="footer-newsletter">
-            <div class="logo">VEHICLE RENTALS</div>
-            <p style="margin: 24px 0">
-              Stay updated with the latest vehicle rentals and travel tips
-            </p>
-            <form class="newsletter-form">
-              <input type="email" placeholder="Enter Your Email" required />
-              <button type="submit" class="btn btn-large">Subscribe</button>
-            </form>
-            <p class="disclaimer">
-              By Subscribing, You agree to receive updates and promotional
-              offers.
-            </p>
-          </div>
-
-          <div class="footer-links">
-            <div class="footer-column">
-              <h3>Quick Links</h3>
-              <ul>
-                <li><a href="#vehicles">Vehicles</a></li>
-                <li><a href="#locations">Locations</a></li>
-                <li><a href="#rates">Rates</a></li>
-                <li><a href="#specials">Specials</a></li>
-                <li><a href="#faq">FAQ</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-column">
-              <h3>Company</h3>
-              <ul>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#careers">Careers</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#support">Support</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-column">
-              <h3>Connect</h3>
-              <ul class="social-links">
-                <li>
-                  <a href="#facebook"
-                    ><img
-                      src="../assets/images/facebook.svg"
-                      alt=""
-                    />Facebook</a
-                  >
-                </li>
-                <li>
-                  <a href="#instagram"
-                    ><img
-                      src="../assets/images/instagram.svg"
-                      alt=""
-                    />Instagram</a
-                  >
-                </li>
-                <li>
-                  <a href="#X"
-                    ><img src="../assets/images/twitter-x.svg" alt="" /> X</a
-                  >
-                </li>
-                <li>
-                  <a href="#linkedin"
-                    ><img src="../assets/images/linkedin.svg" alt="" />
-                    Linkedin</a
-                  >
-                </li>
-                <li>
-                  <a href="#youtube"
-                    ><img src="../assets/images/youtube.svg" alt="" />
-                    Youtube</a
-                  >
-                </li>
-              </ul>
-            </div>
+    <footer>
+      <div class="footer-top">
+        <div class="footer-left">
+          <div class="logo">Logo</div>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <div class="subscribe">
+            <input type="email" placeholder="Email" />
+            <button>Subscribe</button>
           </div>
         </div>
-
-        <div class="footer-bottom">
-          <p>© 2024 vehicle rentals. all rights reserved.</p>
-          <div class="footer-legal">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms Of Service</a>
-            <a href="#cookies">Cookie Settings</a>
+        <div class="footer-links">
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Vehicles</a></li>
+              <li><a href="#">Locations</a></li>
+              <li><a href="#">Rates</a></li>
+              <li><a href="#">Specials</a></li>
+            </ul>
           </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Vehicle Rentals. All rights reserved.</p>
+        <div class="footer-terms">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
         </div>
       </div>
     </footer>
