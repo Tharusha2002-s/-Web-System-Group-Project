@@ -10,126 +10,60 @@ body {
   color: #000000;
 }
 
-/* Navbar */
+/*  NAVBAR */
 .navbar {
-  width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
-  position: fixed;
-  z-index: 1000;
-}
-
-.navbar-header {
-  max-width: 1312px;
-  margin: 0 auto;
-  padding: 16px 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 4px;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: #000;
-  transition: 0.3s;
+  padding: 20px 60px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff7b00;
 }
 
-.nav-links {
+.navbar ul {
   display: flex;
-  gap: 32px;
-  align-items: center;
+  list-style: none;
+  gap: 30px;
 }
 
-.nav-links a {
+.navbar a {
   text-decoration: none;
-  color: #000000;
-  font-size: 16px;
+  color: #333;
+  font-weight: 500;
 }
 
-.nav-actions {
-  display: flex;
-  gap: 16px;
+.navbar a:hover {
+  color: #ff7b00;
 }
 
-.btn {
-  padding: 8px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: 1px solid #000000;
-  background: transparent;
-  transition: all 0.3s;
-}
-
-.btn-primary {
-  background: #000000;
-  color: #ffffff;
-}
-
-.btn-primary:hover {
-  background: #333;
-}
-
-.btn:hover {
-  opacity: 0.8;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.drop-btn {
-  background-color: transparent;
+.navbar .auth button {
+  margin-left: 10px;
+  padding: 6px 14px;
   border: none;
+  border-radius: 20px;
   cursor: pointer;
-
-  text-decoration: none;
-  color: #000000;
-  font-size: 16px;
-
-  font-family: inherit;
-  padding: 0;
-  margin: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  z-index: 1;
+.login {
+  background: transparent;
+  border: 1px solid #333;
+  color: #333;
 }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
+.signup {
+  background: #ff7b00;
+    color: #fff;
 }
 
 /* Header Section */
