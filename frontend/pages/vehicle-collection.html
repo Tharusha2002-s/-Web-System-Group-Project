@@ -1,13 +1,182 @@
-~<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Vehicle Collection</title>
   <link rel="stylesheet" href="../css/vehicle-collection.css">
 
 </head>
 <body>
-  
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Logo</div>
+
+    <button
+      class="mobile-nav-toggle"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Menu</span>
+        
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+
+    <div class="nav-container" data-visible="false">
+      <nav>
+        <ul>
+          <li><a href="#">Vehicles</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Rates</a></li>
+          <li><a href="#">More ▾</a></li>
+        </ul>
+      </nav>
+      <div class="auth">
+        <button class="login">Login</button>
+        <button class="signup">Sign Up</button>
+      </div>
+  </header>
+  <!--Navbar Ends-->
+
+    <main>
+      <section class="exploration">
+      <p>Ride</p>
+      <h1>Explore our vehicle collection</h1>
+      <p>Choose from our diverse fleet of cars, vans, bikes, and three-wheelers ready for your next adventure</p>
+    </section>
+
+    <section class="vehicle-topic">
+      <h2>Vehicles</h2>
+      <p>Find the Perfect ride for your journey</p>
+    </section>
+
+    <ul class="vehicle-list">
+
+      <li>
+        <img src="" alt="Compact Sedan">
+        <h3>Compact Sedan</h3>
+        <h4>Economy</h4>
+        <p>$45</p>
+        <a href="">See Details</a>
+      </li>
+
+      <li>
+        <img src="" alt="Mid-size SUV">
+        <h3>Mid-size SUV</h3>
+        <h4>Standard</h4>
+        <p>$65</p>
+        <a href="">See Details</a>
+      </li> 
+
+      <li>
+        <img src="" alt="Luxury Sedan">
+        <h3>Luxury Sedan</h3>
+        <h4>Premium</h4>
+        <p>$85</p>
+        <a href="">See Details</a>
+      </li> 
+
+      <li>
+        <img src="" alt="Cargo Van">
+        <h3>Cargo Van</h3>
+        <h4>Commercial</h4>
+        <p>$75</p>
+        <a href="">See Details</a>
+      </li> 
+
+      <li>
+        <img src="" alt="Mountain Bike">
+        <h3>Mountain Bike</h3>
+        <h4>Sport</h4>
+        <p>$25</p>
+        <a href="">See Details</a>
+      </li> 
+
+      <li>
+        <img src="" alt="City Bike">
+        <h3>City Bike</h3>
+        <h4>Urban</h4>
+        <p>$20</p>
+        <a href="">See Details</a>
+      </li> 
+
+      <li>
+        <img src="" alt="Three-Wheeler">
+        <h3>Three-Wheeler</h3>
+        <h4>Compact</h4>
+        <p>$35</p>
+        <a href="">See Details</a>
+      </li> 
+
+      <li>
+        <img src="" alt="Electric Scooter">
+        <h3>Electric Scooter</h3>
+        <h4>Green</h4>
+        <p>$30</p>
+        <a href="">See Details</a>
+      </li> 
+      
+      </ul>
+
+      <section class="view-all-button">
+        <a href="">View All</a>
+      </section>
+      
+      <!--Footer-->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-left">
+          <div class="logo">Logo</div>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <div class="subscribe">
+            <input type="email" placeholder="Email">
+            <button>Subscribe</button>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Vehicles</a></li>
+              <li><a href="#">Locations</a></li>
+              <li><a href="#">Rates</a></li>
+              <li><a href="#">Specials</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>  
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Vehicle Rentals. All rights reserved.</p>
+        <div class="footer-terms">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </footer>
+    <!--Footer Ends-->
+    </main>
+    
+
+
+  <script src="../js/vehicle-collection.js"></script>
 </body>
 </html>
