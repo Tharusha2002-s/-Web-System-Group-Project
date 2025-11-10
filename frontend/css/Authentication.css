@@ -203,6 +203,7 @@ body {
   text-decoration: none;
   color: #000000;
   transition: opacity 0.3s;
+  margin-bottom: 10px;
 }
 
 .form-section .contact-row a:hover {
