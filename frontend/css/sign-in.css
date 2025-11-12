@@ -306,9 +306,16 @@ hr {
   text-align: center;
   padding: 3rem 2rem;
   max-width: 1200px;
+  background: #f8f8f8;
   margin: 0 auto;
   padding-left: 2rem;
   padding-right: 2rem;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.social-login-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
 }
 
 .social-login-section h2 {
@@ -343,6 +350,10 @@ hr {
 .signin-buttons .button-social:hover {
   background: #f4f4f4;
 }
+
+/*Social Login Section Ends*/
+
+/*Signup Section*/
 
 .signup-section {
   text-align: center;
@@ -404,7 +415,7 @@ hr {
   background: #f4f4f4;
 }
 
-/*Social Login Section Ends*/
+/*Signup Section Ends*/
 
 /*Footer Section*/
 

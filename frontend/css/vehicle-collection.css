@@ -161,6 +161,8 @@ body{
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   text-align: center;
+  display: flex;
+  flex-direction: column;
 
   /* Adding Hover Effect */
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
@@ -172,6 +174,8 @@ body{
   display: block;
   margin-bottom: 10px;
   border-radius: 8px 8px 0 0;
+  height: 180px;
+  object-fit: contain;
 }
 .vehicle-list li h3{
   font-size: 20px;
@@ -194,6 +198,7 @@ body{
   display: block;
   background-color: white;
   color: black;
+  margin-top: auto;
   text-align: center;
   text-decoration: none;
   padding: 10px;
