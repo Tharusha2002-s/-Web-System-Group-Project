@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
 }
 
-/* Navbar */
+/* Nav bar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -67,9 +67,9 @@ body {
   color: #fff;
 }
 
-/* Header section */
+/* Header Section */
 .header-section {
-  padding: 100px 64px 80px;
+  padding: 120px 64px 80px;
   text-align: center;
   background: #ffffff;
 }
@@ -77,15 +77,6 @@ body {
 .header-section .header-container {
   max-width: auto;
   margin: 0 auto;
-  background: #eeeeee;
-  padding: 40px 40px;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-}
-
-.header-section .header-container:hover {
-  transform: scale(1.01);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
 .header-section .tagline {
@@ -388,34 +379,30 @@ body {
   font-size: 16px;
 }
 
-/* Sections 1,2,3*/
+/* Section 1,2,3 */
 .cta-section {
-  padding: 40px;
+  padding: 80px 64px;
   background: #ffffff;
 }
 
 .cta-section .cta-container {
-  max-width: 900px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 .cta-section .cta-card {
-  padding: 24px;
+  border: 1px solid #000000;
+  padding: 64px;
   text-align: center;
-  background-color: #eeeeee;
-  transition: all 0.3s ease;
 }
-.cta-section .cta-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+
 .cta-section .cta-content {
   max-width: 768px;
   margin: 0 auto;
 }
 
 .cta-section .cta-content h2 {
-  font-size: 38px;
+  font-size: 48px;
   margin-bottom: 16px;
 }
 
@@ -462,7 +449,7 @@ body {
   font-size: 16px;
 }
 
-/* Footer section */
+/* Footer */
 footer {
   background: #222;
   color: #ddd;
@@ -570,7 +557,7 @@ footer .footer-bottom a:hover {
   color: #ff7b00;
 }
 
-/* Responsivenes */
+/* Responsive */
 @media (max-width: 1024px) {
   .form-section .form-container {
     gap: 60px;
