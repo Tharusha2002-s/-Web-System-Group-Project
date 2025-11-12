@@ -8,37 +8,27 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./Signup.css" />
+    <link rel="stylesheet" href="../css/sign-up.css" />
+    <link rel="script" href="../js/sign-up.js" />
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar">
-      <div class="navbar-header">
-        <div class="nav-left">
-          <div class="logo">VEHICLE RENTALS</div>
-          <div class="nav-links">
-            <a href="#vehicles">Vehicles</a>
-            <a href="#rent">Rent</a>
-            <a href="#locations">Locations</a>
-            <div class="dropdown">
-              <button class="drop-btn">More ▾</button>
-              <div class="dropdown-content">
-                <a href="#about">About Us</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact">Contact</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="nav-actions">
-          <button class="btn">Login</button>
-          <button class="btn btn-primary">Signup</button>
-        </div>
+      <div class="logo">Logo</div>
+      <ul>
+        <li><a href="#vehicles">Vehicles</a></li>
+        <li><a href="#rent">Rent</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#more">More</a></li>
+      </ul>
+      <div class="auth">
+        <button
+          class="login"
+          onclick="window.location.href='authentication.html'"
+        >
+          Login
+        </button>
+        <button class="signup">Signup</button>
       </div>
     </nav>
 
@@ -64,21 +54,41 @@
         <div class="form-info">
           <div class="section-title">Welcome</div>
           <h2>Personal details</h2>
-          <p class="subtitle">
+          <p class="form-subtitle">
             Fill out the form below to create your rental account quickly.
           </p>
 
           <div class="contact-info">
             <div class="contact-row">
-              <span>📧</span>
-              <a href="mailto:your.email@example.com">your.email@example.com</a>
+              <span
+                ><img
+                  width="38"
+                  height="38"
+                  src="https://img.icons8.com/windows/32/filled-message.png"
+                  alt="filled-message"
+              /></span>
+              <a href="mailto:support@vehiclerentals.com"
+                >support@vehiclerentals.com</a
+              >
             </div>
             <div class="contact-row">
-              <span>📞</span>
+              <span
+                ><img
+                  width="38"
+                  height="38"
+                  src="https://img.icons8.com/fluency-systems-filled/48/phone.png"
+                  alt="phone"
+              /></span>
               <a href="tel:+15551234567">+1 (555) 123-4567</a>
             </div>
             <div class="contact-row">
-              <span>📍</span>
+              <span
+                ><img
+                  width="38"
+                  height="38"
+                  src="https://img.icons8.com/windows/32/map-marker--v1.png"
+                  alt="map-marker--v1"
+              /></span>
               <span>123 Vehicle Street, Sydney NSW 2000, Australia</span>
             </div>
           </div>
@@ -188,7 +198,7 @@
       </div>
     </section>
 
-    <!-- CTA Section 1 -->
+    <!-- Section 1 -->
     <section class="cta-section">
       <div class="cta-container">
         <div class="cta-card">
@@ -199,7 +209,12 @@
               bookings.
             </p>
             <div class="cta-actions">
-              <button class="btn btn-primary btn-large">Sign in</button>
+              <button
+                class="btn btn-primary btn-large"
+                onclick="window.location.href='Authentication.html'"
+              >
+                Sign in
+              </button>
               <button class="btn btn-large">Back</button>
             </div>
           </div>
@@ -207,7 +222,7 @@
       </div>
     </section>
 
-    <!-- CTA Section 2 -->
+    <!-- Section 2 -->
     <section class="cta-section">
       <div class="cta-container">
         <div class="cta-card">
@@ -226,7 +241,7 @@
       </div>
     </section>
 
-    <!-- CTA Section 3 -->
+    <!-- Section 3 -->
     <section class="cta-section">
       <div class="cta-container">
         <div class="cta-card">
@@ -246,127 +261,52 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-content">
-          <div class="footer-newsletter">
-            <div class="logo">VEHICLE RENTALS</div>
-            <p style="margin: 24px 0">
-              Stay updated with the latest vehicle rentals and travel tips
-            </p>
-            <form class="newsletter-form">
-              <input type="email" placeholder="Enter Your Email" required />
-              <button type="submit" class="btn btn-large">Subscribe</button>
-            </form>
-            <p class="disclaimer">
-              By Subscribing, You agree to receive updates and promotional
-              offers.
-            </p>
-          </div>
-
-          <div class="footer-links">
-            <div class="footer-column">
-              <h3>Quick Links</h3>
-              <ul>
-                <li><a href="#vehicles">Vehicles</a></li>
-                <li><a href="#locations">Locations</a></li>
-                <li><a href="#rates">Rates</a></li>
-                <li><a href="#specials">Specials</a></li>
-                <li><a href="#faq">FAQ</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-column">
-              <h3>Company</h3>
-              <ul>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#careers">Careers</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#support">Support</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-column">
-              <h3>Connect</h3>
-              <ul class="social-links">
-                <li>
-                  <a href="#facebook"
-                    ><img src="./img/facebook.svg" alt="" />Facebook</a
-                  >
-                </li>
-                <li>
-                  <a href="#instagram"
-                    ><img src="./img/instagram.svg" alt="" />Instagram</a
-                  >
-                </li>
-                <li>
-                  <a href="#X"><img src="./img/twitter-x.svg" alt="" /> X</a>
-                </li>
-                <li>
-                  <a href="#linkedin"
-                    ><img src="./img/linkedin.svg" alt="" /> Linkedin</a
-                  >
-                </li>
-                <li>
-                  <a href="#youtube"
-                    ><img src="./img/youtube.svg" alt="" /> Youtube</a
-                  >
-                </li>
-              </ul>
-            </div>
+    <footer>
+      <div class="footer-top">
+        <div class="footer-left">
+          <div class="logo">Logo</div>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <div class="subscribe">
+            <input type="email" placeholder="Email" />
+            <button>Subscribe</button>
           </div>
         </div>
-
-        <div class="footer-bottom">
-          <p>© 2024 vehicle rentals. all rights reserved.</p>
-          <div class="footer-legal">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms Of Service</a>
-            <a href="#cookies">Cookie Settings</a>
+        <div class="footer-links">
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Vehicles</a></li>
+              <li><a href="#">Locations</a></li>
+              <li><a href="#">Rates</a></li>
+              <li><a href="#">Specials</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">LinkedIn</a></li>
+            </ul>
           </div>
         </div>
       </div>
+      <div class="footer-bottom">
+        <p>© 2024 Vehicle Rentals. All rights reserved.</p>
+        <div class="footer-terms">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
     </footer>
-
-    <script>
-      // Hamburger menu toggle
-      function toggleMenu() {
-        const navLinks = document.querySelector(".nav-links");
-        navLinks.classList.toggle("active");
-      }
-
-      // Form submission handler
-      document
-        .getElementById("signupForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const formData = {
-            firstName: document.getElementById("firstName").value,
-            lastName: document.getElementById("lastName").value,
-            email: document.getElementById("email").value,
-            phone: document.getElementById("phone").value,
-            interest: document.getElementById("interest").value,
-            source: document.querySelector('input[name="source"]:checked')
-              ?.value,
-            message: document.getElementById("message").value,
-            terms: document.getElementById("terms").checked,
-          };
-
-          console.log("Form submitted:", formData);
-          alert("Thank you for signing up! Your account has been created.");
-          this.reset();
-        });
-
-      // Newsletter form handler
-      document
-        .querySelector(".newsletter-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          alert("Thank you for subscribing!");
-          this.reset();
-        });
-    </script>
   </body>
 </html>
