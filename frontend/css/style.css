@@ -1,0 +1,435 @@
+/* GLOBAL STYLES  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  color: #222;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+/*  NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff7b00;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: #ff7b00;
+}
+
+.navbar .auth button {
+  margin-left: 10px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size : 0.9rem;
+}
+
+.login {
+  background: transparent;
+  border: 1px solid #333;
+  color: #333;
+}
+
+.signup {
+  background: #ff7b00;
+  color: #fff;
+}
+
+/*  HERO SECTION */
+.hero {
+  background: url("home\ page\ image.jpeg") center/cover no-repeat;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 38px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.hero-buttons button {
+  margin: 0 10px;
+  padding: 14px 35px;
+  border-radius: 35px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size : 0.9em;
+  transition: 0.3s;
+}
+
+.book-btn {
+  background: #ff7b00;
+  color: #fff;
+}
+
+.explore-btn {
+  background: #fff;
+  color: #333;
+}
+
+.hero-buttons button:hover {
+  transform: scale(1.05);
+}
+
+/*  SECTION BASE */
+.section {
+  text-align: center;
+  padding: 80px 60px;
+}
+
+.section h2 {
+  color: #ff7b00;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.section p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/*  VEHICLES SECTION  */
+.vehicles {
+  background: #f9f9f9;
+}
+
+.vehicle-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.vehicle-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+}
+
+.vehicle-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.vehicle-card button {
+  background: #ff7b00;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.vehicle-card button:hover {
+  background: #e56c00;
+}
+
+/*  FEATURED SECTION  */
+.featured {
+  background: #fff;
+}
+
+.ride-feature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 60px;
+}
+
+.ride-text {
+  max-width: 500px;
+  text-align: left;
+}
+
+.ride-text h4 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.ride-text h5 {
+  font-size: 1.1rem;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.ride-buttons button {
+  margin: 10px 10px 0 0;
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.book-btn {
+  background: #ff7b00;
+  color: #fff;
+}
+
+.details-btn {
+  background: transparent;
+  border: 1px solid #ff7b00;
+  color: #ff7b00;
+}
+
+.ride-image img {
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/*  PROCESS SECTION  */
+.process {
+  background: #f9f9f9;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.step {
+  background: #fff;
+  border-radius: 15px;
+  width: 280px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+.step img {
+  width: 70px;
+  margin-bottom: 15px;
+}
+
+.step h4 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/*  CUSTOMER STORIES  */
+.customer-stories {
+  background: #fff;
+}
+
+.stories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.story {
+  background: #f9f9f9;
+  border-radius: 10px;
+  width: 300px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.story:hover {
+  transform: translateY(-5px);
+}
+
+.stars {
+  color: #ff7b00;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.story h4 {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.story span {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/*  FOOTER */
+footer {
+  background: #222;
+  color: #ddd;
+  padding: 50px 60px 30px;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+
+.footer-left {
+  max-width: 300px;
+}
+
+.footer-left .logo {
+  color: #ff7b00;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subscribe input {
+  padding: 14px 50px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.subscribe button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  background: #ff7b00;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.subscribe button:hover {
+  background: #e56c00;     
+}
+.subscribe {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;   
+}
+
+.footer-links {
+  display: flex;
+  gap: 50px;
+}
+
+.footer-links h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #ddd;
+  display: block;
+  margin-bottom: 6px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ff7b00;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+.footer-bottom a {
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.footer-bottom a:hover {
+  color: #ff7b00;
+}
+.footer-left p {
+  white-space: nowrap;   
+   margin-bottom: 15px;
+}
+
