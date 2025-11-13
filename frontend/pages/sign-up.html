@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+<<<<<<< HEAD
     <link rel="stylesheet" href="./Signup.css" />
   </head>
   <body>
@@ -39,6 +40,65 @@
           <button class="btn">Login</button>
           <button class="btn btn-primary">Signup</button>
         </div>
+=======
+    <link rel="stylesheet" href="../css/sign-up.css" />
+    <link rel="script" href="../js/sign-up.js" />
+  </head>
+  <style>
+    /*  NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff7b00;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .navbar a:hover {
+      color: #ff7b00;
+    }
+  </style>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">Logo</div>
+      <ul>
+        <li><a href="#vehicles">Vehicles</a></li>
+        <li><a href="#rent">Rent</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#more">More</a></li>
+      </ul>
+      <div class="auth">
+        <button
+          class="login"
+          onclick="window.location.href='authentication.html'"
+        >
+          Login
+        </button>
+        <button class="signup">Signup</button>
+>>>>>>> 3f0afd9c8dd2779675bb479ec7afadc42ca45fd1
       </div>
     </nav>
 
@@ -64,12 +124,17 @@
         <div class="form-info">
           <div class="section-title">Welcome</div>
           <h2>Personal details</h2>
+<<<<<<< HEAD
           <p class="subtitle">
+=======
+          <p class="form-subtitle">
+>>>>>>> 3f0afd9c8dd2779675bb479ec7afadc42ca45fd1
             Fill out the form below to create your rental account quickly.
           </p>
 
           <div class="contact-info">
             <div class="contact-row">
+<<<<<<< HEAD
               <span>📧</span>
               <a href="mailto:your.email@example.com">your.email@example.com</a>
             </div>
@@ -79,6 +144,37 @@
             </div>
             <div class="contact-row">
               <span>📍</span>
+=======
+              <span
+                ><img
+                  width="38"
+                  height="38"
+                  src="https://img.icons8.com/windows/32/filled-message.png"
+                  alt="filled-message"
+              /></span>
+              <a href="mailto:support@vehiclerentals.com"
+                >support@vehiclerentals.com</a
+              >
+            </div>
+            <div class="contact-row">
+              <span
+                ><img
+                  width="38"
+                  height="38"
+                  src="https://img.icons8.com/fluency-systems-filled/48/phone.png"
+                  alt="phone"
+              /></span>
+              <a href="tel:+15551234567">+1 (555) 123-4567</a>
+            </div>
+            <div class="contact-row">
+              <span
+                ><img
+                  width="38"
+                  height="38"
+                  src="https://img.icons8.com/windows/32/map-marker--v1.png"
+                  alt="map-marker--v1"
+              /></span>
+>>>>>>> 3f0afd9c8dd2779675bb479ec7afadc42ca45fd1
               <span>123 Vehicle Street, Sydney NSW 2000, Australia</span>
             </div>
           </div>
@@ -88,22 +184,58 @@
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First name</label>
+<<<<<<< HEAD
               <input type="text" id="firstName" required />
             </div>
             <div class="form-group">
               <label for="lastName">Last name</label>
               <input type="text" id="lastName" required />
+=======
+              <input
+                type="text"
+                id="firstName"
+                required
+                placeholder="Enter your first name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last name</label>
+              <input
+                type="text"
+                id="lastName"
+                required
+                placeholder="Enter your last name"
+              />
+>>>>>>> 3f0afd9c8dd2779675bb479ec7afadc42ca45fd1
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="email">Email</label>
+<<<<<<< HEAD
               <input type="email" id="email" required />
             </div>
             <div class="form-group">
               <label for="phone">Phone number</label>
               <input type="tel" id="phone" required />
+=======
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="Enter your email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone number</label>
+              <input
+                type="tel"
+                id="phone"
+                required
+                placeholder="Enter your phone number"
+              />
+>>>>>>> 3f0afd9c8dd2779675bb479ec7afadc42ca45fd1
             </div>
           </div>
 
@@ -188,7 +320,11 @@
       </div>
     </section>
 
+<<<<<<< HEAD
     <!-- CTA Section 1 -->
+=======
+    <!-- Section 1 -->
+>>>>>>> 3f0afd9c8dd2779675bb479ec7afadc42ca45fd1
     <section class="cta-section">
       <div class="cta-container">
         <div class="cta-card">
@@ -199,7 +335,16 @@
               bookings.
             </p>
             <div class="cta-actions">
+<<<<<<< HEAD
               <button class="btn btn-primary btn-large">Sign in</button>
+=======
+              <button
+                class="btn btn-primary btn-large"
+                onclick="window.location.href='Authentication.html'"
+              >
+                Sign in
+              </button>
+>>>>>>> 3f0afd9c8dd2779675bb479ec7afadc42ca45fd1
               <button class="btn btn-large">Back</button>
             </div>
           </div>
@@ -207,7 +352,11 @@
       </div>
     </section>
 
+<<<<<<< HEAD
     <!-- CTA Section 2 -->
+=======
+    <!-- Section 2 -->
+>>>>>>> 3f0afd9c8dd2779675bb479ec7afadc42ca45fd1
     <section class="cta-section">
       <div class="cta-container">
         <div class="cta-card">
@@ -226,7 +375,11 @@
       </div>
     </section>
 
+<<<<<<< HEAD
     <!-- CTA Section 3 -->
+=======
+    <!-- Section 3 -->
+>>>>>>> 3f0afd9c8dd2779675bb479ec7afadc42ca45fd1
     <section class="cta-section">
       <div class="cta-container">
         <div class="cta-card">
@@ -246,6 +399,7 @@
     </section>
 
     <!-- Footer -->
+<<<<<<< HEAD
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-content">
@@ -368,5 +522,54 @@
           this.reset();
         });
     </script>
+=======
+    <footer>
+      <div class="footer-top">
+        <div class="footer-left">
+          <div class="logo">Logo</div>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <div class="subscribe">
+            <input type="email" placeholder="Email" />
+            <button>Subscribe</button>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Vehicles</a></li>
+              <li><a href="#">Locations</a></li>
+              <li><a href="#">Rates</a></li>
+              <li><a href="#">Specials</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Vehicle Rentals. All rights reserved.</p>
+        <div class="footer-terms">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </footer>
+>>>>>>> 3f0afd9c8dd2779675bb479ec7afadc42ca45fd1
   </body>
 </html>
