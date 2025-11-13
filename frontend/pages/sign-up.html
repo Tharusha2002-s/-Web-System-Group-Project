@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Vehicle Rentals</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/sign-up.css" />
+    <link rel="script" href="../js/sign-up.js" />
+  </head>
+  <style>
+    /*  NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff7b00;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .navbar a:hover {
+      color: #ff7b00;
+    }
+  </style>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">Logo</div>
+      <ul>
+        <li><a href="#vehicles">Vehicles</a></li>
+        <li><a href="#rent">Rent</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#more">More</a></li>
+      </ul>
+      <div class="auth">
+        <button
+          class="login"
+          onclick="window.location.href='authentication.html'"
+        >
+          Login
+        </button>
+        <button class="signup">Signup</button>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="header-section">
+      <div class="header-container">
+        <div class="tagline">JOIN</div>
+        <h1>Create your account</h1>
+        <p class="subtitle">
+          Start your journey with easy vehicle rentals in just a few simple
+          steps.
+        </p>
+        <div class="header-actions">
+          <button class="btn btn-primary btn-large">Sign up</button>
+          <button class="btn btn-large">Learn more</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Form Section -->
+    <section class="form-section">
+      <div class="form-container">
+        <div class="form-info">
+          <div class="section-title">Welcome</div>
+          <h2>Personal details</h2>
+          <p class="form-subtitle">
+            Fill out the form below to create your rental account quickly.
+          </p>
+
+          <div class="contact-info">
+            <div class="contact-row">
+              <span
+                ><img
+                  width="38"
+                  height="38"
+                  src="https://img.icons8.com/windows/32/filled-message.png"
+                  alt="filled-message"
+              /></span>
+              <a href="mailto:support@vehiclerentals.com"
+                >support@vehiclerentals.com</a
+              >
+            </div>
+            <div class="contact-row">
+              <span
+                ><img
+                  width="38"
+                  height="38"
+                  src="https://img.icons8.com/fluency-systems-filled/48/phone.png"
+                  alt="phone"
+              /></span>
+              <a href="tel:+15551234567">+1 (555) 123-4567</a>
+            </div>
+            <div class="contact-row">
+              <span
+                ><img
+                  width="38"
+                  height="38"
+                  src="https://img.icons8.com/windows/32/map-marker--v1.png"
+                  alt="map-marker--v1"
+              /></span>
+              <span>123 Vehicle Street, Sydney NSW 2000, Australia</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="signup-form" id="signupForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First name</label>
+              <input
+                type="text"
+                id="firstName"
+                required
+                placeholder="Enter your first name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last name</label>
+              <input
+                type="text"
+                id="lastName"
+                required
+                placeholder="Enter your last name"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="Enter your email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone number</label>
+              <input
+                type="tel"
+                id="phone"
+                required
+                placeholder="Enter your phone number"
+              />
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="interest">Select your interest</label>
+            <select id="interest" required>
+              <option value="">Choose option</option>
+              <option value="personal">Personal use</option>
+              <option value="business">Business use</option>
+              <option value="tourism">Tourism</option>
+            </select>
+          </div>
+
+          <div class="radio-group full-width">
+            <label>How did you hear about us?</label>
+            <div class="radio-options">
+              <div class="radio-row">
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="search"
+                    name="source"
+                    value="search"
+                  />
+                  <label for="search">Online search</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="social"
+                    name="source"
+                    value="social"
+                  />
+                  <label for="social">Social media</label>
+                </div>
+              </div>
+              <div class="radio-row">
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="referral"
+                    name="source"
+                    value="referral"
+                  />
+                  <label for="referral">Friend referral</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="ad" name="source" value="ad" />
+                  <label for="ad">Advertisement</label>
+                </div>
+              </div>
+              <div class="radio-row">
+                <div class="radio-option">
+                  <input type="radio" id="event" name="source" value="event" />
+                  <label for="event">Event</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="other" name="source" value="other" />
+                  <label for="other">Other</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              placeholder="Write your comments here"
+            ></textarea>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="terms" required />
+            <label for="terms">I agree to terms and conditions</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-large">
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section 1 -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <div class="cta-card">
+          <div class="cta-content">
+            <h2>Already a member?</h2>
+            <p class="subtitle">
+              Log in to access your existing rental account and manage your
+              bookings.
+            </p>
+            <div class="cta-actions">
+              <button
+                class="btn btn-primary btn-large"
+                onclick="window.location.href='Authentication.html'"
+              >
+                Sign in
+              </button>
+              <button class="btn btn-large">Back</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <div class="cta-card">
+          <div class="cta-content">
+            <h2>Forgot your password?</h2>
+            <p class="subtitle">
+              No problem. We'll help you reset and regain access to your
+              account.
+            </p>
+            <div class="cta-actions">
+              <button class="btn btn-primary btn-large">Reset</button>
+              <button class="btn btn-large">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <div class="cta-card">
+          <div class="cta-content">
+            <h2>Quick signup options</h2>
+            <p class="subtitle">
+              Connect instantly using your preferred social media account for
+              faster registration.
+            </p>
+            <div class="cta-actions">
+              <button class="btn btn-primary btn-large">Google</button>
+              <button class="btn btn-large">Facebook</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-left">
+          <div class="logo">Logo</div>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <div class="subscribe">
+            <input type="email" placeholder="Email" />
+            <button>Subscribe</button>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Vehicles</a></li>
+              <li><a href="#">Locations</a></li>
+              <li><a href="#">Rates</a></li>
+              <li><a href="#">Specials</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Vehicle Rentals. All rights reserved.</p>
+        <div class="footer-terms">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
