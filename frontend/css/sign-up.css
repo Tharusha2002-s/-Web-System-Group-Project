@@ -17,7 +17,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
-  border-bottom: 1px solid #ae5353;
+  border-bottom: 1px solid #e0e0e0;
   flex-wrap: wrap;
 }
 
@@ -64,7 +64,7 @@ nav {
 .hero {
   text-align: center;
   padding: 3rem 5%;
-  background: white;
+  background: #fafafa;
 }
 
 .hero h1 {
@@ -83,7 +83,6 @@ nav {
 }
 
 /* Form Section */
-/* Form Section - UPDATED DESIGN */
 .form-section {
   max-width: 600px;
   margin: 3rem auto;
@@ -92,16 +91,14 @@ nav {
 
 .form-section h2 {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   text-align: center;
-  font-weight: 600;
 }
 
 .form-section > p {
   text-align: center;
   color: #666;
-  margin-bottom: 2.5rem;
-  font-size: 0.95rem;
+  margin-bottom: 2rem;
 }
 
 .form-grid {
@@ -123,8 +120,7 @@ nav {
 label {
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
-  font-weight: 400;
-  color: #333;
+  font-weight: 500;
 }
 
 input,
@@ -133,15 +129,6 @@ select {
   border: 1px solid #ddd;
   font-size: 1rem;
   font-family: inherit;
-  background: white;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-input:focus,
-select:focus {
-  outline: none;
-  border-color: #000;
-  box-shadow: 0 0 0 1px #000;
 }
 
 select {
@@ -150,7 +137,6 @@ select {
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
-  cursor: pointer;
 }
 
 .checkbox-group {
@@ -161,17 +147,12 @@ select {
 }
 
 .checkbox-group input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-  accent-color: #000;
+  width: auto;
 }
 
 .checkbox-group label {
   margin: 0;
-  font-size: 0.9rem;
-  cursor: pointer;
-  color: #333;
+  font-size: 0.85rem;
 }
 
 .register-btn {
@@ -183,7 +164,6 @@ select {
   font-size: 1rem;
   cursor: pointer;
   font-weight: 500;
-  transition: background 0.2s;
 }
 
 .register-btn:hover {
