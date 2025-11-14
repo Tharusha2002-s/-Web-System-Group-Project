@@ -89,7 +89,6 @@ nav {
 }
 
 /* Form Section */
-/* Form Section */
 .form-section {
   max-width: 600px;
   margin: 3rem auto;
@@ -179,7 +178,7 @@ select {
 
 /* Quick Signup Section */
 .quick-signup {
-  max-width: 600px;
+  max-width: 900px;
   margin: 3rem auto;
   padding: 3rem 5%;
   border: 1px solid #ddd;
@@ -218,7 +217,7 @@ select {
 
 /* Already Member Section */
 .member-section {
-  max-width: 600px;
+  max-width: 900px;
   margin: 3rem auto;
   padding: 3rem 5%;
   border: 1px solid #ddd;
