@@ -13,14 +13,20 @@ body {
 
 /* Navigation */
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
   border-bottom: 1px solid #e0e0e0;
   flex-wrap: wrap;
+  background: white;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .logo {
   font-size: 1.5rem;
   font-style: italic;
@@ -64,7 +70,7 @@ nav {
 .hero {
   text-align: center;
   padding: 3rem 5%;
-  background: #fafafa;
+  background: #ffffff;
 }
 
 .hero h1 {
