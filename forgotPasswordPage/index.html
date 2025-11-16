@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+<!--- NAVBAR SECTION --->
+<header class="navbar">
+    <div class="logo">Logo</div>
+    <nav>
+      <ul>
+        <li><a href="#">Vehicles</a></li>
+        <li><a href="#">Locations</a></li>
+        <li><a href="#">Rates</a></li>
+        <li><a href="#">More ▾</a></li>
+      </ul>
+    </nav>
+    <div class="auth">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+</header>
+     
+<!---  FORGET PASSWORD SECTION  --->
+<section class="forget--info">
+      <div class="forget-info">
+          <h5>Reset</h5>
+          <h1>Forgot  your password</h1>
+          <p>No worries, we’ll help you regain access to your account quickly and securely.</p>
+       <div class="buttons">
+            <button type="submit">Submit</button>
+            <button type="button">Cancel</button>
+        </div>
+    </div>
+</section>
+   
+
+<!--- CONTACT SUPPORT SECTION  --->
+<section class="contact--info">
+    <div class="contact-info">
+        <div class="contact-info-left">
+        <p class="p">Help</p>
+        <h2>Contact support</h2>
+        <p>Enter the  email linked to your account to your account  to reset your password.</p>
+    
+        </div>
+        
+       <div class="contact-info-right">
+       <div class="contact-details">
+           <div class="icon-circle">
+               <i class='bx bx-envelope'></i>
+           </div>
+           <div class="content">
+              <h5>Email</h5>
+              <p class="contact-detail" >support@cechilerental.com</p>
+           </div>
+        </div>
+        <div class="contact-details">
+            <div class="icon-circle">
+                <i class='bx bx-phone'></i>
+            </div>
+            <div class="content">
+                <h5>Phone</h5>
+                <p class="contact-detail">+ (555) 123 4567</p>
+            </div>
+       </div>
+       <div class="contact-details">
+            <div class="icon-circle">
+                <i class='bx bx-map' ></i>
+            </div>
+            <div class="content">
+                <h5>Office</h5>
+                <p>123 Rental Street,Sydeny NSW 2000,Australia</p>
+            </div>
+        </div>
+       </div>
+
+    </div>
+</section> 
+
+
+<!---  PASSWORD SECTION   --->    
+<section class="password--info">
+    <div class="password-info">
+      <!-- LEFT SIDE -->
+      <div class="pwd">
+        <div class="pwd_1">
+          <p class="p">Reset</p>
+          <h2>Password Recovery</h2>
+          <p>We’ll send a reset link to your registered email address.</p>
+        </div>
+
+        <div class="pwd_2">
+          <div class="contact-info-item">
+            <div class="icon-circle">
+              <i class="bx bx-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>support@cechilerental.com</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="icon-circle">
+              <i class="bx bx-phone"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Phone</h4>
+              <p>+ (555) 123 4567</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="icon-circle">
+              <i class="bx bx-map"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Office</h4>
+              <p>123 Rental Street, Sydney NSW 2000, Australia</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+      <!-- RIGHT SIDE (FORM) -->
+      <div class="contact-form-container">
+        <form class="contact-form">
+          <div class="name-section">
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+              <input type="text" name="firstname" id="firstname" placeholder="First name" required />
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+              <input type="text" name="lastname" id="lastname" placeholder="Last name" required />
+            </div>
+          </div>
+
+          <div class="contact-details">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="example@gmail.com" />
+            </div>
+            <div class="form-group">
+              <label for="phonenumber">Phone Number</label>
+              <input type="text" name="phonenumber" id="phonenumber" placeholder="Your phone number" />
+            </div>
+          </div>
+
+          <div class="state-section">
+            <label for="state">Select Issue Type:</label>
+            <select name="state" id="state">
+              <option value="f"> </option>
+              <option value="forgot-password">Forgot Password</option>
+              <option value="reset-link">Reset Link Not Working</option>
+              <option value="no-email">Didn't Receive Email</option>
+              <option value="invalid-email">Invalid Email or Username</option>
+              <option value="form-error">Form Error</option>
+              <option value="account-locked">Account Locked</option>
+              <option value="other">Other Issue</option>
+            </select>
+          </div>
+
+          <div class="identity-section">
+            <p>WHO ARE YOU?</p>
+            <div class="radio-group">
+              <input type="radio" name="whoareyou" id="Customer" value="Customer" />
+              <label for="Customer">Customer</label>
+            </div>
+            <div class="radio-group">
+              <input type="radio" name="whoareyou" id="Business-partner" value="Business partner" />
+              <label for="Business-partner">Business Partner</label>
+            </div>
+            <div class="radio-group">
+              <input type="radio" name="whoareyou" id="Fleet-manager" value="Fleet manager" />
+              <label for="Fleet-manager">Fleet Manager</label>
+            </div>
+            <div class="radio-group">
+              <input type="radio" name="whoareyou" id="Vendor" value="Vendor" />
+              <label for="Vendor">Vendor</label>
+            </div>
+            <div class="radio-group">
+              <input type="radio" name="whoareyou" id="Other" value="Other" />
+              <label for="Other">Other</label>
+            </div>
+          </div>
+
+          <div class="message-section">
+            <div class="form-group">
+              <label for="about">Message</label>
+              <textarea name="about" id="about" placeholder="Describe your issue..."></textarea>
+            </div>
+          </div>
+
+          <div class="terms-section">
+            <input type="checkbox" name="smsalert" id="smsalert" />
+            <label for="smsalert">I accept the terms</label>
+          </div>
+
+          <div class="buttons">
+            <button type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</section>
+
+
+<!--- FORGOT PASSWORD SECTION  --->
+<section class="forget--info">
+      <div class="forget-info">
+          
+          <h1>Check your email</h1>
+          <p>we've send a password reset link to your registered email address.</p>
+       <div class="buttons">
+            <button type="submit">Open email</button>
+            <button type="button">Back to login</button>
+        </div>
+     </div>
+</section>
+ 
+
+<!-- FOOTER SECTION -->
+<footer>
+    <div class="footer-top">
+      <div class="footer-left">
+        <div class="logo">Logo</div>
+        <p>Stay updated with the latest vehicle rentals and travel tips</p>
+        <div class="subscribe">
+          <input type="email" placeholder="Email">
+          <button>Subscribe</button>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Vehicles</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Rates</a></li>
+            <li><a href="#">Specials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 Vehicle Rentals. All rights reserved.</p>
+      <div class="footer-terms">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Settings</a>
+      </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
