@@ -10,15 +10,12 @@ body {
   font-family: "Arial", sans-serif;
   min-height: 100vh;
   background: #ffffff;
-  /* Flexbox layout to push footer to bottom */
   display: flex;
   flex-direction: column;
+  overflow-x: hidden; /* CHANGED: Prevent horizontal scroll */
 }
 
-/* Base Styles Section Ends */
-
 /* ------------------------------------------------------------- */
-
 /* Navigation Bar Section */
 
 nav {
@@ -31,49 +28,49 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%; /* CHANGED: Ensure full width */
 }
 
-/* Logo Container */
 .logo {
   display: flex;
   align-items: center;
   padding: 0px;
+  flex-shrink: 0; /* CHANGED: Prevent logo from shrinking */
 }
 
 .company-logo {
   height: 50px;
   width: auto;
   margin-left: 40px;
+  max-width: 150px; /* CHANGED: Prevent logo from being too wide */
 }
 
-/* Navigation Links */
 .nav-links {
   display: flex;
   list-style: none;
   gap: 2rem;
   align-items: center;
+  flex-wrap: wrap; /* CHANGED: Allow wrapping on smaller screens */
 }
 
-/* Mobile Auth Buttons (Hidden on Desktop) */
 .mobile-auth-buttons {
   display: none;
+  width: 100%; /* CHANGED: Full width for mobile buttons */
 }
 
-/* Navigation Link Styling */
 .nav-links a {
   text-decoration: none;
   color: #333;
   font-size: 1rem;
   transition: all 0.15s ease;
   position: relative;
+  white-space: nowrap; /* CHANGED: Prevent text wrapping */
 }
 
-/* Hover Effect - Bold Text */
 .nav-links a:hover {
   font-weight: bold;
 }
 
-/* Hover Effect - Underline Animation */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -89,15 +86,13 @@ nav {
   width: 100%;
 }
 
-/* ============================================
-       AUTHENTICATION BUTTONS
-       ============================================ */
+/* Authentication Buttons */
 .auth-buttons {
   display: flex;
   gap: 1rem;
+  flex-shrink: 0; /* CHANGED: Prevent buttons from shrinking */
 }
 
-/* Base Button Style */
 .btn {
   padding: 0.6rem 1.5rem;
   border: none;
@@ -105,9 +100,9 @@ nav {
   cursor: pointer;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  white-space: nowrap; /* CHANGED: Prevent button text wrapping */
 }
 
-/* Sign In Button - Outlined */
 .btn-signin {
   background: transparent;
   color: #e56c00;
@@ -119,30 +114,101 @@ nav {
   color: white;
 }
 
-/* Sign Up Button - Filled */
 .btn-signup {
   background: #e56c00;
   color: white;
 }
 
 .btn-signup:hover {
-  background: #e56c00;
+  background: #d66000;
 }
 
-/* Navigation Bar Section Ends */
+/* User Profile */
+.user-profile {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0; /* CHANGED: Prevent profile from shrinking */
+}
+
+.user-profile.active {
+  display: flex;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e56c00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  flex-shrink: 0; /* CHANGED: Keep profile pic size consistent */
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  overflow: hidden;
+  z-index: 101; /* CHANGED: Ensure dropdown appears above other content */
+}
+
+.profile-dropdown.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background: #f8f8f8;
+}
+
+.dropdown-item.logout {
+  color: #e74c3c;
+  border-bottom: none;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  padding: 0.5rem; /* CHANGED: Add padding for better touch target */
+  z-index: 102; /* CHANGED: Ensure button appears above menu */
+}
 
 /* ------------------------------------------------------------- */
-
 /* Topic Section */
 
 .exploration {
   text-align: center;
   padding: 60px 20px;
+  width: 100%; /* CHANGED: Ensure full width */
 }
 
 .exploration p {
   font-size: 16px;
   color: black;
+  max-width: 800px; /* CHANGED: Limit text width for readability */
+  margin: 0 auto; /* CHANGED: Center text */
 }
 
 .exploration h1 {
@@ -150,52 +216,52 @@ nav {
   color: black;
   margin-bottom: 20px;
   font-weight: bold;
+  line-height: 1.2; /* CHANGED: Better line height for long titles */
+  word-wrap: break-word; /* CHANGED: Prevent overflow on small screens */
 }
 
-/* Topic Section Ends */
-
 /* ------------------------------------------------------------- */
-
 /* Vehicle Topic Section */
 
 .vehicle-topic {
   text-align: center;
   padding: 40px 20px;
+  width: 100%; /* CHANGED: Ensure full width */
 }
 
 .vehicle-topic h2 {
   font-size: 36px;
   color: black;
   margin-bottom: 10px;
+  word-wrap: break-word; /* CHANGED: Prevent overflow */
 }
 
 .vehicle-topic p {
   font-size: 16px;
   color: black;
   margin-bottom: 40px;
+  max-width: 600px; /* CHANGED: Limit text width */
+  margin-left: auto; /* CHANGED: Center text */
+  margin-right: auto; /* CHANGED: Center text */
 }
 
-/* Vehicle Topic Section Ends */
-
 /* ------------------------------------------------------------- */
-
 /* Vehicle List Section */
 
-/* Vehicle List*/
 .vehicle-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style: none;
+  display: grid; /* CHANGED: Use grid instead of flexbox for better control */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* CHANGED: Auto-responsive grid */
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 140px;
+  padding: 0 20px;
+  list-style: none;
 }
 
 /* Individual Vehicle Card */
 .vehicle-list li {
-  width: calc(25% - 20px);
+  width: 100%; /* CHANGED: Full width within grid cell */
   border: 1px solid #eee;
   border-radius: 8px;
   padding: 15px;
@@ -203,8 +269,8 @@ nav {
   text-align: center;
   display: flex;
   flex-direction: column;
-  /* Hover animation */
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  min-height: 320px; /* CHANGED: Ensure consistent card height */
 }
 
 /* Vehicle Image */
@@ -215,6 +281,7 @@ nav {
   border-radius: 8px 8px 0 0;
   height: 180px;
   object-fit: contain;
+  background: #f9f9f9; /* CHANGED: Add background for better image display */
 }
 
 /* Vehicle Title */
@@ -222,12 +289,13 @@ nav {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 5px;
+  word-wrap: break-word; /* CHANGED: Prevent text overflow */
 }
 
 /* Vehicle Category */
 .vehicle-list li h4 {
   font-size: 14px;
-  color: black;
+  color: #666; /* CHANGED: Better contrast */
   font-weight: normal;
   margin-bottom: 10px;
 }
@@ -235,7 +303,7 @@ nav {
 /* Vehicle Price */
 .vehicle-list li p {
   font-size: 18px;
-  color: black;
+  color: #e56c00; /* CHANGED: Match brand color */
   font-weight: bold;
   margin-bottom: 15px;
 }
@@ -248,47 +316,34 @@ nav {
   margin-top: auto;
   text-align: center;
   text-decoration: none;
-  padding: 10px;
+  padding: 12px; /* CHANGED: Slightly larger padding */
   border-radius: 5px;
-  border: 1px solid #ccc;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 2px solid #333; /* CHANGED: Thicker border */
+  transition: all 0.3s ease; /* CHANGED: Smooth all properties */
+  font-weight: 500; /* CHANGED: Slightly bolder text */
 }
 
-
-/* ============================================
-       HOVER EFFECTS
-       ============================================ */
-
-/* Vehicle Card Hover */
+/* Hover Effects */
 .vehicle-list li:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* See Details Button Hover */
 .vehicle-list li a:hover {
-  background-color: black;
+  background-color: #e56c00; /* CHANGED: Use brand color */
   color: white;
+  border-color: #e56c00; /* CHANGED: Match background */
 }
-
-/* Subscribe Button Hover */
-.Subscription button:hover {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-}
-
-/* Vehicle List Section Ends */
 
 /* ------------------------------------------------------------- */
-
 /* Footer Section */
 
 footer {
   background: #222;
   color: #ffffff;
   padding: 3rem 2rem 1.5rem;
-  margin-top: -50px;
+  margin-top: auto;
+  width: 100%; /* CHANGED: Ensure full width */
 }
 
 .footer-content {
@@ -299,43 +354,50 @@ footer {
   gap: 2rem;
   margin-bottom: 2rem;
   color: white;
-  margin-top: -2rem;
 }
 
 .footer-section h3 {
-  font-size: 1rem;
+  font-size: 1.1rem; /* CHANGED: Slightly larger */
   font-weight: bold;
-  margin-left: 120px;
-  margin-top: 66px;
+  margin-left: 0; /* CHANGED: Remove fixed margin */
+  margin-top: 0; /* CHANGED: Remove fixed margin */
   margin-bottom: 20px;
+  color: #fff; /* CHANGED: Ensure white color */
 }
+
 .footer-section li {
-  margin-left: 120px;
+  margin-left: 0; /* CHANGED: Remove fixed margin */
+  margin-bottom: 0.8rem; /* CHANGED: Add bottom margin */
 }
+
 .footer-section {
   color: white;
 }
 
 .footer-logo img {
-  width: 100px;
+  width: 120px; /* CHANGED: Slightly larger logo */
   height: auto;
   display: block;
+  margin-bottom: 1rem; /* CHANGED: Add spacing */
 }
 
 .footer-section p {
   color: #ffffff;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  font-size: 0.95rem; /* CHANGED: Better readability */
 }
 
 .newsletter-form {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
+  flex-wrap: wrap; /* CHANGED: Allow wrapping on small screens */
 }
 
 .newsletter-form input {
   flex: 1;
+  min-width: 200px; /* CHANGED: Minimum width */
   padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -350,6 +412,7 @@ footer {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
+  white-space: nowrap; /* CHANGED: Prevent text wrapping */
 }
 
 .newsletter-form button:hover {
@@ -358,11 +421,13 @@ footer {
 
 .newsletter-note {
   font-size: 0.85rem;
-  color: white;
+  color: #ccc; /* CHANGED: Better contrast */
+  line-height: 1.4; /* CHANGED: Better readability */
 }
 
 .footer-links {
   list-style: none;
+  padding: 0; /* CHANGED: Remove default padding */
 }
 
 .footer-links li {
@@ -373,14 +438,17 @@ footer {
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: 0.95rem; /* CHANGED: Better readability */
 }
 
 .footer-links a:hover {
   color: #ff7b00;
+  text-decoration: underline; /* CHANGED: Add underline on hover */
 }
 
 .social-links {
   list-style: none;
+  padding: 0; /* CHANGED: Remove default padding */
 }
 
 .social-links li {
@@ -394,6 +462,7 @@ footer {
   align-items: center;
   gap: 0.5rem;
   transition: color 0.3s ease;
+  font-size: 0.95rem; /* CHANGED: Better readability */
 }
 
 .social-links a:hover {
@@ -402,42 +471,43 @@ footer {
 
 .social-links i {
   width: 20px;
+  font-size: 1.2rem; /* CHANGED: Larger icons */
 }
 
 .footer-bottom {
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 2rem;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #444; /* CHANGED: Better contrast */
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.9rem;
+  flex-wrap: wrap; /* CHANGED: Allow wrapping */
+  gap: 1rem; /* CHANGED: Add gap between items */
 }
 
 .footer-legal {
   display: flex;
   gap: 2rem;
   list-style: none;
+  flex-wrap: wrap; /* CHANGED: Allow wrapping */
 }
 
 .footer-legal a {
   color: white;
-  text-decoration: underline;
+  text-decoration: none; /* CHANGED: Remove underline by default */
   transition: color 0.3s ease;
 }
 
 .footer-legal a:hover {
   color: #ff7b00;
+  text-decoration: underline; /* CHANGED: Add underline on hover */
 }
 
-/* Footer Section Ends */
-
 /* ------------------------------------------------------------- */
-
 /* Modal Section */
 
-/* Modal Overlay Background */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -450,13 +520,13 @@ footer {
   z-index: 1000;
   justify-content: center;
   align-items: center;
+  padding: 1rem; /* CHANGED: Add padding for small screens */
 }
 
 .modal-overlay.active {
   display: flex;
 }
 
-/* Modal Container */
 .modal {
   background: white;
   border-radius: 15px;
@@ -467,9 +537,9 @@ footer {
   animation: slideDown 0.3s ease;
   max-height: 90vh;
   overflow-y: auto;
+  box-sizing: border-box; /* CHANGED: Include padding in width */
 }
 
-/* Modal Slide Down Animation */
 @keyframes slideDown {
   from {
     transform: translateY(-50px);
@@ -481,27 +551,35 @@ footer {
   }
 }
 
-/* Close Modal Button */
 .close-modal {
   position: absolute;
   top: 1rem;
   right: 1rem;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem; /* CHANGED: Larger close button */
   cursor: pointer;
   color: #666;
+  width: 30px; /* CHANGED: Fixed width */
+  height: 30px; /* CHANGED: Fixed height */
+  display: flex; /* CHANGED: Center the X */
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease; /* CHANGED: Smooth color transition */
 }
 
-/* Modal Title */
+.close-modal:hover {
+  color: #333; /* CHANGED: Darker on hover */
+}
+
 .modal-title {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   color: #333;
   text-align: center;
+  padding-right: 2rem; /* CHANGED: Prevent overlap with close button */
 }
 
-/* Input Group */
 .input-group {
   margin-bottom: 1rem;
 }
@@ -511,22 +589,25 @@ footer {
   margin-bottom: 0.5rem;
   color: #555;
   font-weight: 500;
+  font-size: 0.95rem; /* CHANGED: Better readability */
 }
 
 .input-group input {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd; /* CHANGED: Thicker border */
   border-radius: 5px;
   font-size: 1rem;
+  box-sizing: border-box; /* CHANGED: Include padding in width */
+  transition: border-color 0.3s ease; /* CHANGED: Smooth transition */
 }
 
 .input-group input:focus {
   outline: none;
   border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); /* CHANGED: Add focus shadow */
 }
 
-/* Forgot Password Link */
 .forgot-password {
   text-align: right;
   margin-bottom: 1rem;
@@ -536,27 +617,34 @@ footer {
   color: #667eea;
   text-decoration: none;
   font-size: 0.9rem;
+  transition: color 0.3s ease; /* CHANGED: Smooth transition */
 }
 
-/* Primary Button (Submit) */
+.forgot-password a:hover {
+  color: #5568d3; /* CHANGED: Darker on hover */
+  text-decoration: underline;
+}
+
 .btn-primary {
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.9rem; /* CHANGED: Slightly larger */
   background: #667eea;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
+  font-weight: 600; /* CHANGED: Bolder text */
   cursor: pointer;
   margin-bottom: 1rem;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease; /* CHANGED: Smooth all properties */
 }
 
 .btn-primary:hover {
   background: #5568d3;
+  transform: translateY(-2px); /* CHANGED: Lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* CHANGED: Add shadow */
 }
 
-/* OR Divider */
 .divider {
   text-align: center;
   margin: 1.5rem 0;
@@ -578,19 +666,21 @@ footer {
   padding: 0 1rem;
   position: relative;
   color: #999;
+  font-size: 0.9rem; /* CHANGED: Better size */
 }
 
-/* Social Login Buttons */
 .social-login {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap; /* CHANGED: Allow wrapping */
 }
 
 .social-btn {
   flex: 1;
+  min-width: 120px; /* CHANGED: Minimum width */
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd; /* CHANGED: Thicker border */
   border-radius: 5px;
   cursor: pointer;
   display: flex;
@@ -599,6 +689,7 @@ footer {
   gap: 0.5rem;
   transition: all 0.3s ease;
   background: white;
+  font-weight: 500; /* CHANGED: Bolder text */
 }
 
 .social-btn:hover {
@@ -612,7 +703,6 @@ footer {
   font-size: 1.2rem;
 }
 
-/* Google Button Icon Color */
 .social-btn.google i {
   background: linear-gradient(
     to bottom,
@@ -626,100 +716,152 @@ footer {
   background-clip: text;
 }
 
-/* Facebook Button Icon Color */
 .social-btn.facebook i {
   color: #1877f2;
 }
 
-/* Switch Between Sign In/Up */
 .switch-mode {
   text-align: center;
   margin-top: 1rem;
+  font-size: 0.95rem; /* CHANGED: Better size */
 }
 
 .switch-mode a {
   color: #667eea;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease; /* CHANGED: Smooth transition */
 }
 
-/* Modal Description Text */
+.switch-mode a:hover {
+  color: #5568d3; /* CHANGED: Darker on hover */
+  text-decoration: underline;
+}
+
 .modal-description {
   text-align: center;
   color: #666;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
+  line-height: 1.5; /* CHANGED: Better line height */
 }
 
-/* Password Requirements List */
 .password-requirements {
   margin-bottom: 1rem;
   font-size: 0.85rem;
   color: #666;
+  background: #f9f9f9; /* CHANGED: Add background */
+  padding: 1rem; /* CHANGED: Add padding */
+  border-radius: 5px; /* CHANGED: Add border radius */
+}
+
+.password-requirements p {
+  margin-bottom: 0.5rem;
+  font-weight: 600; /* CHANGED: Bolder heading */
 }
 
 .password-requirements ul {
   padding-left: 1.5rem;
+  margin: 0; /* CHANGED: Remove default margin */
 }
 
 .password-requirements li {
   margin-bottom: 0.3rem;
+  line-height: 1.4; /* CHANGED: Better line height */
 }
 
-/* Success Icon */
 .success-icon {
   text-align: center;
   font-size: 4rem;
   color: #4caf50;
   margin-bottom: 1rem;
+  animation: scaleIn 0.5s ease; /* CHANGED: Add animation */
 }
 
-/* Modal Section Ends */
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 /* ------------------------------------------------------------- */
+/* RESPONSIVE DESIGN - Mobile First Approach */
 
-/* Responsive Adjusting Section */
-
-/* Tablet Responsiveness */
-@media (max-width: 900px) {
-  /* 2 Columns on Tablet */
-  .vehicle-list li {
-    width: calc(50% - 20px);
+/* Large Tablets and Small Laptops (1200px and below) */
+@media (max-width: 1200px) {
+  .vehicle-list {
+    grid-template-columns: repeat(3, 1fr); /* CHANGED: Force 3 columns */
+    max-width: 1000px;
   }
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-  /* Single Column on Mobile */
-  .vehicle-list li {
-    width: 90%;
+/* Medium Tablets (1024px and below) */
+@media (max-width: 1024px) {
+  .company-logo {
+    margin-left: 20px;
+    height: 45px;
   }
 
-  /* Stack Footer Sections */
-  .footer-details {
-    flex-direction: column;
+  .nav-links {
+    gap: 1.5rem;
   }
 
-  .right-section {
-    flex-direction: column;
+  .nav-links a {
+    font-size: 0.95rem;
   }
 
-  /* Smaller Hero Text */
   .exploration h1 {
+    font-size: 42px;
+  }
+
+  .vehicle-topic h2 {
     font-size: 32px;
   }
 
-  /* Smaller Section Headers */
-  .vehicle-topic h2 {
-    font-size: 28px;
+  .vehicle-list {
+    grid-template-columns: repeat(3, 1fr); /* CHANGED: 3 columns */
+    gap: 15px;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr); /* CHANGED: 2 columns */
+    gap: 2rem;
   }
 }
 
-/* All Other Mobile Devices Responsiveness */
+/* Tablets (900px and below) */
+@media (max-width: 900px) {
+  nav {
+    padding: 1rem 1.5rem; /* CHANGED: Reduce padding */
+  }
+
+  .vehicle-list {
+    grid-template-columns: repeat(2, 1fr); /* CHANGED: 2 columns */
+    margin-bottom: 100px;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Mobile Devices and Small Tablets (768px and below) */
 @media (max-width: 768px) {
-  /* Navigation Menu - Mobile */
+  /* Navigation */
   nav {
     padding: 1rem;
+    flex-wrap: wrap; /* CHANGED: Allow wrapping */
+  }
+
+  .company-logo {
+    margin-left: 5px; /* CHANGED: Reduce margin */
+    height: 40px;
   }
 
   .nav-links {
@@ -730,14 +872,23 @@ footer {
     width: 100%;
     background: white;
     flex-direction: column;
-    padding: 1rem;
+    padding: 0; /* CHANGED: Remove padding */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     gap: 0;
     align-items: stretch;
+    max-height: 0; /* CHANGED: Start collapsed */
+    overflow: hidden;
+    transition: max-height 0.3s ease; /* CHANGED: Smooth animation */
+  }
+
+  .nav-links.mobile-active {
+    display: flex;
+    max-height: 500px; /* CHANGED: Expand when active */
   }
 
   .nav-links li {
     border-bottom: 1px solid #f0f0f0;
+    width: 100%; /* CHANGED: Full width */
   }
 
   .nav-links li:last-child {
@@ -746,105 +897,601 @@ footer {
 
   .nav-links a {
     display: block;
-    padding: 1rem;
-  }
-
-  /* Show Mobile Menu */
-  .nav-links.mobile-active {
-    display: flex;
+    padding: 1rem 1.5rem; /* CHANGED: Better padding */
+    font-size: 1rem; /* CHANGED: Larger text */
   }
 
   .mobile-menu-btn {
     display: block;
+    order: 3; /* CHANGED: Position at end */
   }
 
-  /* Hide Desktop Auth Buttons */
   .auth-buttons {
     display: none;
   }
 
-  /* Show Mobile Auth Buttons */
   .mobile-auth-buttons {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem;
+    gap: 0.8rem; /* CHANGED: More spacing */
+    padding: 1rem 1.5rem; /* CHANGED: Better padding */
     border-top: 2px solid #f0f0f0;
-    margin-top: 0.5rem;
+    margin-top: 0;
+    width: 100%;
   }
 
   .mobile-auth-buttons .btn {
     width: 100%;
-    padding: 0.8rem;
+    padding: 0.9rem; /* CHANGED: Larger touch target */
+    font-size: 1rem; /* CHANGED: Larger text */
   }
 
-  /* Modal Adjustments */
+  /* Hero Section */
+  .exploration {
+    padding: 40px 20px; /* CHANGED: Better padding */
+  }
+
+  .exploration h1 {
+    font-size: 32px; /* CHANGED: Better size */
+  }
+
+  .exploration p {
+    font-size: 15px;
+    padding: 0 10px; /* CHANGED: Add padding */
+  }
+
+  /* Vehicle Topic */
+  .vehicle-topic {
+    padding: 30px 20px; /* CHANGED: Better padding */
+  }
+
+  .vehicle-topic h2 {
+    font-size: 28px;
+  }
+
+  .vehicle-topic p {
+    font-size: 15px;
+  }
+
+  /* Vehicle List */
+  .vehicle-list {
+    grid-template-columns: repeat(2, 1fr); /* CHANGED: 2 columns */
+    margin-bottom: 80px;
+    gap: 15px;
+    padding: 0 15px;
+  }
+
+  .vehicle-list li {
+    min-height: 300px; /* CHANGED: Adjust height */
+    padding: 12px;
+  }
+
+  .vehicle-list li img {
+    height: 140px; /* CHANGED: Smaller images */
+  }
+
+  .vehicle-list li h3 {
+    font-size: 17px; /* CHANGED: Better size */
+  }
+
+  .vehicle-list li h4 {
+    font-size: 13px;
+  }
+
+  .vehicle-list li p {
+    font-size: 16px;
+  }
+
+  .vehicle-list li a {
+    padding: 10px; /* CHANGED: Adjust padding */
+    font-size: 0.9rem; /* CHANGED: Better size */
+  }
+
+  /* Modal */
   .modal {
     padding: 1.5rem;
     width: 95%;
+    max-width: 400px;
+    margin: 1rem; /* CHANGED: Add margin */
   }
 
-  /* Footer - Single Column */
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .social-login {
+    flex-direction: column;
+  }
+
+  .social-btn {
+    width: 100%; /* CHANGED: Full width */
+  }
+
+  /* Footer */
+  footer {
+    padding: 2.5rem 1.5rem 1.5rem; /* CHANGED: Better padding */
+  }
+
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr; /* CHANGED: Single column */
+    gap: 2.5rem; /* CHANGED: More spacing */
+  }
+
+  .footer-section:first-child {
+    padding-bottom: 1rem; /* CHANGED: Add spacing */
+    border-bottom: 1px solid #444; /* CHANGED: Add separator */
   }
 
   .newsletter-form {
     flex-direction: column;
   }
 
+  .newsletter-form input {
+    width: 100%; /* CHANGED: Full width */
+  }
+
   .newsletter-form button {
     width: 100%;
+    padding: 1rem; /* CHANGED: Larger button */
   }
 
   .footer-bottom {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem; /* CHANGED: More spacing */
     text-align: center;
+    padding-top: 1.5rem;
   }
 
   .footer-legal {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  /* About Page Mobile */
-  .hero-section h1 {
-    font-size: 2rem;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .about-grid:nth-child(even) {
-    direction: ltr;
-  }
-
-  .about-grid .about-image {
-    grid-row: 1;
-  }
-
-  .about-grid .about-text {
-    grid-row: 2;
-  }
-
-  .about-grid:nth-child(2) .about-image {
-    grid-row: 1;
-  }
-
-  .about-grid:nth-child(2) .about-text {
-    grid-row: 2;
-  }
-
-  /* Team Grid - Single Column Section */
-  .team-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
+    flex-direction: row; /* CHANGED: Keep horizontal */
+    justify-content: center;
+    flex-wrap: wrap; /* CHANGED: Allow wrapping */
+    gap: 1rem;
   }
 }
 
-/* Responsive Adjusting Section Ends */
+/* Small Mobile Devices (600px and below) */
+@media (max-width: 600px) {
+  /* Navigation */
+  .company-logo {
+    height: 35px;
+    margin-left: 0; /* CHANGED: Remove margin */
+  }
+
+  nav {
+    padding: 0.8rem; /* CHANGED: Reduce padding */
+  }
+
+  /* Hero */
+  .exploration {
+    padding: 30px 15px; /* CHANGED: Reduce padding */
+  }
+
+  .exploration h1 {
+    font-size: 26px; /* CHANGED: Smaller size */
+    line-height: 1.3; /* CHANGED: Better line height */
+    margin-bottom: 15px;
+  }
+
+  .exploration p {
+    font-size: 14px;
+  }
+
+  /* Vehicle Topic */
+  .vehicle-topic {
+    padding: 25px 15px; /* CHANGED: Reduce padding */
+  }
+
+  .vehicle-topic h2 {
+    font-size: 24px;
+  }
+
+  .vehicle-topic p {
+    font-size: 14px;
+    margin-bottom: 30px; /* CHANGED: Reduce margin */
+  }
+
+  /* Vehicle List - Single Column */
+  .vehicle-list {
+    grid-template-columns: 1fr; /* CHANGED: Single column */
+    margin-bottom: 60px;
+    gap: 20px; /* CHANGED: More spacing between cards */
+    padding: 0 15px;
+  }
+
+  .vehicle-list li {
+    max-width: 100%; /* CHANGED: Full width */
+    min-height: 340px; /* CHANGED: Adjust height */
+  }
+
+  .vehicle-list li img {
+    height: 200px; /* CHANGED: Larger images for single column */
+  }
+
+  .vehicle-list li h3 {
+    font-size: 19px; /* CHANGED: Better size for single column */
+  }
+
+  .vehicle-list li p {
+    font-size: 17px; /* CHANGED: Better size */
+  }
+
+  .vehicle-list li a {
+    padding: 12px; /* CHANGED: Larger button */
+    font-size: 0.95rem; /* CHANGED: Better size */
+  }
+
+  /* Modal */
+  .modal {
+    padding: 1.25rem;
+    width: 100%; /* CHANGED: Full width */
+    margin: 0.5rem; /* CHANGED: Reduce margin */
+    max-width: 100%; /* CHANGED: Allow full width */
+  }
+
+  .modal-title {
+    font-size: 1.4rem;
+    padding-right: 2.5rem; /* CHANGED: More space for close button */
+  }
+
+  .input-group input,
+  .btn-primary {
+    padding: 0.85rem; /* CHANGED: Better touch target */
+    font-size: 1rem; /* CHANGED: Larger text */
+  }
+
+  .social-btn {
+    padding: 0.85rem; /* CHANGED: Better touch target */
+  }
+
+  /* Footer */
+  footer {
+    padding: 2rem 1rem 1rem; /* CHANGED: Reduce padding */
+  }
+
+  .footer-content {
+    gap: 2rem; /* CHANGED: Reduce gap */
+  }
+
+  .footer-section p {
+    font-size: 0.9rem;
+  }
+
+  .footer-logo img {
+    width: 100px; /* CHANGED: Adjust size */
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem;
+  }
+
+  .footer-legal {
+    gap: 0.8rem; /* CHANGED: Reduce gap */
+  }
+}
+
+/* Extra Small Devices (480px and below) */
+@media (max-width: 480px) {
+  /* Navigation */
+  .company-logo {
+    height: 32px; /* CHANGED: Smaller logo */
+  }
+
+  nav {
+    padding: 0.7rem 0.5rem; /* CHANGED: Minimal padding */
+  }
+
+  .mobile-menu-btn {
+    font-size: 1.3rem; /* CHANGED: Adjust size */
+  }
+
+  /* Hero */
+  .exploration {
+    padding: 25px 10px; /* CHANGED: Minimal padding */
+  }
+
+  .exploration h1 {
+    font-size: 24px; /* CHANGED: Smaller for tiny screens */
+  }
+
+  .exploration p {
+    font-size: 13px; /* CHANGED: Smaller text */
+  }
+
+  /* Vehicle Topic */
+  .vehicle-topic {
+    padding: 20px 10px; /* CHANGED: Minimal padding */
+  }
+
+  .vehicle-topic h2 {
+    font-size: 22px;
+  }
+
+  .vehicle-topic p {
+    font-size: 13px; /* CHANGED: Smaller text */
+  }
+
+  /* Vehicle List */
+  .vehicle-list {
+    padding: 0 10px;
+    gap: 15px; /* CHANGED: Reduce gap */
+    margin-bottom: 50px; /* CHANGED: Reduce margin */
+  }
+
+  .vehicle-list li {
+    padding: 12px; /* CHANGED: Reduce padding */
+    min-height: 320px; /* CHANGED: Adjust height */
+  }
+
+  .vehicle-list li img {
+    height: 180px; /* CHANGED: Adjust image size */
+  }
+
+  .vehicle-list li h3 {
+    font-size: 17px; /* CHANGED: Smaller text */
+  }
+
+  .vehicle-list li h4 {
+    font-size: 12px; /* CHANGED: Smaller text */
+  }
+
+  .vehicle-list li p {
+    font-size: 16px;
+  }
+
+  .vehicle-list li a {
+    padding: 10px; /* CHANGED: Adjust padding */
+    font-size: 0.9rem; /* CHANGED: Smaller text */
+  }
+
+  /* Modal */
+  .modal {
+    width: 100%; /* CHANGED: Full width */
+    padding: 1rem; /* CHANGED: Minimal padding */
+    margin: 0.25rem; /* CHANGED: Minimal margin */
+    border-radius: 10px; /* CHANGED: Less rounding */
+  }
+
+  .modal-title {
+    font-size: 1.3rem; /* CHANGED: Smaller title */
+    margin-bottom: 1rem; /* CHANGED: Reduce margin */
+  }
+
+  .close-modal {
+    font-size: 1.5rem; /* CHANGED: Adjust size */
+    top: 0.75rem; /* CHANGED: Adjust position */
+    right: 0.75rem; /* CHANGED: Adjust position */
+  }
+
+  .input-group {
+    margin-bottom: 0.8rem; /* CHANGED: Reduce margin */
+  }
+
+  .input-group label {
+    font-size: 0.9rem; /* CHANGED: Smaller text */
+  }
+
+  .input-group input {
+    padding: 0.75rem; /* CHANGED: Adjust padding */
+    font-size: 0.95rem; /* CHANGED: Adjust text size */
+  }
+
+  .btn,
+  .btn-primary {
+    padding: 0.75rem; /* CHANGED: Adjust padding */
+    font-size: 0.9rem; /* CHANGED: Smaller text */
+  }
+
+  .social-btn {
+    padding: 0.75rem; /* CHANGED: Adjust padding */
+    font-size: 0.9rem; /* CHANGED: Smaller text */
+  }
+
+  .divider {
+    margin: 1rem 0; /* CHANGED: Reduce margin */
+  }
+
+  .password-requirements {
+    font-size: 0.8rem; /* CHANGED: Smaller text */
+    padding: 0.8rem; /* CHANGED: Reduce padding */
+  }
+
+  /* Footer */
+  footer {
+    padding: 1.5rem 0.75rem 1rem; /* CHANGED: Minimal padding */
+  }
+
+  .footer-content {
+    gap: 1.5rem; /* CHANGED: Reduce gap */
+  }
+
+  .footer-section h3 {
+    font-size: 1rem; /* CHANGED: Adjust size */
+    margin-bottom: 15px; /* CHANGED: Reduce margin */
+  }
+
+  .footer-section p,
+  .footer-links a,
+  .social-links a {
+    font-size: 0.85rem; /* CHANGED: Smaller text */
+  }
+
+  .footer-logo img {
+    width: 90px; /* CHANGED: Smaller logo */
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    padding: 0.7rem; /* CHANGED: Adjust padding */
+    font-size: 0.85rem; /* CHANGED: Smaller text */
+  }
+
+  .newsletter-note {
+    font-size: 0.8rem; /* CHANGED: Smaller text */
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem; /* CHANGED: Smaller text */
+    padding-top: 1.5rem; /* CHANGED: Reduce padding */
+  }
+
+  .footer-legal {
+    gap: 0.5rem; /* CHANGED: Reduce gap */
+    font-size: 0.8rem; /* CHANGED: Smaller text */
+  }
+}
+
+/* Very Small Devices (360px and below) */
+@media (max-width: 360px) {
+  .company-logo {
+    height: 28px; /* CHANGED: Even smaller */
+  }
+
+  .exploration h1 {
+    font-size: 22px; /* CHANGED: Smallest size */
+  }
+
+  .vehicle-topic h2 {
+    font-size: 20px; /* CHANGED: Smallest size */
+  }
+
+  .vehicle-list li {
+    min-height: 300px; /* CHANGED: Compact height */
+  }
+
+  .vehicle-list li img {
+    height: 160px; /* CHANGED: Smaller images */
+  }
+
+  .modal {
+    border-radius: 8px; /* CHANGED: Less rounding */
+  }
+
+  .modal-title {
+    font-size: 1.2rem; /* CHANGED: Smallest size */
+  }
+}
+
+/* Landscape Mode for Mobile Devices */
+@media (max-height: 600px) and (orientation: landscape) {
+  .modal {
+    max-height: 95vh;
+    padding: 1rem 1.5rem; /* CHANGED: Optimize for landscape */
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem; /* CHANGED: Reduce spacing */
+  }
+
+  .input-group {
+    margin-bottom: 0.6rem; /* CHANGED: Compact spacing */
+  }
+
+  .input-group label {
+    margin-bottom: 0.3rem; /* CHANGED: Compact spacing */
+  }
+
+  .input-group input {
+    padding: 0.6rem; /* CHANGED: Compact padding */
+  }
+
+  .btn-primary,
+  .social-btn {
+    padding: 0.6rem; /* CHANGED: Compact padding */
+  }
+
+  .divider {
+    margin: 0.8rem 0; /* CHANGED: Compact spacing */
+  }
+
+  .password-requirements {
+    padding: 0.7rem; /* CHANGED: Compact padding */
+    margin-bottom: 0.7rem; /* CHANGED: Compact spacing */
+  }
+
+  .modal-description {
+    margin-bottom: 1rem; /* CHANGED: Compact spacing */
+  }
+
+  .success-icon {
+    font-size: 3rem; /* CHANGED: Smaller icon */
+    margin-bottom: 0.5rem; /* CHANGED: Compact spacing */
+  }
+}
+
+/* Touch-friendly improvements for all mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  /* CHANGED: Increase touch targets */
+  .btn,
+  .btn-primary,
+  .social-btn,
+  .vehicle-list li a {
+    min-height: 44px; /* Apple's recommended minimum */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .nav-links a {
+    min-height: 48px; /* CHANGED: Larger for menu items */
+    display: flex;
+    align-items: center;
+  }
+
+  /* CHANGED: Remove hover effects on touch devices */
+  .vehicle-list li:hover {
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-links a:hover::after {
+    width: 0; /* CHANGED: Disable underline animation */
+  }
+}
+
+/* High DPI / Retina Display Optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .vehicle-list li img {
+    image-rendering: -webkit-optimize-contrast; /* CHANGED: Better image quality */
+    image-rendering: crisp-edges;
+  }
+
+  .company-logo,
+  .footer-logo img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Print Styles */
+@media print {
+  nav,
+  footer,
+  .modal-overlay,
+  .btn,
+  .auth-buttons,
+  .mobile-menu-btn {
+    display: none !important; /* CHANGED: Hide interactive elements */
+  }
+
+  body {
+    background: white;
+  }
+
+  .vehicle-list {
+    display: block;
+  }
+
+  .vehicle-list li {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}

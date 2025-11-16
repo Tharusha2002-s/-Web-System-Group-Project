@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reliant Rental</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="../css/vehicle-collection.css"/>
+    <title>Vehicle Collection - Reliant Rental</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <link rel="stylesheet" href="../css/vehicle-collection.css" />
   </head>
   <body>
     <!-- Navigation Bar -->
-
     <nav id="navbar">
-      <a href="../assets/images/Logo/logo.png" class="logo">
+      <a href="../pages/Home.html" class="logo">
         <img
-          src="../assets/images/Logo/logo.png"
+          src="../assets/images/logo.png"
           alt="Company Logo"
           class="company-logo"
         />
@@ -26,8 +28,6 @@
         <li><a href="../pages/services.html">Services</a></li>
         <li><a href="../pages/faq.html">FAQ</a></li>
         <li><a href="../pages/contact.html">Contact</a></li>
-
-        <!-- Mobile Auth Buttons -->
         <div class="mobile-auth-buttons">
           <button class="btn btn-signin" onclick="openModal('signin')">
             Sign In
@@ -37,8 +37,7 @@
           </button>
         </div>
       </ul>
-      
-      <!-- Desktop Authentication Buttons -->
+
       <div class="auth-buttons" id="authButtons">
         <button class="btn btn-signin" onclick="openModal('signin')">
           Sign In
@@ -47,18 +46,28 @@
           Sign Up
         </button>
       </div>
-    </nav>
 
+      <div class="user-profile" id="userProfile" onclick="toggleDropdown()">
+        <div class="profile-pic" id="userInitial">U</div>
+        <span id="userName">User</span>
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-item">Profile</div>
+          <div class="dropdown-item">Settings</div>
+          <div class="dropdown-item logout" onclick="logout()">Logout</div>
+        </div>
+      </div>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </nav>
     <!-- Navigation Bar Ends -->
 
     <!-- Content of the Page -->
-
     <main>
       <!-- Topic Section -->
       <section class="exploration">
-        <p>Ride</p>
+        <p class="subtitle">Ride</p>
         <h1>Explore our vehicle collection</h1>
-        <p>
+        <p class="description">
           Choose from our diverse fleet of cars, vans, bikes, and three-wheelers
           ready for your next adventure
         </p>
@@ -170,19 +179,17 @@
           <a href="">See Details</a>
         </li>
       </ul>
+      <!-- Vehicle List Section Ends -->
     </main>
-
     <!-- Content of the Page Ends-->
 
     <!-- Footer Section -->
-    
     <footer>
-      <!-- Subscription and Links Section -->
       <div class="footer-content">
         <div class="footer-section">
           <a class="footer-logo"
             ><img
-              src="../assets/images/Logo/Reliant_white-logo.png"
+              src="../assets/images/Reliant_white-logo.png"
               alt="company logo"
           /></a>
           <p>Stay updated with the latest vehicle rentals and travel tips</p>
@@ -195,7 +202,6 @@
           </p>
         </div>
 
-        <!-- Quick Links Section -->
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul class="footer-links">
@@ -203,19 +209,15 @@
             <li><a href="../pages/services.html">Services</a></li>
           </ul>
         </div>
-        <!-- Quick Links Section Ends -->
 
-        <!-- Company Links Section -->
         <div class="footer-section">
           <h3>Company</h3>
           <ul class="footer-links">
-            <li><a href="../about/about.html">About Us</a></li>
+            <li><a href="../pages/about.html">About Us</a></li>
             <li><a href="../pages/contact.html">Contact</a></li>
           </ul>
         </div>
-        <!-- Company Links Section Ends -->
 
-        <!-- Social Media Links Section -->
         <div class="footer-section">
           <h3>Connect</h3>
           <ul class="social-links">
@@ -230,9 +232,7 @@
           </ul>
         </div>
       </div>
-      <!-- Subscription and Quick Links Section Ends -->
 
-      <!-- Footer Bottom Details Section -->
       <div class="footer-bottom">
         <p>&copy; 2024 vehicle rentals. all rights reserved.</p>
         <ul class="footer-legal">
@@ -241,14 +241,12 @@
           <li><a href="#cookies">cookie settings</a></li>
         </ul>
       </div>
-      <!-- Footer Bottom Details Section Ends -->
     </footer>
-
     <!-- Footer Section Ends -->
 
     <!-- Modal and Pages Linking Section -->
 
-    <!-- Sign-In Modal Section -->
+    <!-- Sign-In Modal -->
     <div class="modal-overlay" id="signinModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('signin')">
@@ -303,9 +301,8 @@
         </div>
       </div>
     </div>
-    <!-- Sign-In Modal Section Ends -->
 
-    <!-- Sign-Up Modal Section -->
+    <!-- Sign-Up Modal -->
     <div class="modal-overlay" id="signupModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('signup')">
@@ -352,9 +349,8 @@
         </div>
       </div>
     </div>
-    <!-- Sign-Up Modal Section Ends -->
 
-    <!-- Admin Login Modal Section -->
+    <!-- Admin Login Modal -->
     <div class="modal-overlay" id="adminModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('admin')">
@@ -391,9 +387,8 @@
         <button class="btn-primary" onclick="handleAdminLogin()">Login</button>
       </div>
     </div>
-    <!-- Admin Login Modal Section Ends -->
 
-    <!-- Forgot Password Modal Section -->
+    <!-- Forgot Password Modal -->
     <div class="modal-overlay" id="forgotModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('forgot')">
@@ -418,9 +413,8 @@
         </div>
       </div>
     </div>
-    <!-- Forgot Password Modal Section Ends -->
 
-    <!-- Forgot Admin Password Section -->
+    <!-- Forgot Admin Password Modal -->
     <div class="modal-overlay" id="forgotAdminModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('forgotAdmin')">
@@ -449,9 +443,8 @@
         </div>
       </div>
     </div>
-    <!-- Forgot Admin Password Section Ends -->
 
-    <!-- Code Verification Modal Section -->
+    <!-- Code Verification Modal -->
     <div class="modal-overlay" id="verifyCodeModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('verifyCode')">
@@ -480,9 +473,8 @@
         </div>
       </div>
     </div>
-    <!-- Code Verification Modal Section Ends -->
 
-    <!-- Reset Password Modal Section -->
+    <!-- Reset Password Modal -->
     <div class="modal-overlay" id="resetPasswordModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('resetPassword')">
@@ -524,9 +516,8 @@
         </button>
       </div>
     </div>
-    <!-- Reset Password Modal Section Ends -->
 
-    <!-- Password Reset Successful Modal Section -->
+    <!-- Password Reset Successful Modal -->
     <div class="modal-overlay" id="successModal">
       <div class="modal">
         <div style="text-align: center">
@@ -543,10 +534,7 @@
         </div>
       </div>
     </div>
-    <!-- Password Reset Successful Modal Section Ends -->
-
-    <!-- Modal and Pages Linking Section Ends -->
 
     <script src="../js/vehicle-collection.js"></script>
-  </body>
+  </body>
 </html>
