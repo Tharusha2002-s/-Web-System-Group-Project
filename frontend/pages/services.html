@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/services.css" />
   </head>
   <body>
-    <!-- ======================================== NAVIGATION BAR ======================================== -->
+    <!-- Navigation bar -->
     <nav>
       <a href="../pages/Home.html" class="logo">
         <img
@@ -55,14 +55,14 @@
       <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
     </nav>
 
-    <!-- ======================================== HERO SECTION ======================================== -->
+    <!-- Hero section -->
     <section class="hero-section">
       <h4>Services</h4>
       <h1>Complete Rental Solutions</h1>
       <p>Flexible, affordable and professional vehicle rental services.</p>
     </section>
 
-    <!-- ======================================== SERVICES CONTENT ======================================== -->
+    <!-- Services content -->
     <div class="services-content">
       <div class="services-intro">
         <h3>What We Offer</h3>
@@ -91,7 +91,7 @@
       </div>
     </div>
 
-    <!-- ======================================== CTA SECTION ======================================== -->
+    <!-- CTA Section -->
     <section class="cta-section">
       <h2>Ready to Hit the Road?</h2>
       <p>Book your preferred vehicle today!</p>
@@ -101,74 +101,7 @@
       <a href="../pages/contact.html" class="btn-secondary">Contact Us</a>
     </section>
 
-    <!-- ============================================
-         FOOTER SECTION
-         ============================================ -->
-    <footer>
-      <div class="footer-content">
-        <!-- Newsletter Section -->
-        <div class="footer-section">
-          <a class="footer-logo"
-            ><img
-              src="../assets/images/Reliant_white-logo.png"
-              alt="company logo"
-          /></a>
-          <p>Stay updated with the latest vehicle rentals and travel tips</p>
-          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-            <input type="email" placeholder="email" required />
-            <button type="submit">subscribe</button>
-          </form>
-          <p class="newsletter-note">
-            By subscribing, you agree to receive updates and promotional offers.
-          </p>
-        </div>
-
-        <!-- Quick Links Section -->
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
-            <li><a href="../pages/services.html">Services</a></li>
-          </ul>
-        </div>
-
-        <!-- Company Links Section -->
-        <div class="footer-section">
-          <h3>Company</h3>
-          <ul class="footer-links">
-            <li><a href="../pages/about.html">About Us</a></li>
-            <li><a href="../pages/contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <!-- Social Media Links Section -->
-        <div class="footer-section">
-          <h3>Connect</h3>
-          <ul class="social-links">
-            <li>
-              <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
-            </li>
-            <li>
-              <a href="#instagram"
-                ><i class="fab fa-instagram"></i> instagram</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Footer Bottom - Copyright & Legal -->
-      <div class="footer-bottom">
-        <p>&copy; 2024 vehicle rentals. all rights reserved.</p>
-        <ul class="footer-legal">
-          <li><a href="#privacy">privacy policy</a></li>
-          <li><a href="#terms">terms of service</a></li>
-          <li><a href="#cookies">cookie settings</a></li>
-        </ul>
-      </div>
-    </footer>
-
-    <!-- ======================================== MODALS - SIGN IN ======================================== -->
+    <!-- Sign in -->
     <div class="modal-overlay" id="signinModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('signin')">
@@ -221,7 +154,7 @@
       </div>
     </div>
 
-    <!-- ======================================== MODALS - SIGN UP ======================================== -->
+    <!-- Sign up -->
     <div class="modal-overlay" id="signupModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('signup')">
@@ -267,7 +200,7 @@
       </div>
     </div>
 
-    <!-- ======================================== MODALS - SUCCESS ======================================== -->
+    <!-- Moda sucess -->
     <div class="modal-overlay" id="successModal">
       <div class="modal">
         <div style="text-align: center">
@@ -282,6 +215,71 @@
         </div>
       </div>
     </div>
+
+    <!-- Footer section -->
+    <footer>
+      <div class="footer-content">
+        <!-- Newsletter Section -->
+        <div class="footer-section">
+          <a class="footer-logo"
+            ><img
+              src="../assets/images/Reliant_white-logo.png"
+              alt="company logo"
+          /></a>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="email" required />
+            <button type="submit">subscribe</button>
+          </form>
+          <p class="newsletter-note">
+            By subscribing, you agree to receive updates and promotional offers.
+          </p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+            <li><a href="../pages/services.html">Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links Section -->
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/about.html">About Us</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul class="social-links">
+            <li>
+              <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
+            </li>
+            <li>
+              <a href="#instagram"
+                ><i class="fab fa-instagram"></i> instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom-->
+      <div class="footer-bottom">
+        <p>&copy; 2024 vehicle rentals. all rights reserved.</p>
+        <ul class="footer-legal">
+          <li><a href="#privacy">privacy policy</a></li>
+          <li><a href="#terms">terms of service</a></li>
+          <li><a href="#cookies">cookie settings</a></li>
+        </ul>
+      </div>
+    </footer>
 
     <script src="../js/services.js"></script>
   </body>

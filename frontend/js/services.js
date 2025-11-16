@@ -1,4 +1,4 @@
-// ======================================== MODAL FUNCTIONS ========================================
+// Modal function
 function openModal(type) {
   const modals = {
     signin: "signinModal",
@@ -24,7 +24,7 @@ function switchModal(type) {
   openModal(type);
 }
 
-// ======================================== AUTHENTICATION FUNCTIONS ========================================
+// Authentication function
 function handleSignIn() {
   const email = document.getElementById("signinEmail").value;
   const password = document.getElementById("signinPassword").value;
@@ -48,7 +48,7 @@ function handleSignUp() {
   closeModal("signup");
 }
 
-// ======================================== USER PROFILE FUNCTIONS ========================================
+// User profile function
 function showUserProfile(name) {
   document.getElementById("authButtons").style.display = "none";
   document.getElementById("userProfile").classList.add("active");
@@ -67,12 +67,11 @@ function logout() {
   alert("Logged out successfully");
 }
 
-// ======================================== NAVIGATION FUNCTIONS ========================================
+// navigation function
 function toggleMobileMenu() {
   document.getElementById("navLinks").classList.toggle("mobile-active");
 }
-
-// ======================================== FOOTER FUNCTIONS ========================================
+// footer function
 function handleNewsletter(event) {
   event.preventDefault();
   const email = event.target.querySelector('input[type="email"]').value;
@@ -80,7 +79,7 @@ function handleNewsletter(event) {
   event.target.reset();
 }
 
-// ======================================== EVENT LISTENERS ========================================
+// Event listner
 document.addEventListener("click", (e) => {
   const profileDropdown = document.getElementById("profileDropdown");
   if (profileDropdown && !e.target.closest(".user-profile"))
