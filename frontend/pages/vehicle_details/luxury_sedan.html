@@ -1,0 +1,992 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="\frontend\css\vehicle-details.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="\frontend\css\style.css">
+
+    </head>
+    <body>
+        <!---------Navigation Bar--------->
+        <nav id="navbar">
+            <div class="logo">
+                <img src="/frontend/assets/images/Reliant_Rental.png" alt="">
+            </div>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#vehicles">Vehicles</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+                <div class="mobile-auth-buttons">
+                    <button
+                        class="btn btn-signin"
+                        onclick="openModal('signin'); toggleMobileMenu();"
+                    >
+                        Sign In
+                    </button>
+                    <button
+                        class="btn btn-signup"
+                        onclick="openModal('signup'); toggleMobileMenu();"
+                    >
+                        Sign Up
+                    </button>
+                </div>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <button class="btn btn-signin" onclick="openModal('signin')">
+                Sign In
+                </button>
+                <button class="btn btn-signup" onclick="openModal('signup')">
+                Sign Up
+                </button>
+            </div>
+            <div class="user-profile" id="userProfile">
+                <div class="profile-pic" onclick="toggleDropdown()">
+                    <span id="userInitial">U</span>
+                </div>
+                <span id="userName">User</span>
+                <i class="fas fa-chevron-down"></i>
+
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="dropdown-item" onclick="alert('Manage Account')">
+                        <i class="fas fa-user-cog"></i> Manage Account
+                    </div>
+                    <div class="dropdown-item" onclick="alert('Settings')">
+                        <i class="fas fa-cog"></i> Settings
+                    </div>
+                    <div class="dropdown-item" onclick="alert('My Bookings')">
+                        <i class="fas fa-calendar"></i> My Bookings
+                    </div>
+                    <div class="dropdown-item logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </div>
+                </div>
+            </div>
+        </nav>
+ 
+        <!---------------------------Content------------------------->
+        <div class="product_details">
+            <h1 class="heading"> Luxury Sedan </h1>
+            <h3 class="sub_head"> Perfect for city driving and weekend adventures </h3>
+
+            <div class="block1">
+                <div class="section1">
+                    <div class="box">
+                        <div class="box_head">
+                            <i class="fas fa-check-circle"></i>
+                            <span> Includes: </span>
+                        </div>
+                        
+                        <ul class="box_list">
+                            <li>
+                                <ul class="box_list1">
+                                    <li>
+                                        <i class="fas fa-snowflake"></i>
+                                        <span>Air condition</span></li>
+                                    <li> 
+                                        <i class="fas fa-bluetooth"></i>
+                                        <span>Bluetooth connectivity</span></li>
+                                    <li>
+                                        <i class="fas fa-cogs"></i>
+                                        <span>Automatic transmission</span></li>
+                                    <li>
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>Turbocharged engine</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="box_list2">
+                                    <li>
+                                        <i class="fas fa-camera"></i>
+                                        <span>Rearview camera</span></li>
+                                    <li>
+                                        <i class="fas fa-key"></i>
+                                        <span>Keyless entry</span></li>
+                                    <li>
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Advanced safety features</span></li>
+                                    <li>
+                                        <i class="fas fa-couch"></i>
+                                        <span>Spacious interior</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section2">
+                    <video width="400" controls class="video">
+                        <source src="\frontend\assets\video\luxury-sedan.mp4" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                    <div class="section2_details">
+
+                        <ul class="section2_details">
+                            <li> <h1 class="price">$85</h1> </li>
+                            <li>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5" name="rating" value="5">
+                                    <label for="star5">★</label>
+                                    <input type="radio" id="star4" name="rating" value="4">
+                                    <label for="star4">★</label>
+                                    <input type="radio" id="star3" name="rating" value="3">
+                                    <label for="star3">★</label>
+                                    <input type="radio" id="star2" name="rating" value="2">
+                                    <label for="star2">★</label>
+                                    <input type="radio" id="star1" name="rating" value="1">
+                                    <label for="star1">★</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="section2_button ">Book vehicle</button>
+                    <br> <br>
+                    <button class="section2_button">Check availability</button>
+                    <p class="section2_p"> Guaranteed quality rental</p>
+                </div>
+            </div>
+            <div class="details_container">
+                    <h3 class="head"><i class="fas fa-check-circle"></i> Vehicle Details:  </h3>
+                    <hr>
+                    <br>
+                    <div class="details_box">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Performance Space</span>
+                        <p>Engineered for a sublime, quiet ride that glides over city streets and long highway stretches. Responsive, precise handling meets sophisticated, modern design.</p> <br>
+                        <hr>
+                    </div>
+                    <div class="details_box">
+                        <i class="fas fa-cogs"></i>
+                        <span>Technical Overview</span>
+                        <p>A precision-crafted, powerful engine delivers exhilarating yet refined performance. An adaptive suspension system ensures unparalleled stability and comfort.</p><hr>
+                    </div>
+                    <div class="details_box">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Safety Features</span>
+                        <p>A top-tier suite of safety tech including multiple advanced airbags, collision avoidance, and a reinforced passenger cell that exceeds safety standards.</p><hr>
+                    </div>
+                    <div class="details_box">
+                        <i class="fas fa-couch"></i>
+                        <span>Interior Comfort</span>
+                        <p>Power-adjustable, heated, and ventilated ergonomic leather seats. Sophisticated climate control with air filtration. A serene, spacious interior cabin designed for maximum passenger comfort and luxury.</p><hr>
+                    </div>
+                    <div class="details_box">
+                        <i class="fas fa-car"></i>
+                        <span>Exterior design</span>
+                        <p>Sleek, aerodynamic lines with a bold grille and signature LED lighting. Sophisticated profile with premium finishes and elegant contours.</p><hr>
+                    </div>
+                    <div class="details_box">
+                        <i class="fas fa-wrench"></i>
+                        <span>Maintenance details</span>
+                        <p>Includes premium scheduled maintenance and low cost-of-ownership. Built with high-reliability engineering and extensive warranty coverage.</p><hr>
+                    </div>
+                    <div class="details_box">
+                        <i class="fas fa-gas-pump"></i>
+                        <span>Fuel economy</span>
+                        <p>Advanced, efficient turbocharged engine with eco-driving modes. Optimized for impressive fuel economy and reduced emissions without sacrificing power.</p><hr>
+                    </div>
+                    <div class="details_box">
+                        <i class="fas fa-cogs"></i>
+                        <span>Technology integration</span>
+                    <p>State-of-the-art infotainment with large touchscreen, smartphone integration, digital cockpit, 360-degree camera, and advanced driver-assistance systems.</p><hr>
+                    </div>
+                </div>
+
+            <div class="sub1">
+                <div class="img">
+                    <img class="car" src="\frontend\assets\images\repair.jpg" alt="">
+                </div>
+                <div class="details2">
+                    <img class="maintenance" src="\frontend\assets\images\maintenance.png" alt="">
+                    <h2>Technical specifications for your urban companion</h2>
+                    <p>Precision-engineered for modern drivers. Every detail carefully considered to deliver exceptional performance and comfort.</p>
+                    <br>
+                    <ul class="sub_list1">
+                        <li>
+                            <button class="button">Details</button>
+                        </li>
+                        <li>
+                            <div class="sub_list2">
+                                <a href="#" class="link_with_arrow">Compare
+                                <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+            <br>
+            <div class="sub1">
+                <div class="details2">
+                    <h4>Affordable</h4>
+                    <h2>Flexible rental rates for every budget</h2>
+                    <p>Daily rates start low with no hidden fees. Transparent pricing means no surprises.</p>
+                    <ul class="sub_list1">
+                        <li>
+                            <button class="button">Book now</button>
+                        </li>
+                        <li>
+                            <div class="sub_list2">
+                                <a href="#">Check rates
+                                <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sub2img">
+                    <img class="car" src="\frontend\assets\images\rental.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="sub2">
+                <div class="sub_box">
+                    <h2>Ready to hit the road</h2>
+                    <p>Simple booking process designed to get you driving quickly and confidently.</p>
+                    <ul class="last_btn">
+                        <li>
+                            <button class="button">Rent</button>
+                        </li>
+                        <li>
+                            <button class="button">Learn more</button>
+                        </li>
+                    </ul>
+                    
+                </div>
+
+
+
+            </div>
+
+        </div>
+<br> <br> <br> <br> 
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">Logo</div>
+                    <p>Stay updated with the latest vehicle rentals and travel tips</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                        <input type="email" placeholder="email" required />
+                        <button type="submit">subscribe</button>
+                    </form>
+                    <p class="newsletter-note">
+                        By subscribing, you agree to receive updates and promotional offers.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>quick links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#vehicles">vehicles</a></li>
+                        <li><a href="#locations">locations</a></li>
+                        <li><a href="#rates">rates</a></li>
+                        <li><a href="#specials">specials</a></li>
+                        <li><a href="#faq">faq</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">about us</a></li>
+                        <li><a href="#contact">contact</a></li>
+                        <li><a href="#careers">careers</a></li>
+                        <li><a href="#blog">blog</a></li>
+                        <li><a href="#support">support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>connect</h3>
+                    <ul class="social-links">                       
+                        <li>
+                            <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
+                        </li>
+                        <li>
+                            <a href="#instagram"><i class="fab fa-instagram"></i> instagram</a>
+                        </li>
+                        <li>
+                            <a href="#twitter"><i class="fab fa-x-twitter"></i> x</a>
+                        </li>
+                        <li>
+                            <a href="#linkedin"><i class="fab fa-linkedin"></i> linkedin</a>
+                        </li>
+                        <li>
+                            <a href="#youtube"><i class="fab fa-youtube"></i> youtube</a>                       
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 vehicle rentals. all rights reserved.</p>
+                <ul class="footer-legal">
+                <li><a href="#privacy">privacy policy</a></li>
+                <li><a href="#terms">terms of service</a></li>
+                <li><a href="#cookies">cookie settings</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sign In Modal -->
+    <div class="modal-overlay" id="signinModal">
+      <div class="modal">
+            <button class="close-modal" onclick="closeModal('signin')">
+            &times;
+            </button>
+            <h2 class="modal-title">Sign In</h2>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="signinEmail" placeholder="Enter your email" />
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input
+                    type="password"
+                    id="signinPassword"
+                    placeholder="Enter your password"
+                />
+            </div>
+            <div class="forgot-password">
+                <a
+                    href="#"
+                    onclick="openModal('forgot'); closeModal('signin'); return false;"
+                    >Forgot Password?</a
+                >
+            </div>
+            <button class="btn-primary" onclick="handleSignIn()">Sign In</button>
+
+            <div class="divider"><span>OR</span></div>
+
+            <div class="social-login">
+                <button
+                    class="social-btn google"
+                    onclick="alert('Sign in with Google')"
+                >
+                    <i class="fab fa-google"></i> Google
+                </button>
+                <button
+                    class="social-btn facebook"
+                    onclick="alert('Sign in with Facebook')"
+                >
+                    <i class="fab fa-facebook"></i> Facebook
+                </button>
+            </div>
+            <div class="switch-mode">
+                Don't have an account?
+                <a href="#" onclick="switchModal('signup')">Sign Up</a>
+            </div>
+      </div>
+    </div>
+    <!-- Sign Up Modal -->
+    <div class="modal-overlay" id="signupModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signup')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign Up</h2>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="signupEmail" placeholder="Enter your email" />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Create a password"
+          />
+        </div>
+        <button class="btn-primary" onclick="handleSignUp()">Sign Up</button>
+
+        <div class="divider"><span>OR</span></div>
+
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign up with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign up with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+
+        <div class="switch-mode">
+          Already have an account?
+          <a href="#" onclick="switchModal('signin')">Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal-overlay" id="adminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('admin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Admin Login</h2>
+
+        <div class="input-group">
+          <label>Admin Username</label>
+          <input
+            type="text"
+            id="adminUsername"
+            placeholder="Enter admin username"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter admin password"
+          />
+        </div>
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgotAdmin'); closeModal('admin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <button class="btn-primary" onclick="handleAdminLogin()">Login</button>
+      </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal-overlay" id="forgotModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgot')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Password</h2>
+        <p class="modal-description">
+          Enter your email to receive a verification code
+        </p>
+
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" id="forgotEmail" placeholder="Enter your email" />
+        </div>
+
+        <button class="btn-primary" onclick="sendVerificationCode()">
+          Send Verification Code
+        </button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('signin')">Back to Sign In</a>
+        </div>
+      </div>
+    </div>
+
+     <!-- Forgot Admin Password Modal -->
+    <div class="modal-overlay" id="forgotAdminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgotAdmin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Admin Password</h2>
+        <p class="modal-description">
+          Enter your admin email to receive a verification code
+        </p>
+
+        <div class="input-group">
+          <label>Admin Email Address</label>
+          <input
+            type="email"
+            id="forgotAdminEmail"
+            placeholder="Enter your admin email"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="sendAdminVerificationCode()">
+          Send Verification Code
+        </button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('admin')">Back to Admin Login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verify Code Modal -->
+    <div class="modal-overlay" id="verifyCodeModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('verifyCode')">
+          &times;
+        </button>
+        <h2 class="modal-title">Enter Verification Code</h2>
+        <p class="modal-description">
+          We've sent a code to <strong id="sentToEmail"></strong>
+        </p>
+
+        <div class="input-group">
+          <label>Verification Code</label>
+          <input
+            type="text"
+            id="verificationCode"
+            placeholder="Enter 6-digit code"
+            maxlength="6"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="verifyCode()">Verify Code</button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="resendCode()">Resend Code</a> |
+          <a href="#" onclick="switchModal('forgot')">Change Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal-overlay" id="resetPasswordModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('resetPassword')">
+          &times;
+        </button>
+        <h2 class="modal-title">Create New Password</h2>
+        <p class="modal-description">Enter your new password</p>
+
+        <div class="input-group">
+          <label>New Password</label>
+          <input
+            type="password"
+            id="newPassword"
+            placeholder="Enter new password"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm new password"
+          />
+        </div>
+
+        <div class="password-requirements">
+          <p style="margin-bottom: 0.5rem">Password must contain:</p>
+          <ul>
+            <li>At least 8 characters</li>
+            <li>One uppercase letter</li>
+            <li>One lowercase letter</li>
+            <li>One number</li>
+          </ul>
+        </div>
+
+        <button class="btn-primary" onclick="resetPassword()">
+          Reset Password
+        </button>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal">
+        <div style="text-align: center">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h2 class="modal-title">Password Reset Successful!</h2>
+          <p class="modal-description">
+            Your password has been successfully reset.
+          </p>
+          <button class="btn-primary" onclick="handleSuccessComplete()">
+            Sign In Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Store verification data
+      let verificationData = {
+        email: "",
+        code: "",
+        verified: false,
+        isAdmin: false,
+      };
+
+      // Check if URL contains /admin/ on page load
+      window.addEventListener("load", () => {
+        if (window.location.pathname.includes("/admin/")) {
+          openModal("admin");
+        }
+      });
+
+      // Button hover animation
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("button").forEach((btn) => {
+          btn.addEventListener("mouseenter", () => {
+            if (!btn.style.transform || btn.style.transform === "scale(1)") {
+              btn.style.transform = "scale(1.05)";
+            }
+          });
+          btn.addEventListener("mouseleave", () => {
+            btn.style.transform = "scale(1)";
+          });
+        });
+      });
+
+      // Modal Functions
+      function openModal(type) {
+        const modals = {
+          signin: "signinModal",
+          signup: "signupModal",
+          admin: "adminModal",
+          forgot: "forgotModal",
+          forgotAdmin: "forgotAdminModal",
+          verifyCode: "verifyCodeModal",
+          resetPassword: "resetPasswordModal",
+          success: "successModal",
+        };
+
+        if (modals[type]) {
+          document.getElementById(modals[type]).classList.add("active");
+        }
+      }
+
+      function closeModal(type) {
+        const modals = {
+          signin: "signinModal",
+          signup: "signupModal",
+          admin: "adminModal",
+          forgot: "forgotModal",
+          forgotAdmin: "forgotAdminModal",
+          verifyCode: "verifyCodeModal",
+          resetPassword: "resetPasswordModal",
+          success: "successModal",
+        };
+
+        if (modals[type]) {
+          document.getElementById(modals[type]).classList.remove("active");
+        }
+      }
+
+      function switchModal(type) {
+        closeModal("signin");
+        closeModal("signup");
+        closeModal("admin");
+        closeModal("forgot");
+        closeModal("forgotAdmin");
+        closeModal("verifyCode");
+        closeModal("resetPassword");
+        closeModal("success");
+        openModal(type);
+      }
+
+      function handleSignIn() {
+        const email = document.getElementById("signinEmail").value;
+        const password = document.getElementById("signinPassword").value;
+
+        if (!email || !password) {
+          alert("Please fill in all fields");
+          return;
+        }
+
+        const userName = email.split("@")[0];
+        showUserProfile(userName);
+        closeModal("signin");
+
+        document.getElementById("signinEmail").value = "";
+        document.getElementById("signinPassword").value = "";
+      }
+
+      function handleSignUp() {
+        const email = document.getElementById("signupEmail").value;
+        const password = document.getElementById("signupPassword").value;
+
+        if (!email || !password) {
+          alert("Please fill in all fields");
+          return;
+        }
+
+        const userName = email.split("@")[0];
+        showUserProfile(userName);
+        closeModal("signup");
+
+        document.getElementById("signupEmail").value = "";
+        document.getElementById("signupPassword").value = "";
+      }
+
+      function handleAdminLogin() {
+        const username = document.getElementById("adminUsername").value;
+        const password = document.getElementById("adminPassword").value;
+
+        if (!username || !password) {
+          alert("Please fill in all fields");
+          return;
+        }
+
+        showUserProfile(username, true);
+        closeModal("admin");
+
+        document.getElementById("adminUsername").value = "";
+        document.getElementById("adminPassword").value = "";
+      }
+
+      function sendVerificationCode() {
+        const email = document.getElementById("forgotEmail").value;
+
+        if (!email) {
+          alert("Please enter your email address");
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Please enter a valid email address");
+          return;
+        }
+
+        const code = Math.floor(100000 + Math.random() * 900000).toString();
+
+        verificationData.email = email;
+        verificationData.code = code;
+        verificationData.verified = false;
+        verificationData.isAdmin = false;
+
+        console.log("Verification code sent to", email, "- Code:", code);
+        alert(
+          `Verification code sent to ${email}\n\nFor demo purposes, your code is: ${code}`
+        );
+
+        document.getElementById("sentToEmail").textContent = email;
+
+        closeModal("forgot");
+        openModal("verifyCode");
+      }
+
+      function sendAdminVerificationCode() {
+        const email = document.getElementById("forgotAdminEmail").value;
+
+        if (!email) {
+          alert("Please enter your admin email address");
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Please enter a valid email address");
+          return;
+        }
+
+        const code = Math.floor(100000 + Math.random() * 900000).toString();
+
+        verificationData.email = email;
+        verificationData.code = code;
+        verificationData.verified = false;
+        verificationData.isAdmin = true;
+
+        console.log("Admin verification code sent to", email, "- Code:", code);
+        alert(
+          `Admin verification code sent to ${email}\n\nFor demo purposes, your code is: ${code}`
+        );
+
+        document.getElementById("sentToEmail").textContent = email;
+
+        closeModal("forgotAdmin");
+        openModal("verifyCode");
+      }
+
+      function resendCode() {
+        if (!verificationData.email) {
+          alert("No email found. Please start over.");
+          switchModal(verificationData.isAdmin ? "forgotAdmin" : "forgot");
+          return;
+        }
+
+        const code = Math.floor(100000 + Math.random() * 900000).toString();
+        verificationData.code = code;
+
+        console.log(
+          "New verification code sent to",
+          verificationData.email,
+          "- Code:",
+          code
+        );
+        alert(
+          `New verification code sent to ${verificationData.email}\n\nFor demo purposes, your code is: ${code}`
+        );
+      }
+
+      function verifyCode() {
+        const enteredCode = document.getElementById("verificationCode").value;
+
+        if (!enteredCode) {
+          alert("Please enter the verification code");
+          return;
+        }
+
+        if (enteredCode !== verificationData.code) {
+          alert("Invalid verification code. Please try again.");
+          return;
+        }
+
+        verificationData.verified = true;
+        document.getElementById("verificationCode").value = "";
+
+        closeModal("verifyCode");
+        openModal("resetPassword");
+      }
+
+      function resetPassword() {
+        if (!verificationData.verified) {
+          alert("Please verify your email first");
+          switchModal(verificationData.isAdmin ? "forgotAdmin" : "forgot");
+          return;
+        }
+
+        const newPassword = document.getElementById("newPassword").value;
+        const confirmPassword =
+          document.getElementById("confirmPassword").value;
+
+        if (!newPassword || !confirmPassword) {
+          alert("Please fill in all fields");
+          return;
+        }
+
+        if (newPassword !== confirmPassword) {
+          alert("Passwords do not match");
+          return;
+        }
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+        if (!passwordRegex.test(newPassword)) {
+          alert(
+            "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, and one number"
+          );
+          return;
+        }
+
+        console.log("Password reset successful for", verificationData.email);
+
+        document.getElementById("forgotEmail").value = "";
+        document.getElementById("forgotAdminEmail").value = "";
+        document.getElementById("verificationCode").value = "";
+        document.getElementById("newPassword").value = "";
+        document.getElementById("confirmPassword").value = "";
+
+        closeModal("resetPassword");
+        openModal("success");
+      }
+
+      function handleSuccessComplete() {
+        closeModal("success");
+
+        const wasAdmin = verificationData.isAdmin;
+        verificationData = {
+          email: "",
+          code: "",
+          verified: false,
+          isAdmin: false,
+        };
+
+        if (wasAdmin) {
+          openModal("admin");
+        } else {
+          openModal("signin");
+        }
+      }
+
+      function showUserProfile(name, isAdmin = false) {
+        document.getElementById("authButtons").style.display = "none";
+        document.getElementById("userProfile").classList.add("active");
+        document.getElementById("userName").textContent = name;
+        document.getElementById("userInitial").textContent = name
+          .charAt(0)
+          .toUpperCase();
+      }
+
+      function toggleDropdown() {
+        document.getElementById("profileDropdown").classList.toggle("show");
+      }
+
+      function logout() {
+        document.getElementById("authButtons").style.display = "flex";
+        document.getElementById("userProfile").classList.remove("active");
+        document.getElementById("profileDropdown").classList.remove("show");
+        alert("Logged out successfully");
+      }
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".user-profile")) {
+          document.getElementById("profileDropdown").classList.remove("show");
+        }
+      });
+
+      function toggleMobileMenu() {
+        document.getElementById("navLinks").classList.toggle("mobile-active");
+      }
+
+      document.querySelectorAll(".modal-overlay").forEach((overlay) => {
+        overlay.addEventListener("click", (e) => {
+          if (e.target === overlay) {
+            overlay.classList.remove("active");
+          }
+        });
+      });
+
+      function handleNewsletter(event) {
+        event.preventDefault();
+        const email = event.target.querySelector('input[type="email"]').value;
+        alert(`Thank you for subscribing with: ${email}`);
+        event.target.reset();
+      }
+
+      document.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          if (
+            document.getElementById("signinModal").classList.contains("active")
+          ) {
+            handleSignIn();
+          } else if (
+            document.getElementById("signupModal").classList.contains("active")
+          ) {
+            handleSignUp();
+          } else if (
+            document.getElementById("adminModal").classList.contains("active")
+          ) {
+            handleAdminLogin();
+          } else if (
+            document.getElementById("forgotModal").classList.contains("active")
+          ) {
+            sendVerificationCode();
+          } else if (
+            document
+              .getElementById("forgotAdminModal")
+              .classList.contains("active")
+          ) {
+            sendAdminVerificationCode();
+          } else if (
+            document
+              .getElementById("verifyCodeModal")
+              .classList.contains("active")
+          ) {
+            verifyCode();
+          } else if (
+            document
+              .getElementById("resetPasswordModal")
+              .classList.contains("active")
+          ) {
+            resetPassword();
+          }
+        }
+      });
+    </script>
+    
+    </body>
+</html>
