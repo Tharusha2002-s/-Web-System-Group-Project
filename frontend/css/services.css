@@ -1,4 +1,4 @@
-/* ======================================== GLOBAL STYLES ======================================== */
+/* Global style */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
   flex-direction: column;
 }
 
-/* ======================================== NAVIGATION BAR STYLES ======================================== */
+/* Navigation bar */
 nav {
   background: white;
   padding: 1rem 2rem;
@@ -150,7 +150,7 @@ nav {
   color: #333;
 }
 
-/* ======================================== HERO SECTION STYLES ======================================== */
+/*  Navigation bar */
 .hero-section {
   background: white;
   color: white;
@@ -179,7 +179,7 @@ nav {
   color: black;
 }
 
-/* ======================================== SERVICES CONTENT STYLES ======================================== */
+/* Services content */
 .services-content {
   max-width: 1200px;
   margin: 60px auto;
@@ -255,7 +255,7 @@ nav {
   font-size: 1rem;
 }
 
-/* ======================================== CTA SECTION STYLES ======================================== */
+/* CTA Section */
 .cta-section {
   background: white;
   color: white;
@@ -303,157 +303,7 @@ nav {
   transform: scale(1.05);
 }
 
-/* ============================================
-         FOOTER STYLES
-         ============================================ */
-footer {
-  background: #222;
-  color: #ffffff;
-  padding: 3rem 2rem 1.5rem;
-  margin-top: -50px;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  color: white;
-  margin-top: -2rem;
-}
-
-.footer-section h3 {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-left: 120px;
-  margin-top: 66px;
-  margin-bottom: 20px;
-}
-.footer-section li {
-  margin-left: 120px;
-}
-.footer-section {
-  color: white;
-}
-
-.footer-logo img {
-  width: 100px;
-  height: auto;
-  display: block;
-}
-
-.footer-section p {
-  color: #ffffff;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.newsletter-form {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.newsletter-form input {
-  flex: 1;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 0.9rem;
-}
-
-.newsletter-form button {
-  padding: 0.8rem 1.5rem;
-  background: #ff7b00;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.newsletter-form button:hover {
-  background: #f08929;
-}
-
-.newsletter-note {
-  font-size: 0.85rem;
-  color: white;
-}
-
-.footer-links {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: 0.8rem;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #ff7b00;
-}
-
-.social-links {
-  list-style: none;
-}
-
-.social-links li {
-  margin-bottom: 0.8rem;
-}
-
-.social-links a {
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #ff7b00;
-}
-
-.social-links i {
-  width: 20px;
-}
-
-.footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 2rem;
-  border-top: 1px solid #e0e0e0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-}
-
-.footer-legal {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.footer-legal a {
-  color: white;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.footer-legal a:hover {
-  color: #ff7b00;
-}
-
-/* ======================================== MODAL STYLES ======================================== */
+/* Modal  */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -636,8 +486,155 @@ footer {
   color: #4caf50;
   margin-bottom: 1rem;
 }
+/* Footer section */
+footer {
+  background: #222;
+  color: #ffffff;
+  padding: 3rem 2rem 1.5rem;
+  margin-top: -50px;
+}
 
-/* ======================================== RESPONSIVE DESIGN ======================================== */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+  margin-top: -2rem;
+}
+
+.footer-section h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 120px;
+  margin-top: 66px;
+  margin-bottom: 20px;
+}
+.footer-section li {
+  margin-left: 120px;
+}
+.footer-section {
+  color: white;
+}
+
+.footer-logo img {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+.footer-section p {
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.newsletter-form button {
+  padding: 0.8rem 1.5rem;
+  background: #ff7b00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #f08929;
+}
+
+.newsletter-note {
+  font-size: 0.85rem;
+  color: white;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ff7b00;
+}
+
+.social-links {
+  list-style: none;
+}
+
+.social-links li {
+  margin-bottom: 0.8rem;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff7b00;
+}
+
+.social-links i {
+  width: 20px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer-legal a {
+  color: white;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: #ff7b00;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
   nav {
     padding: 1rem;
