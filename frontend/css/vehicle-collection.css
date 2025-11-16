@@ -12,7 +12,7 @@ body {
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden; /* CHANGED: Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 /* ------------------------------------------------------------- */
@@ -28,21 +28,21 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  width: 100%; /* CHANGED: Ensure full width */
+  width: 100%; 
 }
 
 .logo {
   display: flex;
   align-items: center;
   padding: 0px;
-  flex-shrink: 0; /* CHANGED: Prevent logo from shrinking */
+  flex-shrink: 0;
 }
 
 .company-logo {
   height: 50px;
   width: auto;
   margin-left: 40px;
-  max-width: 150px; /* CHANGED: Prevent logo from being too wide */
+  max-width: 150px; 
 }
 
 .nav-links {
@@ -50,12 +50,12 @@ nav {
   list-style: none;
   gap: 2rem;
   align-items: center;
-  flex-wrap: wrap; /* CHANGED: Allow wrapping on smaller screens */
+  flex-wrap: wrap; 
 }
 
 .mobile-auth-buttons {
   display: none;
-  width: 100%; /* CHANGED: Full width for mobile buttons */
+  width: 100%;
 }
 
 .nav-links a {
@@ -64,7 +64,7 @@ nav {
   font-size: 1rem;
   transition: all 0.15s ease;
   position: relative;
-  white-space: nowrap; /* CHANGED: Prevent text wrapping */
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -90,7 +90,7 @@ nav {
 .auth-buttons {
   display: flex;
   gap: 1rem;
-  flex-shrink: 0; /* CHANGED: Prevent buttons from shrinking */
+  flex-shrink: 0; 
 }
 
 .btn {
@@ -100,7 +100,7 @@ nav {
   cursor: pointer;
   font-size: 0.9rem;
   transition: all 0.3s ease;
-  white-space: nowrap; /* CHANGED: Prevent button text wrapping */
+  white-space: nowrap; 
 }
 
 .btn-signin {
@@ -130,7 +130,7 @@ nav {
   gap: 0.5rem;
   cursor: pointer;
   position: relative;
-  flex-shrink: 0; /* CHANGED: Prevent profile from shrinking */
+  flex-shrink: 0;
 }
 
 .user-profile.active {
@@ -147,7 +147,7 @@ nav {
   justify-content: center;
   color: white;
   font-weight: bold;
-  flex-shrink: 0; /* CHANGED: Keep profile pic size consistent */
+  flex-shrink: 0;
 }
 
 .profile-dropdown {
@@ -160,7 +160,7 @@ nav {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   min-width: 200px;
   overflow: hidden;
-  z-index: 101; /* CHANGED: Ensure dropdown appears above other content */
+  z-index: 101;
 }
 
 .profile-dropdown.show {
@@ -191,8 +191,8 @@ nav {
   font-size: 1.5rem;
   cursor: pointer;
   color: #333;
-  padding: 0.5rem; /* CHANGED: Add padding for better touch target */
-  z-index: 102; /* CHANGED: Ensure button appears above menu */
+  padding: 0.5rem; 
+  z-index: 102;
 }
 
 /* ------------------------------------------------------------- */
@@ -201,14 +201,14 @@ nav {
 .exploration {
   text-align: center;
   padding: 60px 20px;
-  width: 100%; /* CHANGED: Ensure full width */
+  width: 100%;
 }
 
 .exploration p {
   font-size: 16px;
   color: black;
-  max-width: 800px; /* CHANGED: Limit text width for readability */
-  margin: 0 auto; /* CHANGED: Center text */
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .exploration h1 {
@@ -216,8 +216,8 @@ nav {
   color: black;
   margin-bottom: 20px;
   font-weight: bold;
-  line-height: 1.2; /* CHANGED: Better line height for long titles */
-  word-wrap: break-word; /* CHANGED: Prevent overflow on small screens */
+  line-height: 1.2;
+  word-wrap: break-word;
 }
 
 /* ------------------------------------------------------------- */
@@ -226,31 +226,31 @@ nav {
 .vehicle-topic {
   text-align: center;
   padding: 40px 20px;
-  width: 100%; /* CHANGED: Ensure full width */
+  width: 100%;
 }
 
 .vehicle-topic h2 {
   font-size: 36px;
   color: black;
   margin-bottom: 10px;
-  word-wrap: break-word; /* CHANGED: Prevent overflow */
+  word-wrap: break-word;
 }
 
 .vehicle-topic p {
   font-size: 16px;
   color: black;
   margin-bottom: 40px;
-  max-width: 600px; /* CHANGED: Limit text width */
-  margin-left: auto; /* CHANGED: Center text */
-  margin-right: auto; /* CHANGED: Center text */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ------------------------------------------------------------- */
 /* Vehicle List Section */
 
 .vehicle-list {
-  display: grid; /* CHANGED: Use grid instead of flexbox for better control */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* CHANGED: Auto-responsive grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -261,7 +261,7 @@ nav {
 
 /* Individual Vehicle Card */
 .vehicle-list li {
-  width: 100%; /* CHANGED: Full width within grid cell */
+  width: 100%;
   border: 1px solid #eee;
   border-radius: 8px;
   padding: 15px;
@@ -270,7 +270,7 @@ nav {
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-  min-height: 320px; /* CHANGED: Ensure consistent card height */
+  min-height: 320px;
 }
 
 /* Vehicle Image */
@@ -281,7 +281,7 @@ nav {
   border-radius: 8px 8px 0 0;
   height: 180px;
   object-fit: contain;
-  background: #f9f9f9; /* CHANGED: Add background for better image display */
+  
 }
 
 /* Vehicle Title */
@@ -289,13 +289,13 @@ nav {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 5px;
-  word-wrap: break-word; /* CHANGED: Prevent text overflow */
+  word-wrap: break-word;
 }
 
 /* Vehicle Category */
 .vehicle-list li h4 {
   font-size: 14px;
-  color: #666; /* CHANGED: Better contrast */
+  color: #666;
   font-weight: normal;
   margin-bottom: 10px;
 }
@@ -303,7 +303,7 @@ nav {
 /* Vehicle Price */
 .vehicle-list li p {
   font-size: 18px;
-  color: #e56c00; /* CHANGED: Match brand color */
+  color: black;
   font-weight: bold;
   margin-bottom: 15px;
 }
@@ -316,11 +316,10 @@ nav {
   margin-top: auto;
   text-align: center;
   text-decoration: none;
-  padding: 12px; /* CHANGED: Slightly larger padding */
+  padding: 10px;
   border-radius: 5px;
-  border: 2px solid #333; /* CHANGED: Thicker border */
-  transition: all 0.3s ease; /* CHANGED: Smooth all properties */
-  font-weight: 500; /* CHANGED: Slightly bolder text */
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Hover Effects */
@@ -330,9 +329,9 @@ nav {
 }
 
 .vehicle-list li a:hover {
-  background-color: #e56c00; /* CHANGED: Use brand color */
+  background-color: #e56c00;
   color: white;
-  border-color: #e56c00; /* CHANGED: Match background */
+  border-color: #e56c00;
 }
 
 /* ------------------------------------------------------------- */
@@ -343,7 +342,7 @@ footer {
   color: #ffffff;
   padding: 3rem 2rem 1.5rem;
   margin-top: auto;
-  width: 100%; /* CHANGED: Ensure full width */
+  width: 100%; 
 }
 
 .footer-content {
@@ -357,17 +356,17 @@ footer {
 }
 
 .footer-section h3 {
-  font-size: 1.1rem; /* CHANGED: Slightly larger */
+  font-size: 1.1rem; 
   font-weight: bold;
-  margin-left: 0; /* CHANGED: Remove fixed margin */
-  margin-top: 0; /* CHANGED: Remove fixed margin */
+  margin-left: 0; 
+  margin-top: 0; 
   margin-bottom: 20px;
-  color: #fff; /* CHANGED: Ensure white color */
+  color: #fff; 
 }
 
 .footer-section li {
-  margin-left: 0; /* CHANGED: Remove fixed margin */
-  margin-bottom: 0.8rem; /* CHANGED: Add bottom margin */
+  margin-left: 0; 
+  margin-bottom: 0.8rem; 
 }
 
 .footer-section {
@@ -375,29 +374,29 @@ footer {
 }
 
 .footer-logo img {
-  width: 120px; /* CHANGED: Slightly larger logo */
+  width: 120px; 
   height: auto;
   display: block;
-  margin-bottom: 1rem; /* CHANGED: Add spacing */
+  margin-bottom: 1rem; 
 }
 
 .footer-section p {
   color: #ffffff;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  font-size: 0.95rem; /* CHANGED: Better readability */
+  font-size: 0.95rem; 
 }
 
 .newsletter-form {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
-  flex-wrap: wrap; /* CHANGED: Allow wrapping on small screens */
+  flex-wrap: wrap; 
 }
 
 .newsletter-form input {
   flex: 1;
-  min-width: 200px; /* CHANGED: Minimum width */
+  min-width: 200px;
   padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -412,7 +411,7 @@ footer {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
-  white-space: nowrap; /* CHANGED: Prevent text wrapping */
+  white-space: nowrap;
 }
 
 .newsletter-form button:hover {
@@ -421,13 +420,13 @@ footer {
 
 .newsletter-note {
   font-size: 0.85rem;
-  color: #ccc; /* CHANGED: Better contrast */
-  line-height: 1.4; /* CHANGED: Better readability */
+  color: #ccc;
+  line-height: 1.4; 
 }
 
 .footer-links {
   list-style: none;
-  padding: 0; /* CHANGED: Remove default padding */
+  padding: 0;
 }
 
 .footer-links li {
@@ -438,17 +437,17 @@ footer {
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
-  font-size: 0.95rem; /* CHANGED: Better readability */
+  font-size: 0.95rem;
 }
 
 .footer-links a:hover {
   color: #ff7b00;
-  text-decoration: underline; /* CHANGED: Add underline on hover */
+  text-decoration: underline; 
 }
 
 .social-links {
   list-style: none;
-  padding: 0; /* CHANGED: Remove default padding */
+  padding: 0;
 }
 
 .social-links li {
@@ -462,7 +461,7 @@ footer {
   align-items: center;
   gap: 0.5rem;
   transition: color 0.3s ease;
-  font-size: 0.95rem; /* CHANGED: Better readability */
+  font-size: 0.95rem;
 }
 
 .social-links a:hover {
@@ -471,41 +470,42 @@ footer {
 
 .social-links i {
   width: 20px;
-  font-size: 1.2rem; /* CHANGED: Larger icons */
+  font-size: 1.2rem;
 }
 
 .footer-bottom {
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 2rem;
-  border-top: 1px solid #444; /* CHANGED: Better contrast */
+  border-top: 1px solid #444;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.9rem;
-  flex-wrap: wrap; /* CHANGED: Allow wrapping */
-  gap: 1rem; /* CHANGED: Add gap between items */
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .footer-legal {
   display: flex;
   gap: 2rem;
   list-style: none;
-  flex-wrap: wrap; /* CHANGED: Allow wrapping */
+  flex-wrap: wrap;
 }
 
 .footer-legal a {
   color: white;
-  text-decoration: none; /* CHANGED: Remove underline by default */
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-legal a:hover {
   color: #ff7b00;
-  text-decoration: underline; /* CHANGED: Add underline on hover */
+  text-decoration: underline;
 }
 
 /* ------------------------------------------------------------- */
+
 /* Modal Section */
 
 .modal-overlay {
@@ -520,7 +520,7 @@ footer {
   z-index: 1000;
   justify-content: center;
   align-items: center;
-  padding: 1rem; /* CHANGED: Add padding for small screens */
+  padding: 1rem;
 }
 
 .modal-overlay.active {
@@ -537,7 +537,7 @@ footer {
   animation: slideDown 0.3s ease;
   max-height: 90vh;
   overflow-y: auto;
-  box-sizing: border-box; /* CHANGED: Include padding in width */
+  box-sizing: border-box;
 }
 
 @keyframes slideDown {
@@ -557,19 +557,19 @@ footer {
   right: 1rem;
   background: none;
   border: none;
-  font-size: 1.8rem; /* CHANGED: Larger close button */
+  font-size: 1.8rem;
   cursor: pointer;
   color: #666;
-  width: 30px; /* CHANGED: Fixed width */
-  height: 30px; /* CHANGED: Fixed height */
-  display: flex; /* CHANGED: Center the X */
+  width: 30px;
+  height: 30px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.3s ease; /* CHANGED: Smooth color transition */
+  transition: color 0.3s ease;
 }
 
 .close-modal:hover {
-  color: #333; /* CHANGED: Darker on hover */
+  color: #333;
 }
 
 .modal-title {
@@ -577,7 +577,7 @@ footer {
   margin-bottom: 1.5rem;
   color: #333;
   text-align: center;
-  padding-right: 2rem; /* CHANGED: Prevent overlap with close button */
+  padding-right: 2rem;
 }
 
 .input-group {
@@ -589,23 +589,23 @@ footer {
   margin-bottom: 0.5rem;
   color: #555;
   font-weight: 500;
-  font-size: 0.95rem; /* CHANGED: Better readability */
+  font-size: 0.95rem;
 }
 
 .input-group input {
   width: 100%;
   padding: 0.8rem;
-  border: 2px solid #ddd; /* CHANGED: Thicker border */
+  border: 2px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
-  box-sizing: border-box; /* CHANGED: Include padding in width */
-  transition: border-color 0.3s ease; /* CHANGED: Smooth transition */
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
 
 .input-group input:focus {
   outline: none;
   border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); /* CHANGED: Add focus shadow */
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .forgot-password {
@@ -617,32 +617,32 @@ footer {
   color: #667eea;
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.3s ease; /* CHANGED: Smooth transition */
+  transition: color 0.3s ease;
 }
 
 .forgot-password a:hover {
-  color: #5568d3; /* CHANGED: Darker on hover */
+  color: #5568d3;
   text-decoration: underline;
 }
 
 .btn-primary {
   width: 100%;
-  padding: 0.9rem; /* CHANGED: Slightly larger */
+  padding: 0.9rem; 
   background: #667eea;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
-  font-weight: 600; /* CHANGED: Bolder text */
+  font-weight: 600;
   cursor: pointer;
   margin-bottom: 1rem;
-  transition: all 0.3s ease; /* CHANGED: Smooth all properties */
+  transition: all 0.3s ease; 
 }
 
 .btn-primary:hover {
   background: #5568d3;
-  transform: translateY(-2px); /* CHANGED: Lift effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* CHANGED: Add shadow */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
 }
 
 .divider {
@@ -666,21 +666,21 @@ footer {
   padding: 0 1rem;
   position: relative;
   color: #999;
-  font-size: 0.9rem; /* CHANGED: Better size */
+  font-size: 0.9rem;
 }
 
 .social-login {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
-  flex-wrap: wrap; /* CHANGED: Allow wrapping */
+  flex-wrap: wrap;
 }
 
 .social-btn {
   flex: 1;
-  min-width: 120px; /* CHANGED: Minimum width */
+  min-width: 120px;
   padding: 0.8rem;
-  border: 2px solid #ddd; /* CHANGED: Thicker border */
+  border: 2px solid #ddd;
   border-radius: 5px;
   cursor: pointer;
   display: flex;
@@ -689,7 +689,7 @@ footer {
   gap: 0.5rem;
   transition: all 0.3s ease;
   background: white;
-  font-weight: 500; /* CHANGED: Bolder text */
+  font-weight: 500;
 }
 
 .social-btn:hover {
@@ -723,18 +723,18 @@ footer {
 .switch-mode {
   text-align: center;
   margin-top: 1rem;
-  font-size: 0.95rem; /* CHANGED: Better size */
+  font-size: 0.95rem;
 }
 
 .switch-mode a {
   color: #667eea;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease; /* CHANGED: Smooth transition */
+  transition: color 0.3s ease;
 }
 
 .switch-mode a:hover {
-  color: #5568d3; /* CHANGED: Darker on hover */
+  color: #5568d3; 
   text-decoration: underline;
 }
 
@@ -743,31 +743,31 @@ footer {
   color: #666;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
-  line-height: 1.5; /* CHANGED: Better line height */
+  line-height: 1.5; 
 }
 
 .password-requirements {
   margin-bottom: 1rem;
   font-size: 0.85rem;
   color: #666;
-  background: #f9f9f9; /* CHANGED: Add background */
-  padding: 1rem; /* CHANGED: Add padding */
-  border-radius: 5px; /* CHANGED: Add border radius */
+  background: #f9f9f9; 
+  padding: 1rem; 
+  border-radius: 5px;
 }
 
 .password-requirements p {
   margin-bottom: 0.5rem;
-  font-weight: 600; /* CHANGED: Bolder heading */
+  font-weight: 600; 
 }
 
 .password-requirements ul {
   padding-left: 1.5rem;
-  margin: 0; /* CHANGED: Remove default margin */
+  margin: 0; 
 }
 
 .password-requirements li {
   margin-bottom: 0.3rem;
-  line-height: 1.4; /* CHANGED: Better line height */
+  line-height: 1.4;
 }
 
 .success-icon {
@@ -775,7 +775,7 @@ footer {
   font-size: 4rem;
   color: #4caf50;
   margin-bottom: 1rem;
-  animation: scaleIn 0.5s ease; /* CHANGED: Add animation */
+  animation: scaleIn 0.5s ease;
 }
 
 @keyframes scaleIn {
@@ -790,12 +790,12 @@ footer {
 }
 
 /* ------------------------------------------------------------- */
-/* RESPONSIVE DESIGN - Mobile First Approach */
+/* Responsiveness Adjusting Section */
 
 /* Large Tablets and Small Laptops (1200px and below) */
 @media (max-width: 1200px) {
   .vehicle-list {
-    grid-template-columns: repeat(3, 1fr); /* CHANGED: Force 3 columns */
+    grid-template-columns: repeat(3, 1fr);
     max-width: 1000px;
   }
 }
@@ -824,12 +824,12 @@ footer {
   }
 
   .vehicle-list {
-    grid-template-columns: repeat(3, 1fr); /* CHANGED: 3 columns */
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
   }
 
   .footer-content {
-    grid-template-columns: repeat(2, 1fr); /* CHANGED: 2 columns */
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 }
@@ -837,11 +837,11 @@ footer {
 /* Tablets (900px and below) */
 @media (max-width: 900px) {
   nav {
-    padding: 1rem 1.5rem; /* CHANGED: Reduce padding */
+    padding: 1rem 1.5rem;
   }
 
   .vehicle-list {
-    grid-template-columns: repeat(2, 1fr); /* CHANGED: 2 columns */
+    grid-template-columns: repeat(2, 1fr);
     margin-bottom: 100px;
   }
 
@@ -856,11 +856,11 @@ footer {
   /* Navigation */
   nav {
     padding: 1rem;
-    flex-wrap: wrap; /* CHANGED: Allow wrapping */
+    flex-wrap: wrap;
   }
 
   .company-logo {
-    margin-left: 5px; /* CHANGED: Reduce margin */
+    margin-left: 5px;
     height: 40px;
   }
 
@@ -872,23 +872,23 @@ footer {
     width: 100%;
     background: white;
     flex-direction: column;
-    padding: 0; /* CHANGED: Remove padding */
+    padding: 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     gap: 0;
     align-items: stretch;
-    max-height: 0; /* CHANGED: Start collapsed */
+    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease; /* CHANGED: Smooth animation */
+    transition: max-height 0.3s ease;
   }
 
   .nav-links.mobile-active {
     display: flex;
-    max-height: 500px; /* CHANGED: Expand when active */
+    max-height: 500px;
   }
 
   .nav-links li {
     border-bottom: 1px solid #f0f0f0;
-    width: 100%; /* CHANGED: Full width */
+    width: 100%;
   }
 
   .nav-links li:last-child {
@@ -897,13 +897,13 @@ footer {
 
   .nav-links a {
     display: block;
-    padding: 1rem 1.5rem; /* CHANGED: Better padding */
-    font-size: 1rem; /* CHANGED: Larger text */
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
   }
 
   .mobile-menu-btn {
     display: block;
-    order: 3; /* CHANGED: Position at end */
+    order: 3;
   }
 
   .auth-buttons {
@@ -913,8 +913,8 @@ footer {
   .mobile-auth-buttons {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem; /* CHANGED: More spacing */
-    padding: 1rem 1.5rem; /* CHANGED: Better padding */
+    gap: 0.8rem;
+    padding: 1rem 1.5rem; 
     border-top: 2px solid #f0f0f0;
     margin-top: 0;
     width: 100%;
@@ -922,27 +922,27 @@ footer {
 
   .mobile-auth-buttons .btn {
     width: 100%;
-    padding: 0.9rem; /* CHANGED: Larger touch target */
-    font-size: 1rem; /* CHANGED: Larger text */
+    padding: 0.9rem; 
+    font-size: 1rem; 
   }
 
   /* Hero Section */
   .exploration {
-    padding: 40px 20px; /* CHANGED: Better padding */
+    padding: 40px 20px; 
   }
 
   .exploration h1 {
-    font-size: 32px; /* CHANGED: Better size */
+    font-size: 32px; 
   }
 
   .exploration p {
     font-size: 15px;
-    padding: 0 10px; /* CHANGED: Add padding */
+    padding: 0 10px;
   }
 
   /* Vehicle Topic */
   .vehicle-topic {
-    padding: 30px 20px; /* CHANGED: Better padding */
+    padding: 30px 20px;
   }
 
   .vehicle-topic h2 {
@@ -955,23 +955,23 @@ footer {
 
   /* Vehicle List */
   .vehicle-list {
-    grid-template-columns: repeat(2, 1fr); /* CHANGED: 2 columns */
+    grid-template-columns: repeat(2, 1fr); 
     margin-bottom: 80px;
     gap: 15px;
     padding: 0 15px;
   }
 
   .vehicle-list li {
-    min-height: 300px; /* CHANGED: Adjust height */
+    min-height: 300px;
     padding: 12px;
   }
 
   .vehicle-list li img {
-    height: 140px; /* CHANGED: Smaller images */
+    height: 140px;
   }
 
   .vehicle-list li h3 {
-    font-size: 17px; /* CHANGED: Better size */
+    font-size: 17px;
   }
 
   .vehicle-list li h4 {
@@ -983,8 +983,8 @@ footer {
   }
 
   .vehicle-list li a {
-    padding: 10px; /* CHANGED: Adjust padding */
-    font-size: 0.9rem; /* CHANGED: Better size */
+    padding: 10px;
+    font-size: 0.9rem;
   }
 
   /* Modal */
@@ -992,7 +992,7 @@ footer {
     padding: 1.5rem;
     width: 95%;
     max-width: 400px;
-    margin: 1rem; /* CHANGED: Add margin */
+    margin: 1rem;
   }
 
   .modal-title {
@@ -1004,22 +1004,22 @@ footer {
   }
 
   .social-btn {
-    width: 100%; /* CHANGED: Full width */
+    width: 100%;
   }
 
   /* Footer */
   footer {
-    padding: 2.5rem 1.5rem 1.5rem; /* CHANGED: Better padding */
+    padding: 2.5rem 1.5rem 1.5rem; 
   }
 
   .footer-content {
-    grid-template-columns: 1fr; /* CHANGED: Single column */
-    gap: 2.5rem; /* CHANGED: More spacing */
+    grid-template-columns: 1fr;
+    gap: 2.5rem; 
   }
 
   .footer-section:first-child {
-    padding-bottom: 1rem; /* CHANGED: Add spacing */
-    border-bottom: 1px solid #444; /* CHANGED: Add separator */
+    padding-bottom: 1rem; 
+    border-bottom: 1px solid #444;
   }
 
   .newsletter-form {
@@ -1027,49 +1027,49 @@ footer {
   }
 
   .newsletter-form input {
-    width: 100%; /* CHANGED: Full width */
+    width: 100%; 
   }
 
   .newsletter-form button {
     width: 100%;
-    padding: 1rem; /* CHANGED: Larger button */
+    padding: 1rem; 
   }
 
   .footer-bottom {
     flex-direction: column;
-    gap: 1.5rem; /* CHANGED: More spacing */
+    gap: 1.5rem;
     text-align: center;
     padding-top: 1.5rem;
   }
 
   .footer-legal {
-    flex-direction: row; /* CHANGED: Keep horizontal */
+    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap; /* CHANGED: Allow wrapping */
+    flex-wrap: wrap; 
     gap: 1rem;
   }
 }
 
 /* Small Mobile Devices (600px and below) */
 @media (max-width: 600px) {
-  /* Navigation */
+  
   .company-logo {
     height: 35px;
-    margin-left: 0; /* CHANGED: Remove margin */
+    margin-left: 0;
   }
 
   nav {
-    padding: 0.8rem; /* CHANGED: Reduce padding */
+    padding: 0.8rem;
   }
 
   /* Hero */
   .exploration {
-    padding: 30px 15px; /* CHANGED: Reduce padding */
+    padding: 30px 15px;
   }
 
   .exploration h1 {
-    font-size: 26px; /* CHANGED: Smaller size */
-    line-height: 1.3; /* CHANGED: Better line height */
+    font-size: 26px;
+    line-height: 1.3;
     margin-bottom: 15px;
   }
 
@@ -1079,7 +1079,7 @@ footer {
 
   /* Vehicle Topic */
   .vehicle-topic {
-    padding: 25px 15px; /* CHANGED: Reduce padding */
+    padding: 25px 15px;
   }
 
   .vehicle-topic h2 {
@@ -1088,69 +1088,69 @@ footer {
 
   .vehicle-topic p {
     font-size: 14px;
-    margin-bottom: 30px; /* CHANGED: Reduce margin */
+    margin-bottom: 30px;
   }
 
   /* Vehicle List - Single Column */
   .vehicle-list {
-    grid-template-columns: 1fr; /* CHANGED: Single column */
+    grid-template-columns: 1fr;
     margin-bottom: 60px;
-    gap: 20px; /* CHANGED: More spacing between cards */
+    gap: 20px; 
     padding: 0 15px;
   }
 
   .vehicle-list li {
-    max-width: 100%; /* CHANGED: Full width */
-    min-height: 340px; /* CHANGED: Adjust height */
+    max-width: 100%;
+    min-height: 340px;
   }
 
   .vehicle-list li img {
-    height: 200px; /* CHANGED: Larger images for single column */
+    height: 200px; 
   }
 
   .vehicle-list li h3 {
-    font-size: 19px; /* CHANGED: Better size for single column */
+    font-size: 19px;
   }
 
   .vehicle-list li p {
-    font-size: 17px; /* CHANGED: Better size */
+    font-size: 17px;
   }
 
   .vehicle-list li a {
-    padding: 12px; /* CHANGED: Larger button */
-    font-size: 0.95rem; /* CHANGED: Better size */
+    padding: 12px;
+    font-size: 0.95rem;
   }
 
   /* Modal */
   .modal {
     padding: 1.25rem;
-    width: 100%; /* CHANGED: Full width */
-    margin: 0.5rem; /* CHANGED: Reduce margin */
-    max-width: 100%; /* CHANGED: Allow full width */
+    width: 100%; 
+    margin: 0.5rem; 
+    max-width: 100%; 
   }
 
   .modal-title {
     font-size: 1.4rem;
-    padding-right: 2.5rem; /* CHANGED: More space for close button */
+    padding-right: 2.5rem; 
   }
 
   .input-group input,
   .btn-primary {
-    padding: 0.85rem; /* CHANGED: Better touch target */
-    font-size: 1rem; /* CHANGED: Larger text */
+    padding: 0.85rem; 
+    font-size: 1rem; 
   }
 
   .social-btn {
-    padding: 0.85rem; /* CHANGED: Better touch target */
+    padding: 0.85rem; 
   }
 
   /* Footer */
   footer {
-    padding: 2rem 1rem 1rem; /* CHANGED: Reduce padding */
+    padding: 2rem 1rem 1rem;
   }
 
   .footer-content {
-    gap: 2rem; /* CHANGED: Reduce gap */
+    gap: 2rem;
   }
 
   .footer-section p {
@@ -1158,7 +1158,7 @@ footer {
   }
 
   .footer-logo img {
-    width: 100px; /* CHANGED: Adjust size */
+    width: 100px;
   }
 
   .footer-bottom {
@@ -1166,41 +1166,41 @@ footer {
   }
 
   .footer-legal {
-    gap: 0.8rem; /* CHANGED: Reduce gap */
+    gap: 0.8rem;
   }
 }
 
 /* Extra Small Devices (480px and below) */
 @media (max-width: 480px) {
-  /* Navigation */
+  
   .company-logo {
-    height: 32px; /* CHANGED: Smaller logo */
+    height: 32px; 
   }
 
   nav {
-    padding: 0.7rem 0.5rem; /* CHANGED: Minimal padding */
+    padding: 0.7rem 0.5rem; 
   }
 
   .mobile-menu-btn {
-    font-size: 1.3rem; /* CHANGED: Adjust size */
+    font-size: 1.3rem; 
   }
 
   /* Hero */
   .exploration {
-    padding: 25px 10px; /* CHANGED: Minimal padding */
+    padding: 25px 10px; 
   }
 
   .exploration h1 {
-    font-size: 24px; /* CHANGED: Smaller for tiny screens */
+    font-size: 24px;
   }
 
   .exploration p {
-    font-size: 13px; /* CHANGED: Smaller text */
+    font-size: 13px;
   }
 
   /* Vehicle Topic */
   .vehicle-topic {
-    padding: 20px 10px; /* CHANGED: Minimal padding */
+    padding: 20px 10px;
   }
 
   .vehicle-topic h2 {
@@ -1208,31 +1208,31 @@ footer {
   }
 
   .vehicle-topic p {
-    font-size: 13px; /* CHANGED: Smaller text */
+    font-size: 13px; 
   }
 
   /* Vehicle List */
   .vehicle-list {
     padding: 0 10px;
-    gap: 15px; /* CHANGED: Reduce gap */
-    margin-bottom: 50px; /* CHANGED: Reduce margin */
+    gap: 15px;
+    margin-bottom: 50px;
   }
 
   .vehicle-list li {
-    padding: 12px; /* CHANGED: Reduce padding */
-    min-height: 320px; /* CHANGED: Adjust height */
+    padding: 12px; 
+    min-height: 320px; 
   }
 
   .vehicle-list li img {
-    height: 180px; /* CHANGED: Adjust image size */
+    height: 180px; 
   }
 
   .vehicle-list li h3 {
-    font-size: 17px; /* CHANGED: Smaller text */
+    font-size: 17px; 
   }
 
   .vehicle-list li h4 {
-    font-size: 12px; /* CHANGED: Smaller text */
+    font-size: 12px; 
   }
 
   .vehicle-list li p {
@@ -1240,135 +1240,135 @@ footer {
   }
 
   .vehicle-list li a {
-    padding: 10px; /* CHANGED: Adjust padding */
-    font-size: 0.9rem; /* CHANGED: Smaller text */
+    padding: 10px; 
+    font-size: 0.9rem; 
   }
 
   /* Modal */
   .modal {
-    width: 100%; /* CHANGED: Full width */
-    padding: 1rem; /* CHANGED: Minimal padding */
-    margin: 0.25rem; /* CHANGED: Minimal margin */
-    border-radius: 10px; /* CHANGED: Less rounding */
+    width: 100%; 
+    padding: 1rem; 
+    margin: 0.25rem; 
+    border-radius: 10px; 
   }
 
   .modal-title {
-    font-size: 1.3rem; /* CHANGED: Smaller title */
-    margin-bottom: 1rem; /* CHANGED: Reduce margin */
+    font-size: 1.3rem; 
+    margin-bottom: 1rem; 
   }
 
   .close-modal {
-    font-size: 1.5rem; /* CHANGED: Adjust size */
-    top: 0.75rem; /* CHANGED: Adjust position */
-    right: 0.75rem; /* CHANGED: Adjust position */
+    font-size: 1.5rem;
+    top: 0.75rem; 
+    right: 0.75rem; 
   }
 
   .input-group {
-    margin-bottom: 0.8rem; /* CHANGED: Reduce margin */
+    margin-bottom: 0.8rem;
   }
 
   .input-group label {
-    font-size: 0.9rem; /* CHANGED: Smaller text */
+    font-size: 0.9rem;
   }
 
   .input-group input {
-    padding: 0.75rem; /* CHANGED: Adjust padding */
-    font-size: 0.95rem; /* CHANGED: Adjust text size */
+    padding: 0.75rem;
+    font-size: 0.95rem; 
   }
 
   .btn,
   .btn-primary {
-    padding: 0.75rem; /* CHANGED: Adjust padding */
-    font-size: 0.9rem; /* CHANGED: Smaller text */
+    padding: 0.75rem; 
+    font-size: 0.9rem; 
   }
 
   .social-btn {
-    padding: 0.75rem; /* CHANGED: Adjust padding */
-    font-size: 0.9rem; /* CHANGED: Smaller text */
+    padding: 0.75rem;
+    font-size: 0.9rem;
   }
 
   .divider {
-    margin: 1rem 0; /* CHANGED: Reduce margin */
+    margin: 1rem 0;
   }
 
   .password-requirements {
-    font-size: 0.8rem; /* CHANGED: Smaller text */
-    padding: 0.8rem; /* CHANGED: Reduce padding */
+    font-size: 0.8rem; 
+    padding: 0.8rem; 
   }
 
   /* Footer */
   footer {
-    padding: 1.5rem 0.75rem 1rem; /* CHANGED: Minimal padding */
+    padding: 1.5rem 0.75rem 1rem; 
   }
 
   .footer-content {
-    gap: 1.5rem; /* CHANGED: Reduce gap */
+    gap: 1.5rem;
   }
 
   .footer-section h3 {
-    font-size: 1rem; /* CHANGED: Adjust size */
-    margin-bottom: 15px; /* CHANGED: Reduce margin */
+    font-size: 1rem; 
+    margin-bottom: 15px; 
   }
 
   .footer-section p,
   .footer-links a,
   .social-links a {
-    font-size: 0.85rem; /* CHANGED: Smaller text */
+    font-size: 0.85rem;
   }
 
   .footer-logo img {
-    width: 90px; /* CHANGED: Smaller logo */
+    width: 90px; 
   }
 
   .newsletter-form input,
   .newsletter-form button {
-    padding: 0.7rem; /* CHANGED: Adjust padding */
-    font-size: 0.85rem; /* CHANGED: Smaller text */
+    padding: 0.7rem;
+    font-size: 0.85rem; 
   }
 
   .newsletter-note {
-    font-size: 0.8rem; /* CHANGED: Smaller text */
+    font-size: 0.8rem; 
   }
 
   .footer-bottom {
-    font-size: 0.8rem; /* CHANGED: Smaller text */
-    padding-top: 1.5rem; /* CHANGED: Reduce padding */
+    font-size: 0.8rem;
+    padding-top: 1.5rem; 
   }
 
   .footer-legal {
-    gap: 0.5rem; /* CHANGED: Reduce gap */
-    font-size: 0.8rem; /* CHANGED: Smaller text */
+    gap: 0.5rem; 
+    font-size: 0.8rem;
   }
 }
 
 /* Very Small Devices (360px and below) */
 @media (max-width: 360px) {
   .company-logo {
-    height: 28px; /* CHANGED: Even smaller */
+    height: 28px;
   }
 
   .exploration h1 {
-    font-size: 22px; /* CHANGED: Smallest size */
+    font-size: 22px; 
   }
 
   .vehicle-topic h2 {
-    font-size: 20px; /* CHANGED: Smallest size */
+    font-size: 20px;
   }
 
   .vehicle-list li {
-    min-height: 300px; /* CHANGED: Compact height */
+    min-height: 300px;
   }
 
   .vehicle-list li img {
-    height: 160px; /* CHANGED: Smaller images */
+    height: 160px;
   }
 
   .modal {
-    border-radius: 8px; /* CHANGED: Less rounding */
+    border-radius: 8px;
   }
 
   .modal-title {
-    font-size: 1.2rem; /* CHANGED: Smallest size */
+    font-size: 1.2rem;
   }
 }
 
@@ -1376,58 +1376,58 @@ footer {
 @media (max-height: 600px) and (orientation: landscape) {
   .modal {
     max-height: 95vh;
-    padding: 1rem 1.5rem; /* CHANGED: Optimize for landscape */
+    padding: 1rem 1.5rem;
   }
 
   .modal-title {
     font-size: 1.3rem;
-    margin-bottom: 0.8rem; /* CHANGED: Reduce spacing */
+    margin-bottom: 0.8rem;
   }
 
   .input-group {
-    margin-bottom: 0.6rem; /* CHANGED: Compact spacing */
+    margin-bottom: 0.6rem;
   }
 
   .input-group label {
-    margin-bottom: 0.3rem; /* CHANGED: Compact spacing */
+    margin-bottom: 0.3rem;
   }
 
   .input-group input {
-    padding: 0.6rem; /* CHANGED: Compact padding */
+    padding: 0.6rem; 
   }
 
   .btn-primary,
   .social-btn {
-    padding: 0.6rem; /* CHANGED: Compact padding */
+    padding: 0.6rem; 
   }
 
   .divider {
-    margin: 0.8rem 0; /* CHANGED: Compact spacing */
+    margin: 0.8rem 0; 
   }
 
   .password-requirements {
-    padding: 0.7rem; /* CHANGED: Compact padding */
-    margin-bottom: 0.7rem; /* CHANGED: Compact spacing */
+    padding: 0.7rem; 
+    margin-bottom: 0.7rem; 
   }
 
   .modal-description {
-    margin-bottom: 1rem; /* CHANGED: Compact spacing */
+    margin-bottom: 1rem; 
   }
 
   .success-icon {
-    font-size: 3rem; /* CHANGED: Smaller icon */
-    margin-bottom: 0.5rem; /* CHANGED: Compact spacing */
+    font-size: 3rem; 
+    margin-bottom: 0.5rem; 
   }
 }
 
 /* Touch-friendly improvements for all mobile devices */
 @media (hover: none) and (pointer: coarse) {
-  /* CHANGED: Increase touch targets */
+  
   .btn,
   .btn-primary,
   .social-btn,
   .vehicle-list li a {
-    min-height: 44px; /* Apple's recommended minimum */
+    min-height: 44px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1439,26 +1439,25 @@ footer {
   }
 
   .nav-links a {
-    min-height: 48px; /* CHANGED: Larger for menu items */
+    min-height: 48px; 
     display: flex;
     align-items: center;
   }
 
-  /* CHANGED: Remove hover effects on touch devices */
   .vehicle-list li:hover {
     transform: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 
   .nav-links a:hover::after {
-    width: 0; /* CHANGED: Disable underline animation */
+    width: 0; 
   }
 }
 
 /* High DPI / Retina Display Optimization */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .vehicle-list li img {
-    image-rendering: -webkit-optimize-contrast; /* CHANGED: Better image quality */
+    image-rendering: -webkit-optimize-contrast; 
     image-rendering: crisp-edges;
   }
 
@@ -1476,7 +1475,7 @@ footer {
   .btn,
   .auth-buttons,
   .mobile-menu-btn {
-    display: none !important; /* CHANGED: Hide interactive elements */
+    display: none !important; 
   }
 
   body {
