@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #F4F6F8; 
+      color: #333333;
+    }
+
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: #FFFFFF; 
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FF7A00; 
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #1E1E1E; 
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #FF8C1A; 
+    }
+
+    .navbar .auth button {
+      margin-left: 10px;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .login {
+      background: transparent;
+      border: 1px solid #1E1E1E;
+      color: #1E1E1E;
+    }
+
+    .login:hover {
+      border-color: #FF8C1A;
+      color: #FF8C1A;
+    }
+
+    .signup {
+      background: #FF7A00; 
+      color: #FFFFFF;
+    }
+
+    .signup:hover {
+      background: #FF8C1A; 
+    }
+
+    
+    section {
+      display: none;
+      padding: 20px;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    
+    .footers {
+      display: grid;
+      gap: 40px;
+      padding: 80px 90px;
+      grid-template-columns: repeat(4, 1fr);
+      background-color: #E8ECF1; 
+      margin: 0;
+      color: #202124; 
+      border-top: 2px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .footers h4 {
+      color:blue; 
+    }
+
+    .footers a {
+      display: block;
+      padding: 5px 0;
+      text-align: left;
+      cursor: pointer;
+      font-size: 16px;
+      color: #555555; 
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footers a:hover {
+      color: #FF8C1A; 
+      text-decoration: underline;
+    }
+
+  
+    .end-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 60px;
+      background-color: #FFFFFF;
+      color: #333333;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .end-section a {
+      color: #FF7A00;
+      text-decoration: none;
+    }
+
+    .end-section a:hover {
+      color: #FF8C1A;
+    }
+
+    .end-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .endbutton {
+      cursor: pointer;
+      color: #555555;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .endbutton:hover {
+      color: #FF8C1A;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header class="navbar">
+    <div class="logo">Logo</div>
+    <nav>
+      <ul>
+        <li><a href="#">Vehicles</a></li>
+        <li><a href="#">Locations</a></li>
+        <li><a href="#">Rates</a></li>
+        <li><a href="#">More ▾</a></li>
+      </ul>
+    </nav>
+    <div class="auth">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+  
+  <section id="home" class="active">
+    <div class="footers">
+      <div>
+        <h4>Quick links</h4>
+        <a onclick="openModal('cars')">Cars</a>
+        <a onclick="openModal('vans')">Vans</a>
+        <a onclick="openModal('bikes')">Bikes</a>
+        <a onclick="openModal('three')">Three wheelers</a>
+      </div>
+
+      <div>
+        <h4>Company info</h4>
+        <a onclick="openModal('about')">About us</a>
+        <a onclick="openModal('contact')">Contact</a>
+        <a onclick="openModal('support')">Support</a>
+        <a onclick="openModal('account')">Account</a>
+      </div>
+
+      <div>
+        <h4>Legal</h4>
+        <a onclick="openModal('policies')">Policies</a>
+        <a onclick="openModal('privacy')">Privacy</a>
+        <a onclick="openModal('guidelines')">Guidelines</a>
+        <a onclick="openModal('team')">Join our team</a>
+      </div>
+
+      <div>
+        <h4>Resources</h4>
+        <a onclick="openModal('guides')">Guides</a>
+        <a onclick="openModal('partners')">Partners</a>
+        <a onclick="openModal('affiliates')">Affiliates</a>
+        <a onclick="openModal('press')">Press</a>
+      </div>
+    </div>
+
+    <div class="end-section">
+      <span>Ready to ride? <a href="#">Start your journey</a></span>
+      <div class="end-buttons">
+        <a class="endbutton">🔍︎ Button</a>
+        <a class="endbutton">☰ Button</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="vehicle"></section>
+  <section id="rent"></section>
+  <section id="location"></section>
+  <section id="more"></section>
+  <section id="login"></section>
+  <section id="signin"></section>
+
+  <script>
+    function show(sectionId) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(sectionId).classList.add("active");
+
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+      event.target.classList.add("active");
+    }
+
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      const modals = document.querySelectorAll(".modal");
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    };
+  </script>
+
+</body>
+</html>
