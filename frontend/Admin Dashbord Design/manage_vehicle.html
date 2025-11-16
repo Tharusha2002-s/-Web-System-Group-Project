@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="\frontend\css\Admin Dashbord Design css\manage_vehicle.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    </head>
+    <body>
+         <!-------------Navigation Bar--------------->
+        <nav>
+
+        </nav>
+
+        <!-------------Main Content--------------->
+        <div class="container">
+            <div class="container1">
+                <ul>
+                    <li class="nav-link">
+                        <a href="/admin_dashboard">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="add_admin.html">
+                            <i class="fa fa-users"></i>
+                            <span>Manage Admins</span>
+                        </a>
+                    </li>
+                    <li class="active-link">
+                        <a href="/add_admin" >
+                            <i class="fa fa-shopping-cart" style="color: white"></i>
+                            <span style="color: white">Manage Products</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="/manage_orders">
+                            <i class="fa fa-user-plus"></i>
+                            <span>Manage Users</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="/manage_inventory">
+                            <i class="fa fa-boxes"></i>
+                            <span>Manage Payments</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="/view_reports">
+                            <i class="fa fa-file-alt"></i>
+                            <span>View Bookings</span>
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="/settings">
+                            <i class="fa fa-cog"></i>
+                            <span>System Settings</span>
+                        </a>
+                    </li>
+                </ul>
+                <h6>&copy; 2025 ReliantRental Admin. All rights reserved.</h6>
+            </div>
+
+            <div class="container2">
+                <ul class="head">
+                    <li><h2>Manage Products</h2></li>
+                    <li><button class="add"><i class="fa fa-plus"></i>Add Vehicle</button></li>
+                </ul>
+                
+                <div class="inventory">
+                    <ul>
+                        <li>
+                            <h2>Vehicle Inventory</h2> 
+                        </li>
+                        <li>
+                            <div class="search-box">
+                                <i class="fa fa-search" ></i>
+                                <input type="text" placeholder="Search vehicles...">
+                            </div>
+                        </li>
+                        <li>
+                           <button class="filter"><i class="fa fa-filter"></i> Filter </button>
+                        </li>
+                    </ul>
+
+                    <table class="vehicle-table">
+                        <th>Vehicle Name</th>
+                        <th>Model</th>
+                        <th>Daily Price</th>
+                        <th>Availability</th>
+                        <th>Actions</th>
+
+                        <tr>
+                            <td> <img src="car1.jpg" alt="">Luxury Sedan</td>
+                            <td>Mercedes-Benz-E-Class</td>
+                            <td>$150.00</td>
+                            <td><span class="availability available">Available</span></td>
+                            <td>
+                                <button><i class="fa fa-edit"></i></button>
+                                <button><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td> <img src="car2.jpg" alt="">Compact SUV</td>
+                            <td>Toyota RAV4</td>
+                            <td>$85.00</td>
+                            <td><span class="availability rented">Rented</span></td>
+                            <td>
+                                <button><i class="fa fa-edit"></i></button>
+                                <button><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> <img src="car3.jpg" alt="">Sports Car</td>
+                            <td>Ford Mustang GT</td>
+                            <td>$200.00</td>
+                            <td><span class="availability available">Available</span></td>
+                            <td>
+                                <button><i class="fa fa-edit"></i></button>
+                                <button><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> <img src="car4.jpg" alt="">Economy Hatchback</td>
+                            <td>Honda Fit</td>
+                            <td>$55.00</td>
+                            <td><span class="availability maintenance">Maintenance</span></td>
+                            <td>
+                                <button><i class="fa fa-edit"></i></button>
+                                <button><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> <img src="car5.jpg" alt="">Minivan</td>
+                            <td>Chrysler Pacifica</td>
+                            <td>$100.00</td>
+                            <td><span class="availability available">Available</span></td>
+                            <td>
+                                <button><i class="fa fa-edit"></i></button>
+                                <button><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> <img src="car6.jpg" alt="">Electric Car</td>
+                            <td>Tesla Model 3</td>
+                            <td>$180.00</td>
+                            <td><span class="availability available">Available</span></td>
+                            <td>
+                                <button><i class="fa fa-edit"></i></button>
+                                <button><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> <img src="car7.jpg" alt="">Pickup Truck</td>
+                            <td>Ford F-150</td>
+                            <td>$120.00</td>
+                            <td><span class="availability rented">Rented</span></td>
+                            <td>
+                                <button><i class="fa fa-edit"></i></button>
+                                <button><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                    </table> <br>
+                </div>
+                <br> <br> <br>
+            </div>
+        </div>
+
+
+    </body>
+</html>

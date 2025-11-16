@@ -1,0 +1,160 @@
+/* Main Content */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+/* Container 1 */
+.container1{
+    align-items: left;
+    margin-left: 30px;
+    margin-right: 270px;
+    /* border-bottom: rgba(94, 95, 96, 0.363) 1px solid;
+    border-right: rgba(94, 95, 96, 0.363) 1px solid; */
+}
+.container1 h6{
+    border-top: rgba(94, 95, 96, 0.363) 1px solid;
+    padding-top: 10px;
+    
+}
+.container1 ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.container1 li{
+    padding: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.container1 li a{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+.container1 li a:hover{
+    background-color: #ff7b00;
+    border-radius: 10px;
+    color: white;
+    /* transform: scale(1.05); */
+}
+.container1 li a i{
+    margin-right: 10px;
+}
+.active-link{
+    background-color: #ff7b00;
+    border-radius: 10px;
+    color: white;
+}
+
+
+/* container 2 */
+
+.container2{
+    margin-left: -220px;
+}
+.container2 ul{
+    list-style-type: none;
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+.head{
+    font-size: 25px;
+}
+.container2 ul li{
+    padding: 10px;
+    border-radius: 7px;
+    text-align: center;
+}
+.add{
+    cursor: pointer;
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-left: 645px;
+}
+.add:hover{
+    background-color: #e66a00;
+    transform: scale(1.05);
+}
+.inventory{
+    align-items: center;
+    background-color: rgba(224, 222, 222, 0.318);
+    margin-right: 30px;
+    padding: 20px;
+    border-radius: 7px;
+    gap: 15px;
+}
+.search-box{
+    margin-left: 460px;
+}
+.search-box input{
+    align-items: center;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 10px 20px;
+    margin-top: 18px;
+    margin-left: 4px;
+}
+.filter{
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+.filter:hover{
+    background-color: #f3f4f6;
+    transform: scale(1.05);
+}
+.vehicle-table th{
+    border-bottom: rgba(94, 95, 96, 0.363) 1px solid;
+    border-top: rgba(94, 95, 96, 0.363) 1px solid;
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+}
+.vehicle-table td{
+    border-bottom: rgba(94, 95, 96, 0.363) 1px solid;
+    padding: 15px;
+    text-align: center;
+    
+}
+.vehicle-table td button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+}
+.vehicle-table td button:hover{
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+.vehicle-table{
+    width: 1100px;
+}
+.availability{
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+}
+.availability.available{
+    background-color: #d1fae5;
+    color: #065f46;
+}
+.availability.rented{
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+.availability.maintenance{
+    background-color: #fef3c7;
+    color: #92400e;
+}
