@@ -1,57 +1,127 @@
+let verificationData = {
+  email: "",
+  code: "",
+  verified: false,
+  isAdmin: false,
+};
 
-    
-    function show(section) {
-      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-      event.target.classList.add('active');
-    }
+window.addEventListener("load", () => {
+  if (window.location.pathname.includes("/admin/")) {
+    openModal("admin");
+  }
+});
 
-    
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".slide");
-    const dotsContainer = document.getElementById("dots");
-
-    slides.forEach((_, index) => {
-      const dot = document.createElement("span");
-      dot.classList.add("dot");
-      dot.addEventListener("click", () => setSlide(index));
-      dotsContainer.appendChild(dot);
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("button").forEach((btn) => {
+    btn.addEventListener("mouseenter", () => {
+      if (!btn.style.transform || btn.style.transform === "scale(1)") {
+        btn.style.transform = "scale(1.05)";
+      }
     });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "scale(1)";
+    });
+  });
+  const userProfile = document.getElementById("userProfile");
+  if (userProfile) {
+    userProfile.addEventListener("click", (e) => {
+      if (!e.target.closest(".profile-dropdown")) {
+        toggleDropdown();
+      }
+    });
+  }
+});
 
-    const dots = document.querySelectorAll(".dot");
-    updateSlider();
+function openModal(type) {
+  const modals = {
+    signin: "signinModal",
+    signup: "signupModal",
+    success: "successModal",
+  };
+  if (modals[type])
+    document.getElementById(modals[type]).classList.add("active");
+}
 
-    function moveSlide(direction) {
-      currentSlide = (currentSlide + direction + slides.length) % slides.length;
-      updateSlider();
-    }
+function closeModal(type) {
+  const modals = {
+    signin: "signinModal",
+    signup: "signupModal",
+    success: "successModal",
+  };
+  if (modals[type])
+    document.getElementById(modals[type]).classList.remove("active");
+}
 
-    function setSlide(index) {
-      currentSlide = index;
-      updateSlider();
-    }
+function switchModal(type) {
+  closeModal("signin");
+  closeModal("signup");
+  closeModal("success");
+  openModal(type);
+}
 
-    function updateSlider() {
-      document.getElementById("slider").style.transform = `translateX(-${currentSlide * 100}%)`;
-      dots.forEach(dot => dot.classList.remove("active"));
-      dots[currentSlide].classList.add("active");
-    }
+function handleSignIn() {
+  const email = document.getElementById("signinEmail").value;
+  const password = document.getElementById("signinPassword").value;
+  if (!email || !password) {
+    alert("Please fill in all fields");
+    return;
+  }
+  const userName = email.split("@")[0];
+  showUserProfile(userName);
+  closeModal("signin");
+}
 
-    
-    function ou(id) {
-      const qualities = document.querySelectorAll(".quality");
-      qualities.forEach(q => q.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
+function handleSignUp() {
+  const email = document.getElementById("signupEmail").value;
+  const password = document.getElementById("signupPassword").value;
+  if (!email || !password) {
+    alert("Please fill in all fields");
+    return;
+  }
+  const userName = email.split("@")[0];
+  showUserProfile(userName);
+  closeModal("signup");
+}
 
-      const buttons = document.querySelectorAll(".qu button");
-      buttons.forEach(b => b.classList.remove("active"));
-      document.getElementById(`btn-${id}`).classList.add("active");
-    }
+function showUserProfile(name) {
+  document.getElementById("authButtons").style.display = "none";
+  document.getElementById("userProfile").classList.add("active");
+  document.getElementById("userName").textContent = name;
+  document.getElementById("userInitial").textContent = name
+    .charAt(0)
+    .toUpperCase();
+}
 
-    
-    function openModal(id) {
-      document.getElementById(id).style.display = "flex";
-    }
+function toggleDropdown() {
+  document.getElementById("profileDropdown").classList.toggle("show");
+}
 
-    function closeModal(id) {
-      document.getElementById(id).style.display = "none";
-    }
+function logout() {
+  document.getElementById("authButtons").style.display = "flex";
+  document.getElementById("userProfile").classList.remove("active");
+  document.getElementById("profileDropdown").classList.remove("show");
+  alert("Logged out successfully");
+}
+
+function toggleMobileMenu() {
+  document.getElementById("navLinks").classList.toggle("mobile-active");
+}
+
+function handleNewsletter(event) {
+  event.preventDefault();
+  const email = event.target.querySelector('input[type="email"]').value;
+  alert(`Thank you for subscribing with: ${email}`);
+  event.target.reset();
+}
+
+document.addEventListener("click", (e) => {
+  const profileDropdown = document.getElementById("profileDropdown");
+  if (profileDropdown && !e.target.closest(".user-profile"))
+    profileDropdown.classList.remove("show");
+});
+
+document.querySelectorAll(".modal-overlay").forEach((overlay) => {
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) overlay.classList.remove("active");
+  });
+});
