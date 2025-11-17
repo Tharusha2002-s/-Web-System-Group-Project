@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - Reliant Rental</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../css/faq.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar Section -->
+
+    <nav id="navbar">
+      <a href="../pages/Home.html" class="logo">
+        <img
+          src="../assets/images/logo.png"
+          alt="Company Logo"
+          class="company-logo"
+        />
+      </a>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+        <li><a href="../pages/about.html">About</a></li>
+        <li><a href="../pages/services.html">Services</a></li>
+        <li><a href="../pages/faq.html">FAQ</a></li>
+        <li><a href="../pages/contact.html">Contact</a></li>
+
+        <div class="mobile-auth-buttons">
+          <button class="btn btn-signin" onclick="openModal('signin')">
+            Sign In
+          </button>
+          <button class="btn btn-signup" onclick="openModal('signup')">
+            Sign Up
+          </button>
+        </div>
+      </ul>
+
+      <div class="auth-buttons" id="authButtons">
+        <button class="btn btn-signin" onclick="openModal('signin')">
+          Sign In
+        </button>
+        <button class="btn btn-signup" onclick="openModal('signup')">
+          Sign Up
+        </button>
+      </div>
+    </nav>
+
+    <!-- Navigation Bar Section -->
+
+    <!-- ----------------------------------------------------------------------------------- -->
+
+    <!-- Page Content Section -->
+
+    <div class="faq-wrapper">
+      <div class="container">
+
+        <!-- Main Topic Section -->
+        <header>
+          <h1>Frequently Asked Questions</h1>
+          <p class="subtitle">
+            Find answers to common questions about our vehicle rental service
+          </p>
+        </header>
+
+        <!-- Search Box Section -->
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for answers..."
+          />
+        </div>
+
+        <!-- Category Button Section -->
+        <div class="faq-categories">
+          <button class="category-btn active" data-category="all">All</button>
+          <button class="category-btn" data-category="booking">Booking</button>
+          <button class="category-btn" data-category="pricing">Pricing</button>
+          <button class="category-btn" data-category="requirements">
+            Requirements
+          </button>
+          <button class="category-btn" data-category="insurance">
+            Insurance
+          </button>
+          <button class="category-btn" data-category="policies">
+            Policies
+          </button>
+        </div>
+
+        <!-- FAQ Section -->
+        <div id="faqContainer"></div>
+
+        <!-- No Results Message Section -->
+        <div class="no-results" id="noResults">
+          <h3>No results found</h3>
+          <p>Try searching with different keywords</p>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+          <h2>Still have questions?</h2>
+          <p>Our customer support team is here to help you 24/7</p>
+          <a href="../pages/contact.html"
+            ><button class="contact-btn">Contact Support</button></a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Contant Section Ends -->
+
+     <!-- ----------------------------------------------------------------------------------- -->
+
+    <!-- Footer Section -->
+
+    <footer>
+
+      <!-- Subscription and Link Section -->
+      <div class="footer-content">
+        <div class="footer-section">
+          <a class="footer-logo">
+            <img
+              src="../assets/images/Reliant_white-logo.png"
+              alt="company logo"
+            />
+          </a>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="email" required />
+            <button type="submit">subscribe</button>
+          </form>
+          <p class="newsletter-note">
+            By subscribing, you agree to receive updates and promotional offers.
+          </p>
+        </div>
+
+        <!-- quick links section -->
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+            <li><a href="../pages/services.html">Services</a></li>
+          </ul>
+        </div>
+
+        <!-- company links section -->
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="../about/about.html">About Us</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- social media links section -->
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul class="social-links">
+            <li>
+              <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
+            </li>
+            <li>
+              <a href="#instagram"
+                ><i class="fab fa-instagram"></i> instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Subscription and Link Section Ends -->
+
+      <!-- Footer Bottom Section -->
+      <div class="footer-bottom">
+        <p>&copy; 2024 vehicle rentals. all rights reserved.</p>
+        <ul class="footer-legal">
+          <li><a href="#privacy">privacy policy</a></li>
+          <li><a href="#terms">terms of service</a></li>
+          <li><a href="#cookies">cookie settings</a></li>
+        </ul>
+      </div>
+      <!-- Footer Bottom Section Ends-->
+
+    </footer>
+
+    <!-- Footer Section Ends -->
+
+    <!-- ----------------------------------------------------------------------------------- -->
+
+    <!-- Modal Section -->
+
+    <!-- Sign In Section -->
+    <div class="modal-overlay" id="signinModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign In</h2>
+        <div class="input-group">
+          <label>Email</label
+          ><input
+            type="email"
+            id="signinEmail"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="input-group">
+          <label>Password</label
+          ><input
+            type="password"
+            id="signinPassword"
+            placeholder="Enter your password"
+          />
+        </div>
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgot'); closeModal('signin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+        <button class="btn-primary" onclick="handleSignIn()">Sign In</button>
+        <div class="divider"><span>OR</span></div>
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign in with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign in with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+        <div class="switch-mode">
+          Don't have an account?
+          <a href="#" onclick="switchModal('signup')">Sign Up</a>
+        </div>
+      </div>
+    </div>
+    <!-- Sign In Section Ends -->
+
+    <!-- Sign Up Section -->
+    <div class="modal-overlay" id="signupModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signup')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign Up</h2>
+        <div class="input-group">
+          <label>Email</label
+          ><input
+            type="email"
+            id="signupEmail"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="input-group">
+          <label>Password</label
+          ><input
+            type="password"
+            id="signupPassword"
+            placeholder="Create a password"
+          />
+        </div>
+        <button class="btn-primary" onclick="handleSignUp()">Sign Up</button>
+        <div class="divider"><span>OR</span></div>
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign up with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign up with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+        <div class="switch-mode">
+          Already have an account?
+          <a href="#" onclick="switchModal('signin')">Sign In</a>
+        </div>
+      </div>
+    </div>
+    <!-- Sign Up Section Ends -->
+
+    <!-- Forgot Password Section -->
+    <div class="modal-overlay" id="forgotModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgot')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Password</h2>
+        <p class="modal-description">
+          Enter your email to receive a verification code
+        </p>
+        <div class="input-group">
+          <label>Email Address</label
+          ><input
+            type="email"
+            id="forgotEmail"
+            placeholder="Enter your email"
+          />
+        </div>
+        <button class="btn-primary" onclick="sendVerificationCode()">
+          Send Verification Code
+        </button>
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('signin')">Back to Sign In</a>
+        </div>
+      </div>
+    </div>
+    <!-- Forgot Password Section Ends -->
+
+    <!-- Verify Code Section -->
+    <div class="modal-overlay" id="verifyCodeModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('verifyCode')">
+          &times;
+        </button>
+        <h2 class="modal-title">Enter Verification Code</h2>
+        <p class="modal-description">
+          We've sent a code to <strong id="sentToEmail"></strong>
+        </p>
+        <div class="input-group">
+          <label>Verification Code</label
+          ><input
+            type="text"
+            id="verificationCode"
+            placeholder="Enter 6-digit code"
+            maxlength="6"
+          />
+        </div>
+        <button class="btn-primary" onclick="verifyCode()">Verify Code</button>
+        <div class="switch-mode">
+          <a href="#" onclick="resendCode()">Resend Code</a> |
+          <a href="#" onclick="switchModal('forgot')">Change Email</a>
+        </div>
+      </div>
+    </div>
+    <!-- Verify Code Section Ends-->
+
+    <!-- Reset Password Section -->
+    <div class="modal-overlay" id="resetPasswordModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('resetPassword')">
+          &times;
+        </button>
+        <h2 class="modal-title">Create New Password</h2>
+        <p class="modal-description">Enter your new password</p>
+        <div class="input-group">
+          <label>New Password</label
+          ><input
+            type="password"
+            id="newPassword"
+            placeholder="Enter new password"
+          />
+        </div>
+        <div class="input-group">
+          <label>Confirm Password</label
+          ><input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm new password"
+          />
+        </div>
+        <div class="password-requirements">
+          <p style="margin-bottom: 0.5rem">Password must contain:</p>
+          <ul>
+            <li>At least 8 characters</li>
+            <li>One uppercase letter</li>
+            <li>One lowercase letter</li>
+            <li>One number</li>
+          </ul>
+        </div>
+        <button class="btn-primary" onclick="resetPassword()">
+          Reset Password
+        </button>
+      </div>
+    </div>
+    <!-- Reset Password Section Ends-->
+
+    <!-- Success Modal Section -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal">
+        <div style="text-align: center">
+          <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+          <h2 class="modal-title">Password Reset Successful!</h2>
+          <p class="modal-description">
+            Your password has been successfully reset.
+          </p>
+          <button class="btn-primary" onclick="handleSuccessComplete()">
+            Sign In Now
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Success Modal Section Ends -->
+
+    <!-- Modal Section Ends -->
+
+    <script src="../js/faq.js"></script>
+  </body>
+</html>
