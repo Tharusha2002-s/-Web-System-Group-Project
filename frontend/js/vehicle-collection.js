@@ -28,7 +28,6 @@ window.addEventListener("load", () => {
 /* Content Loaded Event Section */
 
 document.addEventListener("DOMContentLoaded", () => {
-
   // Add hover animation to all buttons
   document.querySelectorAll("button").forEach((btn) => {
     btn.addEventListener("mouseenter", () => {
@@ -505,4 +504,3 @@ document.addEventListener("keypress", (e) => {
 });
 
 /* Event Listeners Section Ends */
-
