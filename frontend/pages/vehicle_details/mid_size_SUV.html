@@ -1,30 +1,33 @@
-<html>
-    <head>
-      <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="../favicon.png" />
-        <title>Mid-size SUV Details - Reliant Rental</title>
-        <link rel="stylesheet" href="\frontend\css\vehicle-details.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-      
-
-    </head>
-    <body>
-        <!-- Navigation Bar -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <title>City Bike Details - Reliant Rental</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../css/vehicle-details.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
     <nav id="navbar">
-      <a href="../pages/Home.html" class="logo">
+      <a href="../../pages/Home.html" class="logo">
         <img
-          src="/frontend/assets/images/Logo/logo.png"
+          src="../../assets/images/logo.png"
           alt="Company Logo"
           class="company-logo"
         />
       </a>
+
       <ul class="nav-links" id="navLinks">
-        <li><a href="/frontend/pages/vehicle-collection.html">Vehicles</a></li>
-        <li><a href="/frontend/pages/about.html">About</a></li>
-        <li><a href="/frontend/pages/services.html">Services</a></li>
-        <li><a href="/frontend/pages/faq.html">FAQ</a></li>
-        <li><a href="/frontend/pages/contact.html">Contact</a></li>
+        <li><a href="../../pages/vehicle-collection.html">Vehicles</a></li>
+        <li><a href="../../pages/about.html">About</a></li>
+        <li><a href="../../pages/services.html">Services</a></li>
+        <li><a href="../../pages/faq.html">FAQ</a></li>
+        <li><a href="../../pages/contact.html">Contact</a></li>
         <div class="mobile-auth-buttons">
           <button class="btn btn-signin" onclick="openModal('signin')">
             Sign In
@@ -56,213 +59,225 @@
 
       <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
     </nav>
-    <!-- Navigation Bar Ends -->
- 
-        <!---------------------------Content------------------------->
-        <!---------------------------Content------------------------->
-        <div class="product_details">
-            <h1 class="heading"> Mid-size SUV </h1>
-            <h3 class="sub_head"> Perfect for city driving and weekend adventures </h3>
 
-            <div class="block1">
-                <div class="section1">
-                    <div class="box">
-                        <div class="box_head">
-                            <i class="fas fa-check-circle"></i>
-                            <span> Includes: </span>
-                        </div>
-                        
-                        <ul class="box_list">
-                            <li>
-                                <ul class="box_list1">
-                                    <li>
-                                        <i class="fas fa-snowflake"></i>
-                                        <span>Tri-zone Air conditioning</span></li>
-                                    <li> 
-                                        <i class="fas fa-bluetooth"></i>
-                                        <span>Bluetooth connectivity</span></li>
-                                    <li>
-                                        <i class="fas fa-cogs"></i>
-                                        <span>Automatic transmission</span></li>
-                                    <li>
-                                        <i class="fas fa-tachometer-alt"></i>
-                                        <span>Turbocharged engine</span></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul class="box_list2">
-                                    <li>
-                                        <i class="fas fa-camera"></i>
-                                        <span>Rearview camera</span></li>
-                                    <li>
-                                        <i class="fas fa-key"></i>
-                                        <span>Keyless entry</span></li>
-                                    <li>
-                                        <i class="fas fa-shield-alt"></i>
-                                        <span>Advanced safety features</span></li>
-                                    <li>
-                                        <i class="fas fa-couch"></i>
-                                        <span>Spacious interior</span></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="vehicle-hero">
+        <h1>City Bike</h1>
+        <p class="subtitle">Perfect for urban exploration and daily commutes</p>
+      </section>
 
-                <div class="section2">
-                    <video width="400" controls class="video">
-                        <source src="\frontend\assets\video\mid-size-suv.mp4" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>
-                    <div class="section2_details">
-
-                        <ul class="section2_details">
-                            <li> <h1 class="price">$65</h1> </li>
-                            <li>
-                                <div class="star-rating">
-                                    <input type="radio" id="star5" name="rating" value="5">
-                                    <label for="star5">★</label>
-                                    <input type="radio" id="star4" name="rating" value="4">
-                                    <label for="star4">★</label>
-                                    <input type="radio" id="star3" name="rating" value="3">
-                                    <label for="star3">★</label>
-                                    <input type="radio" id="star2" name="rating" value="2">
-                                    <label for="star2">★</label>
-                                    <input type="radio" id="star1" name="rating" value="1">
-                                    <label for="star1">★</label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <button class="section2_button ">Book vehicle</button>
-                    <br> <br>
-                    <button class="section2_button">Check availability</button>
-                    <p class="section2_p"> Guaranteed quality rental</p>
-                </div>
-            </div>
-            <div class="details_container">
-                    <h3 class="head"><i class="fas fa-check-circle"></i> Vehicle Details:  </h3>
-                    <hr>
-                    <br>
-                    <div class="details_box">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <span>Performance Space</span>
-                        <p>Built for versatility, offering a smooth ride for families and ample power for road trips. Responsive handling meets a commanding view of the road. </p> <br>
-                        <hr>
-                    </div>
-                    <div class="details_box">
-                        <i class="fas fa-cogs"></i>
-                        <span>Technical Overview</span>
-                        <p>A powerful engine is engineered for both performance and efficiency. An advanced all-wheel-drive system (optional) ensures stability in various conditions.</p> <br>
-                        <hr>
-                    </div>
-                    <div class="details_box">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Safety Features</span>
-                        <p>A comprehensive suite of airbags and an advanced braking system with traction control. A high-strength chassis provides top-tier protection.</p> <br>
-                        <hr>
-                    </div>
-                    <div class="details_box">
-                        <i class="fas fa-couch"></i>
-                        <span>Interior Comfort</span>
-                        <p> Plush, ergonomic seats often with heating options. Advanced climate control maintains perfect temperature throughout the cabin. A maximized, configurable interior for passengers and cargo.</p> <br>
-                        <hr>
-                    </div>
-                    <div class="details_box">
-                        <i class="fas fa-car"></i>
-                        <span>Exterior design</span>
-                        <p>Sleek lines cut through wind efficiently. Modern aesthetic appeals to urban professionals. Compact yet stylish exterior.</p> <br>
-                        <hr>
-                    </div>
-                    <div class="details_box">
-                        <i class="fas fa-wrench"></i>
-                        <span>Maintenance details</span>
-                        <p>Regular service intervals ensure peak performance. Low maintenance costs. Reliable engineering minimizes unexpected repairs.</p> <br>
-                        <hr>
-                    </div>
-                    <div class="details_box">
-                        <i class="fas fa-cogs"></i>
-                        <span>Technology integration</span>
-                        <p>Smart connectivity features enhance driving experience. Seamless smartphone integration. Advanced onboard computer system.</p> <br>
-                    <hr>
-                    </div>
-                </div>
-
-            <div class="sub1">
-                <div class="img">
-                    <img class="car" src="/frontend/assets/images/vehicle-details-imges/repair.jpg" alt="">
-                </div>
-                <div class="details2">
-                    <img class="maintenance" src="/frontend/assets/images/vehicle-details-imges/maintenance.png" alt="">
-                    <h2>Technical specifications for your urban companion</h2>
-                    <p>Precision-engineered for modern drivers. Every detail carefully considered to deliver exceptional performance and comfort.</p>
-                    <br>
-                    <ul class="sub_list1">
-                        <li>
-                            <button class="button">Details</button>
-                        </li>
-                        <li>
-                            <div class="sub_list2">
-                                <a href="#" class="link_with_arrow">Compare
-                                <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                </div>
-            </div>
-            <br>
-            <div class="sub1">
-                <div class="details2">
-                    <h4>Affordable</h4>
-                    <h2>Flexible rental rates for every budget</h2>
-                    <p>Daily rates start low with no hidden fees. Transparent pricing means no surprises.</p>
-                    <ul class="sub_list1">
-                        <li>
-                            <button class="button">Book now</button>
-                        </li>
-                        <li>
-                            <div class="sub_list2">
-                                <a href="#">Check rates
-                                <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sub2img">
-                    <img class="car" src="/frontend/assets/images/vehicle-details-imges/rental.jpg" alt="">
-                </div>
-            </div>
-
-            <div class="sub2">
-                <div class="sub_box">
-                    <h2>Ready to hit the road</h2>
-                    <p>Simple booking process designed to get you driving quickly and confidently.</p>
-                    <ul class="last_btn">
-                        <li>
-                            <button class="button">Rent</button>
-                        </li>
-                        <li>
-                            <button class="button">Learn more</button>
-                        </li>
-                    </ul>
-                    
-                </div>
-
-
-
-            </div>
-
+      <!-- Vehicle Overview -->
+      <section class="vehicle-overview">
+        <!-- Vehicle Media Section with Auto-play -->
+        <div class="vehicle-media">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            width="500px"
+            height="400px"
+            class="vmedia"
+          >
+            <source src="../../assets/video/mid-size-suv.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-<br> <br> <br> <br> 
-    
- <!-- Footer Section -->
+
+        <div class="vehicle-info">
+          <div class="price-section">
+            <div class="price">
+              $15<span style="font-size: 20px; color: #666">/day</span>
+            </div>
+            <div class="star-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="features-section">
+            <div class="box">
+              <div class="box_head">
+                <i class="fas fa-check-circle"></i>
+                <span> Includes: </span>
+              </div>
+
+              <ul class="features-list">
+                <li><i class="fas fa-bicycle"></i> Lightweight frame</li>
+                <li><i class="fas fa-cog"></i> Multi-speed gears</li>
+                <li>
+                  <i class="fas fa-shield-alt"></i> Safety helmet included
+                </li>
+                <li><i class="fas fa-lock"></i> Secure bike lock</li>
+                <li><i class="fas fa-shopping-basket"></i> Front basket</li>
+                <li><i class="fas fa-lightbulb"></i> LED lights</li>
+                <li><i class="fas fa-bell"></i> Safety bell</li>
+                <li><i class="fas fa-wrench"></i> Maintenance kit</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <a href="../rental-book.html" class="action-btn primary"
+              >Book Vehicle</a
+            >
+            <button class="action-btn">Check Availability</button>
+          </div>
+
+          <p class="guarantee-note">Guaranteed quality rental</p>
+        </div>
+      </section>
+
+      <!-- Vehicle Details -->
+      <section class="details-section">
+        <h2><i class="fas fa-check-circle"></i> Vehicle Details</h2>
+        <div class="details-grid">
+          <div class="detail-card">
+            <i class="fas fa-bicycle"></i>
+            <h3>Lightweight Design</h3>
+            <p>
+              Aluminum alloy frame for easy handling. Perfect balance between
+              durability and weight. Smooth riding experience on city streets.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-cog"></i>
+            <h3>Gear System</h3>
+            <p>
+              Multiple speed options for various terrains. Easy gear shifting
+              mechanism. Optimized for both flat roads and hills.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Safety Features</h3>
+            <p>
+              Reliable braking system for quick stops. Reflective elements for
+              visibility. Quality helmet included with every rental. Safety
+              tested components.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-tools"></i>
+            <h3>Comfort & Ergonomics</h3>
+            <p>
+              Adjustable seat height for all riders. Ergonomic handlebar design.
+              Cushioned saddle for long rides. Shock-absorbing features.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-leaf"></i>
+            <h3>Eco-Friendly Transport</h3>
+            <p>
+              Zero emissions for clean city travel. Promotes healthy lifestyle.
+              Reduces traffic congestion. Sustainable transportation option.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-wrench"></i>
+            <h3>Maintenance & Care</h3>
+            <p>
+              Regular professional maintenance. Well-maintained chain and gears.
+              Pre-rental safety inspection. Emergency repair kit included.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>City Navigation</h3>
+            <p>
+              Ideal for exploring urban areas. Compact size for easy parking.
+              Maneuverable in traffic. Perfect for short to medium distances.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-shopping-basket"></i>
+            <h3>Practical Features</h3>
+            <p>
+              Front basket for carrying items. Sturdy kickstand included. Water
+              bottle holder available. Rear rack for additional storage.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Info Sections -->
+      <section class="info-sections">
+        <div class="info-block">
+          <div class="info-image">
+            <img
+              src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=600&fit=crop"
+              alt="City Bike Experience"
+            />
+          </div>
+          <div class="info-content">
+            <h3>Experience the freedom of cycling through the city</h3>
+            <p>
+              High-quality bikes designed for comfort and performance. Explore
+              your city at your own pace with reliable equipment.
+            </p>
+            <div class="info-actions">
+              <a href="#" class="info-btn primary">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-block reverse">
+          <div class="info-image">
+            <img
+              src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop"
+              alt="Affordable Rental"
+            />
+          </div>
+          <div class="info-content">
+            <h4>Affordable</h4>
+            <h3>Budget-friendly rates for everyone</h3>
+            <p>
+              Daily rates starting from just $15. Weekly and monthly packages
+              available. No hidden fees or surprise charges.
+            </p>
+            <div class="info-actions">
+              <a href="../../pages/rental-book.html" class="info-btn primary"
+                >Book Now</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <h2>Ready to start your cycling adventure</h2>
+        <p>
+          Easy booking process to get you riding in minutes. Join thousands of
+          satisfied customers.
+        </p>
+        <div class="cta-buttons">
+          <a href="../../pages/rental-book.html" class="info-btn primary"
+            >Rent Now</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
     <footer>
       <div class="footer-content">
         <div class="footer-section">
           <a class="footer-logo"
             ><img
-              src="/frontend/assets/images/Logo/Reliant_white-logo.png"
+              src="../../assets/images/Reliant_white-logo.png"
               alt="company logo"
           /></a>
           <p>Stay updated with the latest vehicle rentals and travel tips</p>
@@ -276,33 +291,39 @@
         </div>
 
         <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
-            <li><a href="../pages/services.html">Services</a></li>
-          </ul>
+          <div class="footer-page">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="../vehicle-collection.html">Vehicles</a></li>
+              <li><a href="../services.html">Services</a></li>
+            </ul>
+          </div>
         </div>
 
         <div class="footer-section">
-          <h3>Company</h3>
-          <ul class="footer-links">
-            <li><a href="../pages/about.html">About Us</a></li>
-            <li><a href="../pages/contact.html">Contact</a></li>
-          </ul>
+          <div class="footer-page">
+            <h3>Company</h3>
+            <ul class="footer-links">
+              <li><a href="../about.html">About Us</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
         </div>
 
         <div class="footer-section">
-          <h3>Connect</h3>
-          <ul class="social-links">
-            <li>
-              <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
-            </li>
-            <li>
-              <a href="#instagram"
-                ><i class="fab fa-instagram"></i> instagram</a
-              >
-            </li>
-          </ul>
+          <div class="footer-page">
+            <h3>Connect</h3>
+            <ul class="social-links">
+              <li>
+                <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
+              </li>
+              <li>
+                <a href="#instagram"
+                  ><i class="fab fa-instagram"></i> instagram</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -315,11 +336,8 @@
         </ul>
       </div>
     </footer>
-    <!-- Footer Section Ends -->
 
-    <!-- Modal and Pages Linking Section -->
-
-    <!-- Sign-In Modal -->
+    <!-- Sign In Modal -->
     <div class="modal-overlay" id="signinModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('signin')">
@@ -375,7 +393,7 @@
       </div>
     </div>
 
-    <!-- Sign-Up Modal -->
+    <!-- Sign Up Modal -->
     <div class="modal-overlay" id="signupModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('signup')">
@@ -461,7 +479,7 @@
       </div>
     </div>
 
-    <!-- Forgot Password Modal -->
+    <!-- Forgot Password User Modal -->
     <div class="modal-overlay" id="forgotModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('forgot')">
@@ -487,7 +505,7 @@
       </div>
     </div>
 
-    <!-- Forgot Admin Password Modal -->
+    <!-- Forgot Password Admin Modal -->
     <div class="modal-overlay" id="forgotAdminModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('forgotAdmin')">
@@ -517,7 +535,7 @@
       </div>
     </div>
 
-    <!-- Code Verification Modal -->
+    <!-- Verification Code Modal -->
     <div class="modal-overlay" id="verifyCodeModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('verifyCode')">
@@ -590,7 +608,7 @@
       </div>
     </div>
 
-    <!-- Password Reset Successful Modal -->
+    <!-- Success Modal -->
     <div class="modal-overlay" id="successModal">
       <div class="modal">
         <div style="text-align: center">
@@ -608,7 +626,6 @@
       </div>
     </div>
 
-    <script src="/frontend/js/vehicle-details.js"></script>
-    
-    </body>
+    <script src="../../js/vehicle-details.js"></script>
+  </body>
 </html>
