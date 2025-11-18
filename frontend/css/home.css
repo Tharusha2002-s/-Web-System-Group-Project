@@ -196,7 +196,7 @@ nav {
 /* hero section */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url("../assets/images/home/Home\ cover.jpg") center/cover no-repeat;
+    url("../assets/images/home/Home\ cover\ 2.png") center/cover no-repeat;
   height: 85vh;
   display: flex;
   align-items: center;
@@ -409,12 +409,18 @@ nav {
   transition: 0.3s;
 }
 
-.ride-buttons .book-btn {
+.boook-btn {
+  display: inline-block;
   background: #ff7b00;
   color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-.ride-buttons .book-btn:hover {
+.boook-btn:hover {
   background: #e56c00;
   transform: scale(1.05);
 }
@@ -519,7 +525,7 @@ nav {
 }
 
 .stars {
-  color: #ff7b00;
+  color: #ffd700;
   font-size: 1.3rem;
   margin-bottom: 10px;
 }
