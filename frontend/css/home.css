@@ -9,9 +9,13 @@ body {
   font-family: "Arial", sans-serif;
   min-height: 100vh;
   background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
-/* nav bar */
+/* Navigation Bar Section */
+
 nav {
   background: white;
   padding: 1rem 2rem;
@@ -22,18 +26,21 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
 }
 
 .logo {
   display: flex;
   align-items: center;
   padding: 0px;
+  flex-shrink: 0;
 }
 
 .company-logo {
   height: 50px;
   width: auto;
   margin-left: 40px;
+  max-width: 150px;
 }
 
 .nav-links {
@@ -41,10 +48,12 @@ nav {
   list-style: none;
   gap: 2rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .mobile-auth-buttons {
   display: none;
+  width: 100%;
 }
 
 .nav-links a {
@@ -53,6 +62,7 @@ nav {
   font-size: 1rem;
   transition: all 0.15s ease;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -74,10 +84,11 @@ nav {
   width: 100%;
 }
 
-/* authentication button */
+/* Authentication Buttons */
 .auth-buttons {
   display: flex;
   gap: 1rem;
+  flex-shrink: 0;
 }
 
 .btn {
@@ -87,6 +98,7 @@ nav {
   cursor: pointer;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .btn-signin {
@@ -106,16 +118,17 @@ nav {
 }
 
 .btn-signup:hover {
-  background: #e56c00;
+  background: #d66000;
 }
 
-/* user profile */
+/* User Profile */
 .user-profile {
   display: none;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
   position: relative;
+  flex-shrink: 0;
 }
 
 .user-profile.active {
@@ -132,6 +145,7 @@ nav {
   justify-content: center;
   color: white;
   font-weight: bold;
+  flex-shrink: 0;
 }
 
 .profile-dropdown {
@@ -144,6 +158,7 @@ nav {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   min-width: 200px;
   overflow: hidden;
+  z-index: 101;
 }
 
 .profile-dropdown.show {
@@ -166,7 +181,7 @@ nav {
   border-bottom: none;
 }
 
-/* mobile menu button */
+/* Mobile Menu Button */
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -174,6 +189,8 @@ nav {
   font-size: 1.5rem;
   cursor: pointer;
   color: #333;
+  padding: 0.5rem;
+  z-index: 102;
 }
 
 /* hero section */
@@ -526,12 +543,14 @@ nav {
   color: #777;
 }
 
-/* footer style */
+/* Footer Section */
+
 footer {
   background: #222;
   color: #ffffff;
   padding: 3rem 2rem 1.5rem;
-  margin-top: -50px;
+  margin-top: auto;
+  width: 100%;
 }
 
 .footer-content {
@@ -542,43 +561,50 @@ footer {
   gap: 2rem;
   margin-bottom: 2rem;
   color: white;
-  margin-top: -2rem;
 }
 
 .footer-section h3 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  margin-left: 120px;
-  margin-top: 66px;
+  margin-left: 0;
+  margin-top: 0;
   margin-bottom: 20px;
+  color: #fff;
 }
+
 .footer-section li {
-  margin-left: 120px;
+  margin-left: 0;
+  margin-bottom: 0.8rem;
 }
+
 .footer-section {
   color: white;
 }
 
 .footer-logo img {
-  width: 100px;
+  width: 120px;
   height: auto;
   display: block;
+  margin-bottom: 1rem;
 }
 
 .footer-section p {
   color: #ffffff;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  font-size: 0.95rem;
 }
 
 .newsletter-form {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .newsletter-form input {
   flex: 1;
+  min-width: 200px;
   padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -593,6 +619,7 @@ footer {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
+  white-space: nowrap;
 }
 
 .newsletter-form button:hover {
@@ -601,11 +628,13 @@ footer {
 
 .newsletter-note {
   font-size: 0.85rem;
-  color: white;
+  color: #ccc;
+  line-height: 1.4;
 }
 
 .footer-links {
   list-style: none;
+  padding: 0;
 }
 
 .footer-links li {
@@ -616,14 +645,17 @@ footer {
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: 0.95rem;
 }
 
 .footer-links a:hover {
   color: #ff7b00;
+  text-decoration: underline;
 }
 
 .social-links {
   list-style: none;
+  padding: 0;
 }
 
 .social-links li {
@@ -637,6 +669,7 @@ footer {
   align-items: center;
   gap: 0.5rem;
   transition: color 0.3s ease;
+  font-size: 0.95rem;
 }
 
 .social-links a:hover {
@@ -645,36 +678,44 @@ footer {
 
 .social-links i {
   width: 20px;
+  font-size: 1.2rem;
 }
 
 .footer-bottom {
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 2rem;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #444;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.9rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .footer-legal {
   display: flex;
   gap: 2rem;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 .footer-legal a {
   color: white;
-  text-decoration: underline;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-legal a:hover {
   color: #ff7b00;
+  text-decoration: underline;
 }
 
-/* modal base */
+/* ------------------------------------------------------------- */
+
+/* Modal Section */
+
 .modal-overlay {
   display: none;
   position: fixed;
@@ -687,6 +728,7 @@ footer {
   z-index: 1000;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .modal-overlay.active {
@@ -703,6 +745,7 @@ footer {
   animation: slideDown 0.3s ease;
   max-height: 90vh;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 @keyframes slideDown {
@@ -722,9 +765,19 @@ footer {
   right: 1rem;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   color: #666;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+  color: #333;
 }
 
 .modal-title {
@@ -732,9 +785,9 @@ footer {
   margin-bottom: 1.5rem;
   color: #333;
   text-align: center;
+  padding-right: 2rem;
 }
 
-/* form element */
 .input-group {
   margin-bottom: 1rem;
 }
@@ -744,19 +797,23 @@ footer {
   margin-bottom: 0.5rem;
   color: #555;
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .input-group input {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
 
 .input-group input:focus {
   outline: none;
-  border-color: #ff7b00;
+  border-color: #e56c00;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .forgot-password {
@@ -765,29 +822,37 @@ footer {
 }
 
 .forgot-password a {
-  color: #ff7b00;
+  color: #e56c00;
   text-decoration: none;
   font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+  color: #e56c00;
+  text-decoration: underline;
 }
 
 .btn-primary {
   width: 100%;
-  padding: 0.8rem;
-  background: #ff7b00;
+  padding: 0.9rem;
+  background: #e56c00;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   margin-bottom: 1rem;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  background: #e88930;
+  background: #e56c00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* modal divider and social design */
 .divider {
   text-align: center;
   margin: 1.5rem 0;
@@ -809,18 +874,21 @@ footer {
   padding: 0 1rem;
   position: relative;
   color: #999;
+  font-size: 0.9rem;
 }
 
 .social-login {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .social-btn {
   flex: 1;
+  min-width: 120px;
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   border-radius: 5px;
   cursor: pointer;
   display: flex;
@@ -829,10 +897,11 @@ footer {
   gap: 0.5rem;
   transition: all 0.3s ease;
   background: white;
+  font-weight: 500;
 }
 
 .social-btn:hover {
-  border-color: #ff7b00;
+  border-color: #e56c00;
   background: #f8f8ff;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -856,40 +925,57 @@ footer {
 }
 
 .social-btn.facebook i {
-  color: #1877f2;
+  color: #4285f4;
 }
 
 .switch-mode {
   text-align: center;
   margin-top: 1rem;
+  font-size: 0.95rem;
 }
 
 .switch-mode a {
-  color: #ff7b00;
+  color: #e56c00;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-/* modal addition */
+.switch-mode a:hover {
+  color: #e56c00;
+  text-decoration: underline;
+}
+
 .modal-description {
   text-align: center;
   color: #666;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .password-requirements {
   margin-bottom: 1rem;
   font-size: 0.85rem;
   color: #666;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.password-requirements p {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .password-requirements ul {
   padding-left: 1.5rem;
+  margin: 0;
 }
 
 .password-requirements li {
   margin-bottom: 0.3rem;
+  line-height: 1.4;
 }
 
 .success-icon {
@@ -897,6 +983,18 @@ footer {
   font-size: 4rem;
   color: #4caf50;
   margin-bottom: 1rem;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Responsive design */

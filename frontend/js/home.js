@@ -1,4 +1,6 @@
-/* Global data */
+/* Global Variables Section */
+
+// Store verification data for password reset flow
 let verificationData = {
   email: "",
   code: "",
@@ -6,13 +8,17 @@ let verificationData = {
   isAdmin: false,
 };
 
+// Check if on admin page and open admin modal
 window.addEventListener("load", () => {
   if (window.location.pathname.includes("/admin/")) {
     openModal("admin");
   }
 });
 
+/* Content Loaded Event Section */
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Add hover animation to all buttons
   document.querySelectorAll("button").forEach((btn) => {
     btn.addEventListener("mouseenter", () => {
       if (!btn.style.transform || btn.style.transform === "scale(1)") {
@@ -23,8 +29,24 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.style.transform = "scale(1)";
     });
   });
+
+  // Add click listener for user profile dropdown
+  const userProfile = document.getElementById("userProfile");
+  if (userProfile) {
+    userProfile.addEventListener("click", (e) => {
+      if (!e.target.closest(".profile-dropdown")) {
+        toggleDropdown();
+      }
+    });
+  }
 });
 
+/* Modal Function Section */
+
+/**
+ * Open a specific modal by type
+ * @param {string} type - Modal type identifier
+ */
 function openModal(type) {
   const modals = {
     signin: "signinModal",
@@ -41,6 +63,10 @@ function openModal(type) {
   }
 }
 
+/**
+ * Close a specific modal by type
+ * @param {string} type - Modal type identifier
+ */
 function closeModal(type) {
   const modals = {
     signin: "signinModal",
@@ -57,6 +83,9 @@ function closeModal(type) {
   }
 }
 
+/**
+ * @param {string} type - Modal type to open
+ */
 function switchModal(type) {
   closeModal("signin");
   closeModal("signup");
@@ -69,6 +98,12 @@ function switchModal(type) {
   openModal(type);
 }
 
+/* Authentication Functions Section */
+
+/**
+ * Handle user sign in
+ * Validates input and shows user profile
+ */
 function handleSignIn() {
   const email = document.getElementById("signinEmail").value;
   const password = document.getElementById("signinPassword").value;
@@ -79,13 +114,18 @@ function handleSignIn() {
   }
 
   const userName = email.split("@")[0];
-  alert("Sign in successful for: " + userName);
+  showUserProfile(userName);
   closeModal("signin");
 
+  // Clear form fields
   document.getElementById("signinEmail").value = "";
   document.getElementById("signinPassword").value = "";
 }
 
+/**
+ * Handle user sign up
+ * Validates input and shows user profile
+ */
 function handleSignUp() {
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
@@ -96,13 +136,18 @@ function handleSignUp() {
   }
 
   const userName = email.split("@")[0];
-  alert("Sign up successful for: " + userName);
+  showUserProfile(userName);
   closeModal("signup");
 
+  // Clear form fields
   document.getElementById("signupEmail").value = "";
   document.getElementById("signupPassword").value = "";
 }
 
+/**
+ * Handle admin login
+ * Validates admin credentials and shows profile
+ */
 function handleAdminLogin() {
   const username = document.getElementById("adminUsername").value;
   const password = document.getElementById("adminPassword").value;
@@ -112,13 +157,20 @@ function handleAdminLogin() {
     return;
   }
 
-  alert("Admin login successful for: " + username);
+  showUserProfile(username, true);
   closeModal("admin");
 
+  // Clear form fields
   document.getElementById("adminUsername").value = "";
   document.getElementById("adminPassword").value = "";
 }
 
+/* Password Reset Functions Section */
+
+/**
+ * Send verification code to user email
+ * Generates random 6-digit code
+ */
 function sendVerificationCode() {
   const email = document.getElementById("forgotEmail").value;
 
@@ -127,12 +179,14 @@ function sendVerificationCode() {
     return;
   }
 
+  // Validate email format
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     alert("Please enter a valid email address");
     return;
   }
 
+  // Generate random 6-digit code
   const code = Math.floor(100000 + Math.random() * 900000).toString();
   verificationData.email = email;
   verificationData.code = code;
@@ -149,6 +203,10 @@ function sendVerificationCode() {
   openModal("verifyCode");
 }
 
+/**
+ * Send verification code to admin email
+ * Generates random 6-digit code for admin
+ */
 function sendAdminVerificationCode() {
   const email = document.getElementById("forgotAdminEmail").value;
 
@@ -157,12 +215,14 @@ function sendAdminVerificationCode() {
     return;
   }
 
+  // Validate email format
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     alert("Please enter a valid email address");
     return;
   }
 
+  // Generate random 6-digit code
   const code = Math.floor(100000 + Math.random() * 900000).toString();
   verificationData.email = email;
   verificationData.code = code;
@@ -179,6 +239,10 @@ function sendAdminVerificationCode() {
   openModal("verifyCode");
 }
 
+/**
+ * Resend verification code
+ * Generates new code for existing email
+ */
 function resendCode() {
   if (!verificationData.email) {
     alert("No email found. Please start over.");
@@ -200,6 +264,10 @@ function resendCode() {
   );
 }
 
+/**
+ * Verify the entered code
+ * Compares user input with generated code
+ */
 function verifyCode() {
   const enteredCode = document.getElementById("verificationCode").value;
 
@@ -219,6 +287,10 @@ function verifyCode() {
   openModal("resetPassword");
 }
 
+/**
+ * Reset user password
+ * Validates new password and confirms match
+ */
 function resetPassword() {
   if (!verificationData.verified) {
     alert("Please verify your email first");
@@ -239,6 +311,7 @@ function resetPassword() {
     return;
   }
 
+  // Validate password strength
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
   if (!passwordRegex.test(newPassword)) {
     alert(
@@ -249,6 +322,7 @@ function resetPassword() {
 
   console.log("Password reset successful for", verificationData.email);
 
+  // Clear all form fields
   document.getElementById("forgotEmail").value = "";
   document.getElementById("forgotAdminEmail").value = "";
   document.getElementById("verificationCode").value = "";
@@ -259,10 +333,15 @@ function resetPassword() {
   openModal("success");
 }
 
+/**
+ * Handle completion of password reset success
+ * Redirects to appropriate login modal
+ */
 function handleSuccessComplete() {
   closeModal("success");
   const wasAdmin = verificationData.isAdmin;
 
+  // Reset verification data
   verificationData = {
     email: "",
     code: "",
@@ -270,6 +349,7 @@ function handleSuccessComplete() {
     isAdmin: false,
   };
 
+  // Open appropriate login modal
   if (wasAdmin) {
     openModal("admin");
   } else {
@@ -277,37 +357,65 @@ function handleSuccessComplete() {
   }
 }
 
+/* User Profile Function Section */
+
+/**
+ * Display user profile in navigation
+ * @param {string} name - User's name
+ * @param {boolean} isAdmin - Whether user is admin
+ */
 function showUserProfile(name, isAdmin = false) {
-  const userProfile = document.getElementById("userProfile");
-  if (userProfile) {
-    document.getElementById("authButtons").style.display = "none";
-    userProfile.classList.add("active");
-    document.getElementById("userName").textContent = name;
-    document.getElementById("userInitial").textContent = name
-      .charAt(0)
-      .toUpperCase();
-  }
+  document.getElementById("authButtons").style.display = "none";
+  document.getElementById("userProfile").classList.add("active");
+  document.getElementById("userName").textContent = name;
+  document.getElementById("userInitial").textContent = name
+    .charAt(0)
+    .toUpperCase();
 }
 
+/**
+ * Toggle user profile dropdown menu
+ */
 function toggleDropdown() {
-  const profileDropdown = document.getElementById("profileDropdown");
-  if (profileDropdown) {
-    profileDropdown.classList.toggle("show");
-  }
+  document.getElementById("profileDropdown").classList.toggle("show");
 }
 
+/**
+ * Log out current user
+ * Resets UI to show auth buttons
+ */
 function logout() {
-  const authButtons = document.getElementById("authButtons");
-  const userProfile = document.getElementById("userProfile");
-  const profileDropdown = document.getElementById("profileDropdown");
-
-  if (authButtons) authButtons.style.display = "flex";
-  if (userProfile) userProfile.classList.remove("active");
-  if (profileDropdown) profileDropdown.classList.remove("show");
-
+  document.getElementById("authButtons").style.display = "flex";
+  document.getElementById("userProfile").classList.remove("active");
+  document.getElementById("profileDropdown").classList.remove("show");
   alert("Logged out successfully");
 }
 
+/* Mobile Menu Functions Section */
+
+/**
+ * Toggle mobile navigation menu
+ */
+function toggleMobileMenu() {
+  document.getElementById("navLinks").classList.toggle("mobile-active");
+}
+
+/* Newsletter Function Section */
+
+/**
+ * Handle newsletter subscription
+ * @param {Event} event - Form submission event
+ */
+function handleNewsletter(event) {
+  event.preventDefault();
+  const email = event.target.querySelector('input[type="email"]').value;
+  alert(`Thank you for subscribing with: ${email}`);
+  event.target.reset();
+}
+
+/* Event Listeners Section */
+
+// Close dropdown when clicking outside
 document.addEventListener("click", (e) => {
   const profileDropdown = document.getElementById("profileDropdown");
   if (profileDropdown && !e.target.closest(".user-profile")) {
@@ -315,13 +423,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-function toggleMobileMenu() {
-  const navLinks = document.getElementById("navLinks");
-  if (navLinks) {
-    navLinks.classList.toggle("mobile-active");
-  }
-}
-
+// Close modal when clicking outside of it
 document.querySelectorAll(".modal-overlay").forEach((overlay) => {
   overlay.addEventListener("click", (e) => {
     if (e.target === overlay) {
@@ -330,13 +432,7 @@ document.querySelectorAll(".modal-overlay").forEach((overlay) => {
   });
 });
 
-function handleNewsletter(event) {
-  event.preventDefault();
-  const email = event.target.querySelector('input[type="email"]').value;
-  alert(`Thank you for subscribing with: ${email}`);
-  event.target.reset();
-}
-
+// Handle Enter key press in modals
 document.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     if (document.getElementById("signinModal").classList.contains("active")) {
