@@ -296,29 +296,30 @@
       </div>
     </footer>
 
-    <!-- Sign in -->
+    <!-- Modal and Pages Linking Section -->
+
+    <!-- Sign-In Modal -->
     <div class="modal-overlay" id="signinModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('signin')">
           &times;
         </button>
         <h2 class="modal-title">Sign In</h2>
+
         <div class="input-group">
-          <label>Email</label
-          ><input
-            type="email"
-            id="signinEmail"
-            placeholder="Enter your email"
-          />
+          <label>Email</label>
+          <input type="email" id="signinEmail" placeholder="Enter your email" />
         </div>
+
         <div class="input-group">
-          <label>Password</label
-          ><input
+          <label>Password</label>
+          <input
             type="password"
             id="signinPassword"
             placeholder="Enter your password"
           />
         </div>
+
         <div class="forgot-password">
           <a
             href="#"
@@ -326,8 +327,11 @@
             >Forgot Password?</a
           >
         </div>
+
         <button class="btn-primary" onclick="handleSignIn()">Sign In</button>
+
         <div class="divider"><span>OR</span></div>
+
         <div class="social-login">
           <button
             class="social-btn google"
@@ -342,6 +346,7 @@
             <i class="fab fa-facebook"></i> Facebook
           </button>
         </div>
+
         <div class="switch-mode">
           Don't have an account?
           <a href="#" onclick="switchModal('signup')">Sign Up</a>
@@ -349,31 +354,32 @@
       </div>
     </div>
 
-    <!--Sign up -->
+    <!-- Sign-Up Modal -->
     <div class="modal-overlay" id="signupModal">
       <div class="modal">
         <button class="close-modal" onclick="closeModal('signup')">
           &times;
         </button>
         <h2 class="modal-title">Sign Up</h2>
+
         <div class="input-group">
-          <label>Email</label
-          ><input
-            type="email"
-            id="signupEmail"
-            placeholder="Enter your email"
-          />
+          <label>Email</label>
+          <input type="email" id="signupEmail" placeholder="Enter your email" />
         </div>
+
         <div class="input-group">
-          <label>Password</label
-          ><input
+          <label>Password</label>
+          <input
             type="password"
             id="signupPassword"
             placeholder="Create a password"
           />
         </div>
+
         <button class="btn-primary" onclick="handleSignUp()">Sign Up</button>
+
         <div class="divider"><span>OR</span></div>
+
         <div class="social-login">
           <button
             class="social-btn google"
@@ -388,6 +394,7 @@
             <i class="fab fa-facebook"></i> Facebook
           </button>
         </div>
+
         <div class="switch-mode">
           Already have an account?
           <a href="#" onclick="switchModal('signin')">Sign In</a>
@@ -395,17 +402,186 @@
       </div>
     </div>
 
-    <!-- Sucess -->
+    <!-- Admin Login Modal -->
+    <div class="modal-overlay" id="adminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('admin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Admin Login</h2>
+
+        <div class="input-group">
+          <label>Admin Username</label>
+          <input
+            type="text"
+            id="adminUsername"
+            placeholder="Enter admin username"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter admin password"
+          />
+        </div>
+
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgotAdmin'); closeModal('admin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <button class="btn-primary" onclick="handleAdminLogin()">Login</button>
+      </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal-overlay" id="forgotModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgot')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Password</h2>
+        <p class="modal-description">
+          Enter your email to receive a verification code
+        </p>
+
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" id="forgotEmail" placeholder="Enter your email" />
+        </div>
+
+        <button class="btn-primary" onclick="sendVerificationCode()">
+          Send Verification Code
+        </button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('signin')">Back to Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Admin Password Modal -->
+    <div class="modal-overlay" id="forgotAdminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgotAdmin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Admin Password</h2>
+        <p class="modal-description">
+          Enter your admin email to receive a verification code
+        </p>
+
+        <div class="input-group">
+          <label>Admin Email Address</label>
+          <input
+            type="email"
+            id="forgotAdminEmail"
+            placeholder="Enter your admin email"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="sendAdminVerificationCode()">
+          Send Verification Code
+        </button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('admin')">Back to Admin Login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code Verification Modal -->
+    <div class="modal-overlay" id="verifyCodeModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('verifyCode')">
+          &times;
+        </button>
+        <h2 class="modal-title">Enter Verification Code</h2>
+        <p class="modal-description">
+          We've sent a code to <strong id="sentToEmail"></strong>
+        </p>
+
+        <div class="input-group">
+          <label>Verification Code</label>
+          <input
+            type="text"
+            id="verificationCode"
+            placeholder="Enter 6-digit code"
+            maxlength="6"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="verifyCode()">Verify Code</button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="resendCode()">Resend Code</a> |
+          <a href="#" onclick="switchModal('forgot')">Change Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal-overlay" id="resetPasswordModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('resetPassword')">
+          &times;
+        </button>
+        <h2 class="modal-title">Create New Password</h2>
+        <p class="modal-description">Enter your new password</p>
+
+        <div class="input-group">
+          <label>New Password</label>
+          <input
+            type="password"
+            id="newPassword"
+            placeholder="Enter new password"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm new password"
+          />
+        </div>
+
+        <div class="password-requirements">
+          <p style="margin-bottom: 0.5rem">Password must contain:</p>
+          <ul>
+            <li>At least 8 characters</li>
+            <li>One uppercase letter</li>
+            <li>One lowercase letter</li>
+            <li>One number</li>
+          </ul>
+        </div>
+
+        <button class="btn-primary" onclick="resetPassword()">
+          Reset Password
+        </button>
+      </div>
+    </div>
+
+    <!-- Password Reset Successful Modal -->
     <div class="modal-overlay" id="successModal">
       <div class="modal">
         <div style="text-align: center">
-          <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-          <h2 class="modal-title">Success!</h2>
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h2 class="modal-title">Password Reset Successful!</h2>
           <p class="modal-description">
-            Your action was completed successfully.
+            Your password has been successfully reset.
           </p>
-          <button class="btn-primary" onclick="closeModal('success')">
-            Continue
+          <button class="btn-primary" onclick="handleSuccessComplete()">
+            Sign In Now
           </button>
         </div>
       </div>

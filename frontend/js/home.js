@@ -8,12 +8,22 @@ let verificationData = {
   isAdmin: false,
 };
 
+/* Global Variables Section Ends */
+
+/* ----------------------------------------------------------------------- */
+
+/* Page Load Event Section */
+
 // Check if on admin page and open admin modal
 window.addEventListener("load", () => {
   if (window.location.pathname.includes("/admin/")) {
     openModal("admin");
   }
 });
+
+/* Page Load Event Section Ends */
+
+/* ----------------------------------------------------------------------- */
 
 /* Content Loaded Event Section */
 
@@ -40,6 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+/* Content Loaded Event Section Ends */
+
+/* ----------------------------------------------------------------------- */
 
 /* Modal Function Section */
 
@@ -97,6 +111,10 @@ function switchModal(type) {
   closeModal("success");
   openModal(type);
 }
+
+/* Modal Function Section Ends */
+
+/* ----------------------------------------------------------------------- */
 
 /* Authentication Functions Section */
 
@@ -164,6 +182,10 @@ function handleAdminLogin() {
   document.getElementById("adminUsername").value = "";
   document.getElementById("adminPassword").value = "";
 }
+
+/* Authentication Functions Section Ends */
+
+/* ----------------------------------------------------------------------- */
 
 /* Password Reset Functions Section */
 
@@ -357,6 +379,10 @@ function handleSuccessComplete() {
   }
 }
 
+/* Password Reset Functions Section Ends */
+
+/* ----------------------------------------------------------------------- */
+
 /* User Profile Function Section */
 
 /**
@@ -391,6 +417,10 @@ function logout() {
   alert("Logged out successfully");
 }
 
+/* User Profile Function Section Ends */
+
+/* ----------------------------------------------------------------------- */
+
 /* Mobile Menu Functions Section */
 
 /**
@@ -399,6 +429,10 @@ function logout() {
 function toggleMobileMenu() {
   document.getElementById("navLinks").classList.toggle("mobile-active");
 }
+
+/* Mobile Menu Functions Section Ends */
+
+/* ----------------------------------------------------------------------- */
 
 /* Newsletter Function Section */
 
@@ -412,6 +446,10 @@ function handleNewsletter(event) {
   alert(`Thank you for subscribing with: ${email}`);
   event.target.reset();
 }
+
+/* Newsletter Function Section Ends */
+
+/* ----------------------------------------------------------------------- */
 
 /* Event Listeners Section */
 
@@ -464,3 +502,5 @@ document.addEventListener("keypress", (e) => {
     }
   }
 });
+
+/* Event Listeners Section Ends */
