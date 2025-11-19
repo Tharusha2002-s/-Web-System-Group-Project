@@ -1,263 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
   <style>
-    
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #F4F6F8; 
-      color: #333333;
-    }
-
-    
-    .navbar {
+    /* Navigation Bar Styles */
+    nav {
+      background: white;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
-      background-color: #FFFFFF; 
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #FF7A00; 
+      display: flex;
+      align-items: center;
+      padding: 0px;
     }
 
-    .navbar ul {
+    .company-logo {
+      height: 50px;
+      width: auto;
+      margin-left: 40px;
+    }
+
+    .nav-links {
       display: flex;
       list-style: none;
-      gap: 30px;
+      gap: 2rem;
+      align-items: center;
     }
 
-    .navbar a {
+    .mobile-auth-buttons {
+      display: none;
+    }
+
+    .nav-links a {
       text-decoration: none;
-      color: #1E1E1E; 
-      font-weight: 500;
-      transition: color 0.3s ease;
+      color: #333;
+      font-size: 1rem;
+      transition: all 0.15s ease;
+      position: relative;
     }
 
-    .navbar a:hover {
-      color: #FF8C1A; 
+    .nav-links a:hover {
+      font-weight: bold;
     }
 
-    .navbar .auth button {
-      margin-left: 10px;
-      padding: 6px 14px;
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #e56c00;
+      transition: width 0.15s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Authentication Buttons */
+    .auth-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.5rem;
       border: none;
-      border-radius: 20px;
+      border-radius: 5px;
       cursor: pointer;
-      font-weight: 500;
       font-size: 0.9rem;
       transition: all 0.3s ease;
     }
 
-    .login {
+    .btn-signin {
       background: transparent;
-      border: 1px solid #1E1E1E;
-      color: #1E1E1E;
+      color: #e56c00;
+      border: 2px solid #e56c00;
     }
 
-    .login:hover {
-      border-color: #FF8C1A;
-      color: #FF8C1A;
+    .btn-signin:hover {
+      background: #e56c00;
+      color: white;
     }
 
-    .signup {
-      background: #FF7A00; 
-      color: #FFFFFF;
+    .btn-signup {
+      background: #e56c00;
+      color: white;
     }
 
-    .signup:hover {
-      background: #FF8C1A; 
+    .btn-signup:hover {
+      background: #d66000;
     }
 
-    
-    section {
+    /* User Profile */
+    .user-profile {
       display: none;
-      padding: 20px;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    
-    .footers {
-      display: grid;
-      gap: 40px;
-      padding: 80px 90px;
-      grid-template-columns: repeat(4, 1fr);
-      background-color: #E8ECF1; 
-      margin: 0;
-      color: #202124; 
-      border-top: 2px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .footers h4 {
-      color:blue; 
-    }
-
-    .footers a {
-      display: block;
-      padding: 5px 0;
-      text-align: left;
-      cursor: pointer;
-      font-size: 16px;
-      color: #555555; 
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footers a:hover {
-      color: #FF8C1A; 
-      text-decoration: underline;
-    }
-
-  
-    .end-section {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 30px 60px;
-      background-color: #FFFFFF;
-      color: #333333;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
-    }
-
-    .end-section a {
-      color: #FF7A00;
-      text-decoration: none;
-    }
-
-    .end-section a:hover {
-      color: #FF8C1A;
-    }
-
-    .end-buttons {
-      display: flex;
-      gap: 15px;
-    }
-
-    .endbutton {
+      gap: 0.5rem;
       cursor: pointer;
-      color: #555555;
-      font-size: 1rem;
-      transition: color 0.3s ease;
+      position: relative;
     }
 
-    .endbutton:hover {
-      color: #FF8C1A;
+    .user-profile.active {
+      display: flex;
+    }
+
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e56c00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    .profile-dropdown {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      min-width: 200px;
+      overflow: hidden;
+    }
+
+    .profile-dropdown.show {
+      display: block;
+    }
+
+    .dropdown-item {
+      padding: 1rem;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+      background: #f8f8f8;
+    }
+
+    .dropdown-item.logout {
+      color: #e74c3c;
+      border-bottom: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* Tablet Responsive */
+    @media (max-width: 1024px) {
+      .company-logo {
+        margin-left: 20px;
+        height: 45px;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.8rem 1rem;
+      }
+
+      .company-logo {
+        margin-left: 0;
+        height: 40px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 0;
+        align-items: stretch;
+        z-index: 99;
+      }
+
+      .nav-links li {
+        border-bottom: 1px solid #f0f0f0;
+        width: 100%;
+      }
+
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        width: 100%;
+      }
+
+      .nav-links.mobile-active {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+        padding: 0.5rem;
+      }
+
+      .auth-buttons {
+        display: none;
+      }
+
+      .mobile-auth-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+        border-top: 2px solid #f0f0f0;
+        margin-top: 0;
+      }
+
+      .mobile-auth-buttons .btn {
+        width: 100%;
+        padding: 0.8rem;
+      }
+
+      /* User Profile Mobile */
+      .user-profile {
+        font-size: 0.85rem;
+        gap: 0.3rem;
+      }
+
+      .profile-pic {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+      }
+
+      .profile-dropdown {
+        right: -10px;
+        min-width: 180px;
+      }
     }
   </style>
-</head>
-<body>
+  <body>
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+      <a href="../pages/Home.html" class="logo">
+        <img
+          src="../assets/images/logo.png"
+          alt="Company Logo"
+          class="company-logo"
+        />
+      </a>
 
-  
-  <header class="navbar">
-    <div class="logo">Logo</div>
-    <nav>
-      <ul>
-        <li><a href="#">Vehicles</a></li>
-        <li><a href="#">Locations</a></li>
-        <li><a href="#">Rates</a></li>
-        <li><a href="#">More ▾</a></li>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+        <li><a href="../pages/about.html">About</a></li>
+        <li><a href="../pages/services.html">Services</a></li>
+        <li><a href="../pages/faq.html">FAQ</a></li>
+        <li><a href="../pages/contact.html">Contact</a></li>
+        <div class="mobile-auth-buttons">
+          <button class="btn btn-signin" onclick="openModal('signin')">
+            Sign In
+          </button>
+          <button class="btn btn-signup" onclick="openModal('signup')">
+            Sign Up
+          </button>
+        </div>
       </ul>
+
+      <div class="auth-buttons" id="authButtons">
+        <button class="btn btn-signin" onclick="openModal('signin')">
+          Sign In
+        </button>
+        <button class="btn btn-signup" onclick="openModal('signup')">
+          Sign Up
+        </button>
+      </div>
+
+      <div class="user-profile" id="userProfile" onclick="toggleDropdown()">
+        <div class="profile-pic" id="userInitial">U</div>
+        <span id="userName">User</span>
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-item">Profile</div>
+          <div class="dropdown-item">Settings</div>
+          <div class="dropdown-item logout" onclick="logout()">Logout</div>
+        </div>
+      </div>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
     </nav>
-    <div class="auth">
-      <button class="login">Login</button>
-      <button class="signup">Sign Up</button>
-    </div>
-  </header>
-
-  
-  <section id="home" class="active">
-    <div class="footers">
-      <div>
-        <h4>Quick links</h4>
-        <a onclick="openModal('cars')">Cars</a>
-        <a onclick="openModal('vans')">Vans</a>
-        <a onclick="openModal('bikes')">Bikes</a>
-        <a onclick="openModal('three')">Three wheelers</a>
-      </div>
-
-      <div>
-        <h4>Company info</h4>
-        <a onclick="openModal('about')">About us</a>
-        <a onclick="openModal('contact')">Contact</a>
-        <a onclick="openModal('support')">Support</a>
-        <a onclick="openModal('account')">Account</a>
-      </div>
-
-      <div>
-        <h4>Legal</h4>
-        <a onclick="openModal('policies')">Policies</a>
-        <a onclick="openModal('privacy')">Privacy</a>
-        <a onclick="openModal('guidelines')">Guidelines</a>
-        <a onclick="openModal('team')">Join our team</a>
-      </div>
-
-      <div>
-        <h4>Resources</h4>
-        <a onclick="openModal('guides')">Guides</a>
-        <a onclick="openModal('partners')">Partners</a>
-        <a onclick="openModal('affiliates')">Affiliates</a>
-        <a onclick="openModal('press')">Press</a>
-      </div>
-    </div>
-
-    <div class="end-section">
-      <span>Ready to ride? <a href="#">Start your journey</a></span>
-      <div class="end-buttons">
-        <a class="endbutton">🔍︎ Button</a>
-        <a class="endbutton">☰ Button</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="vehicle"></section>
-  <section id="rent"></section>
-  <section id="location"></section>
-  <section id="more"></section>
-  <section id="login"></section>
-  <section id="signin"></section>
-
-  <script>
-    function show(sectionId) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(sectionId).classList.add("active");
-
-      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
-      event.target.classList.add("active");
-    }
-
-    function openModal(id) {
-      document.getElementById(id).style.display = "flex";
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = "none";
-    }
-
-    window.onclick = function (event) {
-      const modals = document.querySelectorAll(".modal");
-      modals.forEach(modal => {
-        if (event.target === modal) {
-          modal.style.display = "none";
-        }
-      });
-    };
-  </script>
-
-</body>
+  </body>
 </html>
