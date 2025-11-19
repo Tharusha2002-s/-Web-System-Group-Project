@@ -233,7 +233,7 @@ nav {
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-top: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 150px;
 }
 .btn1,
 .btn2 {
@@ -251,10 +251,12 @@ nav {
 .cbtn {
   background: #e56c00;
   color: white;
+  margin-left: 180px;
 }
 .cnbtn {
   background: white;
   color: #e56c00;
+  margin-right: 180px;
 }
 .line3 button:hover {
   background-color: #e56c00;

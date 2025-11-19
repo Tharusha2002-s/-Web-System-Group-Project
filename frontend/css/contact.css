@@ -122,9 +122,8 @@ nav {
 /* hero section */
 .contact-hero {
   background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url("https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200")
-      center/cover no-repeat;
-  height: 50vh;
+    url("../assets/images/contact/contact.png") center/cover no-repeat;
+  height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -307,6 +306,7 @@ nav {
 /* contact form section */
 .contact-form-section {
   background: #fff;
+  margin-bottom: 110px;
 }
 
 .form-container {
@@ -389,6 +389,7 @@ nav {
   height: 18px;
   cursor: pointer;
   accent-color: #ff7b00;
+  margin-top: -9px;
 }
 
 .radio-option label {
@@ -807,12 +808,31 @@ footer {
     background: white;
     position: absolute;
     top: 100%;
+    left: 0;
+    gap: 0;
     right: 0;
-    width: 200px;
+    width: 100%;
     padding: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
+  .company-logo {
+    height: 45px;
+    margin-left: 20px;
+  }
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+  }
 
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem;
+    width: 100%;
+  }
   .nav-links.active {
     display: flex;
   }
@@ -827,10 +847,15 @@ footer {
 
   .mobile-auth-buttons {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-top: 2px solid #f0f0f0;
+    margin-top: 0.5rem;
   }
-
+  .mobile-auth-buttons .btn {
+    width: 100%;
+  }
   .footer-content {
     grid-template-columns: 1fr 1fr;
   }

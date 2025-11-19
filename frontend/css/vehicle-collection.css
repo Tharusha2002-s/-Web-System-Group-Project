@@ -1,5 +1,4 @@
-/* Base Styles Section */
-
+/* Global Style */
 * {
   margin: 0;
   padding: 0;
@@ -10,14 +9,9 @@ body {
   font-family: "Arial", sans-serif;
   min-height: 100vh;
   background: #ffffff;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
 }
 
-/* ------------------------------------------------------------- */
-/* Navigation Bar Section */
-
+/* Navigation Bar */
 nav {
   background: white;
   padding: 1rem 2rem;
@@ -28,21 +22,18 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  width: 100%;
 }
 
 .logo {
   display: flex;
   align-items: center;
   padding: 0px;
-  flex-shrink: 0;
 }
 
 .company-logo {
   height: 50px;
   width: auto;
   margin-left: 40px;
-  max-width: 150px;
 }
 
 .nav-links {
@@ -50,12 +41,10 @@ nav {
   list-style: none;
   gap: 2rem;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .mobile-auth-buttons {
   display: none;
-  width: 100%;
 }
 
 .nav-links a {
@@ -64,7 +53,6 @@ nav {
   font-size: 1rem;
   transition: all 0.15s ease;
   position: relative;
-  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -90,7 +78,6 @@ nav {
 .auth-buttons {
   display: flex;
   gap: 1rem;
-  flex-shrink: 0;
 }
 
 .btn {
@@ -100,7 +87,6 @@ nav {
   cursor: pointer;
   font-size: 0.9rem;
   transition: all 0.3s ease;
-  white-space: nowrap;
 }
 
 .btn-signin {
@@ -130,7 +116,6 @@ nav {
   gap: 0.5rem;
   cursor: pointer;
   position: relative;
-  flex-shrink: 0;
 }
 
 .user-profile.active {
@@ -147,7 +132,6 @@ nav {
   justify-content: center;
   color: white;
   font-weight: bold;
-  flex-shrink: 0;
 }
 
 .profile-dropdown {
@@ -160,7 +144,6 @@ nav {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   min-width: 200px;
   overflow: hidden;
-  z-index: 101;
 }
 
 .profile-dropdown.show {
@@ -191,322 +174,213 @@ nav {
   font-size: 1.5rem;
   cursor: pointer;
   color: #333;
-  padding: 0.5rem;
-  z-index: 102;
 }
 
-/* ------------------------------------------------------------- */
-/* Topic Section */
-
-.exploration {
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("../assets/images/vehicle-collection/vehicle\ collection.png")
+      center/cover no-repeat;
+  height: 85vh;
+  color: white;
   text-align: center;
-  padding: 60px 20px;
-  width: 100%;
+  padding: 80px 20px;
 }
 
-.exploration p {
-  font-size: 16px;
-  color: black;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.exploration h1 {
-  font-size: 48px;
-  color: black;
-  margin-bottom: 20px;
-  font-weight: bold;
-  line-height: 1.2;
-  word-wrap: break-word;
-}
-
-/* ------------------------------------------------------------- */
-/* Vehicle Topic Section */
-
-.vehicle-topic {
-  text-align: center;
-  padding: 40px 20px;
-  width: 100%;
-}
-
-.vehicle-topic h2 {
-  font-size: 36px;
-  color: black;
-  margin-bottom: 10px;
-  word-wrap: break-word;
-}
-
-.vehicle-topic p {
-  font-size: 16px;
-  color: black;
-  margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ------------------------------------------------------------- */
-/* Vehicle List Section */
-
-.vehicle-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 140px;
-  padding: 0 20px;
-  list-style: none;
-}
-
-/* Individual Vehicle Card */
-.vehicle-list li {
-  width: 100%;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-  min-height: 320px;
-}
-
-/* Vehicle Image */
-.vehicle-list li img {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-  border-radius: 8px 8px 0 0;
-  height: 180px;
-  object-fit: contain;
-}
-
-/* Vehicle Title */
-.vehicle-list li h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  word-wrap: break-word;
-}
-
-/* Vehicle Category */
-.vehicle-list li h4 {
-  font-size: 14px;
-  color: #666;
-  font-weight: normal;
-  margin-bottom: 10px;
-}
-
-/* Vehicle Price */
-.vehicle-list li p {
-  font-size: 18px;
-  color: black;
-  font-weight: bold;
+.hero-section h4 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin-bottom: 15px;
-}
-
-/* See Details Button */
-.vehicle-list li a {
-  display: block;
-  background-color: white;
-  color: black;
-  margin-top: auto;
-  text-align: center;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Hover Effects */
-.vehicle-list li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.vehicle-list li a:hover {
-  background-color: #e56c00;
-  color: white;
-  border-color: #e56c00;
-}
-
-/* ------------------------------------------------------------- */
-/* Footer Section */
-
-footer {
-  background: #222;
-  color: #ffffff;
-  padding: 3rem 2rem 1.5rem;
-  margin-top: auto;
-  width: 100%;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  color: white;
-}
-
-.footer-section h3 {
-  font-size: 1.1rem;
+  opacity: 0.9;
+  color: #ff7b00;
   font-weight: bold;
-  margin-left: 0;
-  margin-top: 0;
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
   margin-bottom: 20px;
-  color: #fff;
-}
-
-.footer-section li {
-  margin-left: 0;
-  margin-bottom: 0.8rem;
-}
-
-.footer-section {
   color: white;
 }
 
-.footer-logo img {
-  width: 120px;
-  height: auto;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.footer-section p {
-  color: #ffffff;
+.hero-section p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  opacity: 0.95;
+  color: white;
 }
 
-.newsletter-form {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
+/* Vehicles Content */
+.vehicles-content {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
-.newsletter-form input {
-  flex: 1;
-  min-width: 200px;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.vehicles-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.vehicles-intro h3 {
+  color: #ff7b00;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
   font-size: 0.9rem;
 }
 
-.newsletter-form button {
-  padding: 0.8rem 1.5rem;
+.vehicles-intro h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.vehicles-intro p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Vehicle Grid */
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.vehicle-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  border: 2px solid transparent;
+  overflow: hidden;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-8px);
+  border-color: #ff7b00;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.vehicle-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.vehicle-info {
+  padding: 25px;
+}
+
+.vehicle-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.vehicle-info h4 {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vehicle-info .price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff7b00;
+  margin-bottom: 20px;
+}
+
+.vehicle-info .price span {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #666;
+}
+
+.btn-details {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: #ff7b00;
+  border: 2px solid #ff7b00;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-details:hover {
   background: #ff7b00;
   color: white;
+  transform: translateY(-2px);
+}
+
+/* CTA Section */
+.cta-section {
+  background: white;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.cta-section .btn-primary,
+.cta-section .btn-secondary {
+  padding: 14px 35px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+  display: inline-block;
+  margin: 0.5rem;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
-  white-space: nowrap;
 }
 
-.newsletter-form button:hover {
-  background: #f08929;
-}
-
-.newsletter-note {
-  font-size: 0.85rem;
-  color: #ccc;
-  line-height: 1.4;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links li {
-  margin-bottom: 0.8rem;
-}
-
-.footer-links a {
+.cta-section .btn-primary {
+  background: #ff7b00;
   color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 0.95rem;
+  width: auto;
 }
 
-.footer-links a:hover {
-  color: #ff7b00;
-  text-decoration: underline;
+.cta-section .btn-primary:hover {
+  background: #e56c00;
+  transform: scale(1.05);
 }
 
-.social-links {
-  list-style: none;
-  padding: 0;
-}
-
-.social-links li {
-  margin-bottom: 0.8rem;
-}
-
-.social-links a {
+.cta-section .btn-secondary {
+  background: #ff7b00;
   color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.3s ease;
-  font-size: 0.95rem;
 }
 
-.social-links a:hover {
-  color: #ff7b00;
+.cta-section .btn-secondary:hover {
+  background: #e56c00;
+  transform: scale(1.05);
 }
 
-.social-links i {
-  width: 20px;
-  font-size: 1.2rem;
-}
-
-.footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 2rem;
-  border-top: 1px solid #444;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.footer-legal {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  flex-wrap: wrap;
-}
-
-.footer-legal a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-legal a:hover {
-  color: #ff7b00;
-  text-decoration: underline;
-}
-
-/* ------------------------------------------------------------- */
-
-/* Modal Section */
-
+/* Modal Base */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -519,7 +393,6 @@ footer {
   z-index: 1000;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
 }
 
 .modal-overlay.active {
@@ -536,7 +409,6 @@ footer {
   animation: slideDown 0.3s ease;
   max-height: 90vh;
   overflow-y: auto;
-  box-sizing: border-box;
 }
 
 @keyframes slideDown {
@@ -556,19 +428,9 @@ footer {
   right: 1rem;
   background: none;
   border: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   cursor: pointer;
   color: #666;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s ease;
-}
-
-.close-modal:hover {
-  color: #333;
 }
 
 .modal-title {
@@ -576,9 +438,9 @@ footer {
   margin-bottom: 1.5rem;
   color: #333;
   text-align: center;
-  padding-right: 2rem;
 }
 
+/* Form Elements */
 .input-group {
   margin-bottom: 1rem;
 }
@@ -588,23 +450,19 @@ footer {
   margin-bottom: 0.5rem;
   color: #555;
   font-weight: 500;
-  font-size: 0.95rem;
 }
 
 .input-group input {
   width: 100%;
   padding: 0.8rem;
-  border: 2px solid #ddd;
+  border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
 }
 
 .input-group input:focus {
   outline: none;
-  border-color: #e56c00;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #ff7b00;
 }
 
 .forgot-password {
@@ -613,37 +471,29 @@ footer {
 }
 
 .forgot-password a {
-  color: #e56c00;
+  color: #ff7b00;
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
-}
-
-.forgot-password a:hover {
-  color: #e56c00;
-  text-decoration: underline;
 }
 
 .btn-primary {
   width: 100%;
-  padding: 0.9rem;
-  background: #e56c00;
+  padding: 0.8rem;
+  background: #ff7b00;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
-  font-weight: 600;
   cursor: pointer;
   margin-bottom: 1rem;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .btn-primary:hover {
-  background: #e56c00;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: #e88930;
 }
 
+/* Modal Divider and Social Design */
 .divider {
   text-align: center;
   margin: 1.5rem 0;
@@ -665,21 +515,18 @@ footer {
   padding: 0 1rem;
   position: relative;
   color: #999;
-  font-size: 0.9rem;
 }
 
 .social-login {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
-  flex-wrap: wrap;
 }
 
 .social-btn {
   flex: 1;
-  min-width: 120px;
   padding: 0.8rem;
-  border: 2px solid #ddd;
+  border: 1px solid #ddd;
   border-radius: 5px;
   cursor: pointer;
   display: flex;
@@ -688,11 +535,10 @@ footer {
   gap: 0.5rem;
   transition: all 0.3s ease;
   background: white;
-  font-weight: 500;
 }
 
 .social-btn:hover {
-  border-color: #e56c00;
+  border-color: #ff7b00;
   background: #f8f8ff;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -716,57 +562,40 @@ footer {
 }
 
 .social-btn.facebook i {
-  color: #4285f4;
+  color: #1877f2;
 }
 
 .switch-mode {
   text-align: center;
   margin-top: 1rem;
-  font-size: 0.95rem;
 }
 
 .switch-mode a {
-  color: #e56c00;
+  color: #ff7b00;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
 }
 
-.switch-mode a:hover {
-  color: #e56c00;
-  text-decoration: underline;
-}
-
+/* Modal Additions */
 .modal-description {
   text-align: center;
   color: #666;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
-  line-height: 1.5;
 }
 
 .password-requirements {
   margin-bottom: 1rem;
   font-size: 0.85rem;
   color: #666;
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 5px;
-}
-
-.password-requirements p {
-  margin-bottom: 0.5rem;
-  font-weight: 600;
 }
 
 .password-requirements ul {
   padding-left: 1.5rem;
-  margin: 0;
 }
 
 .password-requirements li {
   margin-bottom: 0.3rem;
-  line-height: 1.4;
 }
 
 .success-icon {
@@ -774,32 +603,161 @@ footer {
   font-size: 4rem;
   color: #4caf50;
   margin-bottom: 1rem;
-  animation: scaleIn 0.5s ease;
 }
 
-@keyframes scaleIn {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+/* Footer Style */
+footer {
+  background: #222;
+  color: #ffffff;
+  padding: 3rem 2rem 1.5rem;
+  margin-top: -50px;
 }
 
-/* ------------------------------------------------------------- */
-/* Responsiveness Adjusting Section */
-
-/* Large Tablets and Small Laptops (1200px and below) */
-@media (max-width: 1200px) {
-  .vehicle-list {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 1000px;
-  }
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+  margin-top: -25px;
 }
 
-/* Medium Tablets (1024px and below) */
+.footer-section h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 120px;
+  margin-top: 66px;
+  margin-bottom: 20px;
+}
+
+.footer-section li {
+  margin-left: 120px;
+}
+
+.footer-section {
+  color: white;
+}
+
+.footer-logo img {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+.footer-section p {
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.newsletter-form button {
+  padding: 0.8rem 1.5rem;
+  background: #ff7b00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #f08929;
+}
+
+.newsletter-note {
+  font-size: 0.85rem;
+  color: white;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ff7b00;
+}
+
+.social-links {
+  list-style: none;
+}
+
+.social-links li {
+  margin-bottom: 0.8rem;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff7b00;
+}
+
+.social-links i {
+  width: 20px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer-legal a {
+  color: white;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: #ff7b00;
+}
+
+/* Responsive Design */
+
+/* Large Tablets */
 @media (max-width: 1024px) {
   .company-logo {
     margin-left: 20px;
@@ -810,56 +768,34 @@ footer {
     gap: 1.5rem;
   }
 
-  .nav-links a {
-    font-size: 0.95rem;
+  .vehicles-content {
+    padding: 0 30px;
   }
 
-  .exploration h1 {
-    font-size: 42px;
-  }
-
-  .vehicle-topic h2 {
-    font-size: 32px;
-  }
-
-  .vehicle-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+  .vehicle-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
   }
 
   .footer-content {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-section:last-child {
+    grid-column: 1 / -1;
   }
 }
 
-/* Tablets (900px and below) */
-@media (max-width: 900px) {
-  nav {
-    padding: 1rem 1.5rem;
-  }
-
-  .vehicle-list {
-    grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 100px;
-  }
-
-  .footer-content {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-}
-
-/* Mobile Devices and Small Tablets (768px and below) */
+/* Tablets and Mobile Devices */
 @media (max-width: 768px) {
-  /* Navigation */
+  /* Navigation Mobile */
   nav {
-    padding: 1rem;
-    flex-wrap: wrap;
+    padding: 0.8rem 1rem;
   }
 
   .company-logo {
-    margin-left: 5px;
+    margin-left: 0;
     height: 40px;
   }
 
@@ -875,14 +811,7 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     gap: 0;
     align-items: stretch;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .nav-links.mobile-active {
-    display: flex;
-    max-height: 500px;
+    z-index: 99;
   }
 
   .nav-links li {
@@ -897,12 +826,16 @@ footer {
   .nav-links a {
     display: block;
     padding: 1rem 1.5rem;
-    font-size: 1rem;
+    width: 100%;
+  }
+
+  .nav-links.mobile-active {
+    display: flex;
   }
 
   .mobile-menu-btn {
     display: block;
-    order: 3;
+    padding: 0.5rem;
   }
 
   .auth-buttons {
@@ -912,415 +845,191 @@ footer {
   .mobile-auth-buttons {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.5rem;
     padding: 1rem 1.5rem;
     border-top: 2px solid #f0f0f0;
     margin-top: 0;
-    width: 100%;
   }
 
   .mobile-auth-buttons .btn {
     width: 100%;
-    padding: 0.9rem;
-    font-size: 1rem;
+    padding: 0.8rem;
   }
 
-  /* Hero Section */
-  .exploration {
-    padding: 40px 20px;
+  /* User Profile Mobile */
+  .user-profile {
+    font-size: 0.85rem;
+    gap: 0.3rem;
   }
 
-  .exploration h1 {
-    font-size: 32px;
-  }
-
-  .exploration p {
-    font-size: 15px;
-    padding: 0 10px;
-  }
-
-  /* Vehicle Topic */
-  .vehicle-topic {
-    padding: 30px 20px;
-  }
-
-  .vehicle-topic h2 {
-    font-size: 28px;
-  }
-
-  .vehicle-topic p {
-    font-size: 15px;
-  }
-
-  /* Vehicle List */
-  .vehicle-list {
-    grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 80px;
-    gap: 15px;
-    padding: 0 15px;
-  }
-
-  .vehicle-list li {
-    min-height: 300px;
-    padding: 12px;
-  }
-
-  .vehicle-list li img {
-    height: 140px;
-  }
-
-  .vehicle-list li h3 {
-    font-size: 17px;
-  }
-
-  .vehicle-list li h4 {
-    font-size: 13px;
-  }
-
-  .vehicle-list li p {
-    font-size: 16px;
-  }
-
-  .vehicle-list li a {
-    padding: 10px;
+  .profile-pic {
+    width: 35px;
+    height: 35px;
     font-size: 0.9rem;
   }
 
-  /* Modal */
+  .profile-dropdown {
+    right: -10px;
+    min-width: 180px;
+  }
+
+  /* Hero Section Mobile */
+  .hero-section {
+    padding: 50px 20px;
+  }
+
+  .hero-section h4 {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  /* Vehicles Content Mobile */
+  .vehicles-content {
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .vehicles-intro {
+    margin-bottom: 35px;
+  }
+
+  .vehicles-intro h3 {
+    font-size: 0.85rem;
+  }
+
+  .vehicles-intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .vehicles-intro p {
+    font-size: 0.95rem;
+  }
+
+  /* Vehicle Grid Mobile */
+  .vehicle-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .vehicle-card img {
+    height: 180px;
+    padding: 15px;
+  }
+
+  .vehicle-info {
+    padding: 20px;
+  }
+
+  .vehicle-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .vehicle-info .price {
+    font-size: 1.5rem;
+  }
+
+  /* CTA Section Mobile */
+  .cta-section {
+    padding: 50px 20px;
+  }
+
+  .cta-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+
+  .cta-section .btn-primary,
+  .cta-section .btn-secondary {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+    width: calc(100% - 1rem);
+    max-width: 300px;
+    margin: 0.5rem 0;
+  }
+
+  /* Modal Mobile */
   .modal {
     padding: 1.5rem;
     width: 95%;
     max-width: 400px;
-    margin: 1rem;
   }
 
   .modal-title {
     font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .input-group input {
+    padding: 0.7rem;
+    font-size: 0.95rem;
   }
 
   .social-login {
     flex-direction: column;
+    gap: 0.8rem;
   }
 
   .social-btn {
     width: 100%;
+    padding: 0.7rem;
   }
 
-  /* Footer */
-  footer {
-    padding: 2.5rem 1.5rem 1.5rem;
-  }
-
+  /* Footer Mobile */
   .footer-content {
     grid-template-columns: 1fr;
     gap: 2.5rem;
-  }
-
-  .footer-section:first-child {
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #444;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-  }
-
-  .newsletter-form input {
-    width: 100%;
-  }
-
-  .newsletter-form button {
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-    padding-top: 1.5rem;
-  }
-
-  .footer-legal {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-}
-
-/* Small Mobile Devices (600px and below) */
-@media (max-width: 600px) {
-  .company-logo {
-    height: 35px;
-    margin-left: 0;
-  }
-
-  nav {
-    padding: 0.8rem;
-  }
-
-  /* Hero */
-  .exploration {
-    padding: 30px 15px;
-  }
-
-  .exploration h1 {
-    font-size: 26px;
-    line-height: 1.3;
-    margin-bottom: 15px;
-  }
-
-  .exploration p {
-    font-size: 14px;
-  }
-
-  /* Vehicle Topic */
-  .vehicle-topic {
-    padding: 25px 15px;
-  }
-
-  .vehicle-topic h2 {
-    font-size: 24px;
-  }
-
-  .vehicle-topic p {
-    font-size: 14px;
-    margin-bottom: 30px;
-  }
-
-  /* Vehicle List - Single Column */
-  .vehicle-list {
-    grid-template-columns: 1fr;
-    margin-bottom: 60px;
-    gap: 20px;
-    padding: 0 15px;
-  }
-
-  .vehicle-list li {
-    max-width: 100%;
-    min-height: 340px;
-  }
-
-  .vehicle-list li img {
-    height: 200px;
-  }
-
-  .vehicle-list li h3 {
-    font-size: 19px;
-  }
-
-  .vehicle-list li p {
-    font-size: 17px;
-  }
-
-  .vehicle-list li a {
-    padding: 12px;
-    font-size: 0.95rem;
-  }
-
-  /* Modal */
-  .modal {
-    padding: 1.25rem;
-    width: 100%;
-    margin: 0.5rem;
-    max-width: 100%;
-  }
-
-  .modal-title {
-    font-size: 1.4rem;
-    padding-right: 2.5rem;
-  }
-
-  .input-group input,
-  .btn-primary {
-    padding: 0.85rem;
-    font-size: 1rem;
-  }
-
-  .social-btn {
-    padding: 0.85rem;
-  }
-
-  /* Footer */
-  footer {
-    padding: 2rem 1rem 1rem;
-  }
-
-  .footer-content {
-    gap: 2rem;
-  }
-
-  .footer-section p {
-    font-size: 0.9rem;
-  }
-
-  .footer-logo img {
-    width: 100px;
-  }
-
-  .footer-bottom {
-    font-size: 0.85rem;
-  }
-
-  .footer-legal {
-    gap: 0.8rem;
-  }
-}
-
-/* Extra Small Devices (480px and below) */
-@media (max-width: 480px) {
-  .company-logo {
-    height: 32px;
-  }
-
-  nav {
-    padding: 0.7rem 0.5rem;
-  }
-
-  .mobile-menu-btn {
-    font-size: 1.3rem;
-  }
-
-  /* Hero */
-  .exploration {
-    padding: 25px 10px;
-  }
-
-  .exploration h1 {
-    font-size: 24px;
-  }
-
-  .exploration p {
-    font-size: 13px;
-  }
-
-  /* Vehicle Topic */
-  .vehicle-topic {
-    padding: 20px 10px;
-  }
-
-  .vehicle-topic h2 {
-    font-size: 22px;
-  }
-
-  .vehicle-topic p {
-    font-size: 13px;
-  }
-
-  /* Vehicle List */
-  .vehicle-list {
     padding: 0 10px;
-    gap: 15px;
-    margin-bottom: 50px;
-  }
-
-  .vehicle-list li {
-    padding: 12px;
-    min-height: 320px;
-  }
-
-  .vehicle-list li img {
-    height: 180px;
-  }
-
-  .vehicle-list li h3 {
-    font-size: 17px;
-  }
-
-  .vehicle-list li h4 {
-    font-size: 12px;
-  }
-
-  .vehicle-list li p {
-    font-size: 16px;
-  }
-
-  .vehicle-list li a {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-
-  /* Modal */
-  .modal {
-    width: 100%;
-    padding: 1rem;
-    margin: 0.25rem;
-    border-radius: 10px;
-  }
-
-  .modal-title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-
-  .close-modal {
-    font-size: 1.5rem;
-    top: 0.75rem;
-    right: 0.75rem;
-  }
-
-  .input-group {
-    margin-bottom: 0.8rem;
-  }
-
-  .input-group label {
-    font-size: 0.9rem;
-  }
-
-  .input-group input {
-    padding: 0.75rem;
-    font-size: 0.95rem;
-  }
-
-  .btn,
-  .btn-primary {
-    padding: 0.75rem;
-    font-size: 0.9rem;
-  }
-
-  .social-btn {
-    padding: 0.75rem;
-    font-size: 0.9rem;
-  }
-
-  .divider {
-    margin: 1rem 0;
-  }
-
-  .password-requirements {
-    font-size: 0.8rem;
-    padding: 0.8rem;
-  }
-
-  /* Footer */
-  footer {
-    padding: 1.5rem 0.75rem 1rem;
-  }
-
-  .footer-content {
-    gap: 1.5rem;
   }
 
   .footer-section h3 {
-    font-size: 1rem;
+    margin-left: 0;
+    margin-top: 0;
     margin-bottom: 15px;
+    font-size: 1.1rem;
   }
 
-  .footer-section p,
-  .footer-links a,
-  .social-links a {
-    font-size: 0.85rem;
+  .footer-section li {
+    margin-left: 0;
   }
 
   .footer-logo img {
     width: 90px;
   }
 
-  .newsletter-form input,
-  .newsletter-form button {
+  .footer-section p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .newsletter-form input {
     padding: 0.7rem;
     font-size: 0.85rem;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+    padding: 0.7rem;
   }
 
   .newsletter-note {
@@ -1328,165 +1037,87 @@ footer {
   }
 
   .footer-bottom {
-    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
     padding-top: 1.5rem;
+    font-size: 0.85rem;
   }
 
   .footer-legal {
+    flex-direction: column;
     gap: 0.5rem;
-    font-size: 0.8rem;
   }
 }
 
-/* Very Small Devices (360px and below) */
-@media (max-width: 360px) {
-  .company-logo {
-    height: 28px;
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 1.5rem;
   }
 
-  .exploration h1 {
-    font-size: 22px;
+  .hero-section p {
+    font-size: 0.9rem;
   }
 
-  .vehicle-topic h2 {
-    font-size: 20px;
+  .vehicles-intro h2 {
+    font-size: 1.3rem;
   }
 
-  .vehicle-list li {
-    min-height: 300px;
+  .vehicle-grid {
+    grid-template-columns: 1fr;
   }
 
-  .vehicle-list li img {
-    height: 160px;
+  .vehicle-card img {
+    height: 200px;
+  }
+
+  .vehicle-info {
+    padding: 18px;
+  }
+
+  .vehicle-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .cta-section .btn-primary,
+  .cta-section .btn-secondary {
+    padding: 10px 25px;
+    font-size: 0.85rem;
   }
 
   .modal {
-    border-radius: 8px;
-  }
-
-  .modal-title {
-    font-size: 1.2rem;
-  }
-}
-
-/* Landscape Mode for Mobile Devices */
-@media (max-height: 600px) and (orientation: landscape) {
-  .modal {
-    max-height: 95vh;
-    padding: 1rem 1.5rem;
+    padding: 1.2rem;
   }
 
   .modal-title {
     font-size: 1.3rem;
-    margin-bottom: 0.8rem;
   }
 
-  .input-group {
-    margin-bottom: 0.6rem;
-  }
-
-  .input-group label {
-    margin-bottom: 0.3rem;
-  }
-
-  .input-group input {
-    padding: 0.6rem;
-  }
-
-  .btn-primary,
-  .social-btn {
-    padding: 0.6rem;
-  }
-
-  .divider {
-    margin: 0.8rem 0;
-  }
-
-  .password-requirements {
-    padding: 0.7rem;
-    margin-bottom: 0.7rem;
-  }
-
-  .modal-description {
-    margin-bottom: 1rem;
-  }
-
-  .success-icon {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+  .close-modal {
+    font-size: 1.3rem;
   }
 }
 
-/* Touch-friendly improvements for all mobile devices */
-@media (hover: none) and (pointer: coarse) {
-  .btn,
-  .btn-primary,
-  .social-btn,
-  .vehicle-list li a {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    padding: 40px 20px;
   }
 
-  .mobile-menu-btn {
-    min-width: 44px;
-    min-height: 44px;
+  .hero-section h1 {
+    font-size: 1.6rem;
   }
 
-  .nav-links a {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
+  .vehicles-content {
+    margin: 30px auto;
   }
 
-  .vehicle-list li:hover {
-    transform: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-
-  .nav-links a:hover::after {
-    width: 0;
-  }
-}
-
-/* High DPI / Retina Display Optimization */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .vehicle-list li img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-  }
-
-  .company-logo,
-  .footer-logo img {
-    image-rendering: -webkit-optimize-contrast;
-  }
-}
-
-/* Print Styles */
-@media print {
-  nav,
-  footer,
-  .modal-overlay,
-  .btn,
-  .auth-buttons,
-  .mobile-menu-btn {
-    display: none !important;
-  }
-
-  body {
-    background: white;
-  }
-
-  .vehicle-list {
-    display: block;
-  }
-
-  .vehicle-list li {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 1rem;
-    box-shadow: none;
-    border: 1px solid #ccc;
+  .cta-section {
+    padding: 40px 20px;
   }
 }

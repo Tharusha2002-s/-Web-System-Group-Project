@@ -8,11 +8,35 @@ let verificationData = {
   isAdmin: false,
 };
 
-/* Global Variables Section Ends */
-
-/* ----------------------------------------------------------------------- */
-
 /* Page Load Event Section */
+
+// Array of background images
+const heroImages = [
+  "../assets/images/home/home2.png",
+  "../assets/images/home/home3.png",
+  "../assets/images/home/home4.png",
+  "../assets/images/home/home5.png",
+];
+
+let currentImageIndex = 0;
+
+/*  Change hero background image */
+function changeHeroBackground() {
+  const heroSection = document.querySelector(".hero");
+  if (heroSection) {
+    currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+    const newImage = heroImages[currentImageIndex];
+    heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("${newImage}")`;
+  }
+}
+
+// Start the slider when page loads
+window.addEventListener("load", () => {
+  setInterval(changeHeroBackground, 3000);
+  if (window.location.pathname.includes("/admin/")) {
+    openModal("admin");
+  }
+});
 
 // Check if on admin page and open admin modal
 window.addEventListener("load", () => {
@@ -21,14 +45,9 @@ window.addEventListener("load", () => {
   }
 });
 
-/* Page Load Event Section Ends */
-
-/* ----------------------------------------------------------------------- */
-
 /* Content Loaded Event Section */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Add hover animation to all buttons
   document.querySelectorAll("button").forEach((btn) => {
     btn.addEventListener("mouseenter", () => {
       if (!btn.style.transform || btn.style.transform === "scale(1)") {
@@ -50,10 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
-/* Content Loaded Event Section Ends */
-
-/* ----------------------------------------------------------------------- */
 
 /* Modal Function Section */
 
@@ -112,16 +127,9 @@ function switchModal(type) {
   openModal(type);
 }
 
-/* Modal Function Section Ends */
-
-/* ----------------------------------------------------------------------- */
-
 /* Authentication Functions Section */
 
-/**
- * Handle user sign in
- * Validates input and shows user profile
- */
+/* Handle user sign in & Validates input and shows user profile */
 function handleSignIn() {
   const email = document.getElementById("signinEmail").value;
   const password = document.getElementById("signinPassword").value;
@@ -140,10 +148,7 @@ function handleSignIn() {
   document.getElementById("signinPassword").value = "";
 }
 
-/**
- * Handle user sign up
- * Validates input and shows user profile
- */
+/* Handle user sign up & Validates input and shows user profile */
 function handleSignUp() {
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
@@ -183,9 +188,6 @@ function handleAdminLogin() {
   document.getElementById("adminPassword").value = "";
 }
 
-/* Authentication Functions Section Ends */
-
-/* ----------------------------------------------------------------------- */
 
 /* Password Reset Functions Section */
 
@@ -379,10 +381,6 @@ function handleSuccessComplete() {
   }
 }
 
-/* Password Reset Functions Section Ends */
-
-/* ----------------------------------------------------------------------- */
-
 /* User Profile Function Section */
 
 /**
@@ -417,9 +415,6 @@ function logout() {
   alert("Logged out successfully");
 }
 
-/* User Profile Function Section Ends */
-
-/* ----------------------------------------------------------------------- */
 
 /* Mobile Menu Functions Section */
 
@@ -430,9 +425,6 @@ function toggleMobileMenu() {
   document.getElementById("navLinks").classList.toggle("mobile-active");
 }
 
-/* Mobile Menu Functions Section Ends */
-
-/* ----------------------------------------------------------------------- */
 
 /* Newsletter Function Section */
 
@@ -447,9 +439,6 @@ function handleNewsletter(event) {
   event.target.reset();
 }
 
-/* Newsletter Function Section Ends */
-
-/* ----------------------------------------------------------------------- */
 
 /* Event Listeners Section */
 
