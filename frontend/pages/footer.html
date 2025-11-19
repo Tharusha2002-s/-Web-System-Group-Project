@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footer</title>
+  </head>
+  <style>
+    /* Footer Style */
+    footer {
+      background: #222;
+      color: #ffffff;
+      padding: 3rem 2rem 1.5rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+
+    .footer-section h3 {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 120px;
+      margin-top: 66px;
+      margin-bottom: 20px;
+    }
+
+    .footer-section li {
+      margin-left: 120px;
+    }
+
+    .footer-section {
+      color: white;
+    }
+
+    .footer-logo img {
+      width: 100px;
+      height: auto;
+      display: block;
+    }
+
+    .footer-section p {
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    .newsletter-form button {
+      padding: 0.8rem 1.5rem;
+      background: #ff7b00;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: #f08929;
+    }
+
+    .newsletter-note {
+      font-size: 0.85rem;
+      color: white;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ff7b00;
+    }
+
+    .social-links {
+      list-style: none;
+    }
+
+    .social-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #ff7b00;
+    }
+
+    .social-links i {
+      width: 20px;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-legal a {
+      color: white;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .footer-legal a:hover {
+      color: #ff7b00;
+    }
+
+    /* Responsive Design */
+
+    /* Tablet Devices */
+    @media (max-width: 1024px) {
+      .company-logo {
+        margin-left: 20px;
+        height: 45px;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+
+      .services-content {
+        padding: 0 30px;
+      }
+
+      .service-grid {
+        gap: 30px;
+      }
+
+      .service-card:nth-child(3) {
+        width: 70%;
+      }
+
+      .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .footer-section:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+  <body>
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <a class="footer-logo"
+            ><img
+              src="../assets/images/Reliant_white-logo.png"
+              alt="company logo"
+          /></a>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="email" required />
+            <button type="submit">subscribe</button>
+          </form>
+          <p class="newsletter-note">
+            By subscribing, you agree to receive updates and promotional offers.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+            <li><a href="../pages/services.html">Services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/about.html">About Us</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul class="social-links">
+            <li>
+              <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
+            </li>
+            <li>
+              <a href="#instagram"
+                ><i class="fab fa-instagram"></i> instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 vehicle rentals. all rights reserved.</p>
+        <ul class="footer-legal">
+          <li><a href="#privacy">privacy policy</a></li>
+          <li><a href="#terms">terms of service</a></li>
+          <li><a href="#cookies">cookie settings</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
