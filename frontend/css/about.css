@@ -153,9 +153,12 @@ nav {
 
 /* Hero section */
 .hero-section {
-  background: white;
-  color: #333;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("../assets/images/about/About-page.png") center/cover no-repeat;
+
+  color: white;
   text-align: center;
+  height: 85vh;
   padding: 80px 20px;
 }
 .hero-section h4 {
@@ -165,12 +168,13 @@ nav {
   margin-bottom: 15px;
   opacity: 0.9;
   color: #e56c00;
+  font-weight: bold;
 }
 .hero-section h1 {
   font-size: 2.8rem;
   margin-bottom: 20px;
   font-weight: bold;
-  color: #333;
+  color: white;
 }
 .hero-section p {
   font-size: 1.1rem;
@@ -178,7 +182,7 @@ nav {
   margin: 0 auto;
   line-height: 1.6;
   opacity: 0.95;
-  color: #666;
+  color: white;
 }
 
 /* About content */
@@ -655,10 +659,19 @@ footer {
   font-size: 1.2rem;
 }
 .social-btn.google i {
-  color: #e56c00;
+  background: linear-gradient(
+    to bottom,
+    #4285f4 0%,
+    #34a853 25%,
+    #fbbc05 50%,
+    #ea4335 75%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .social-btn.facebook i {
-  color: #e56c00;
+  color: #1877f2;
 }
 .switch-mode {
   text-align: center;
@@ -800,5 +813,135 @@ footer {
   .modal {
     padding: 1.5rem;
     width: 95%;
+  }
+}
+
+/* company logo on mobile */
+@media (max-width: 768px) {
+  .company-logo {
+    height: 40px;
+    margin-left: 10px;
+  }
+}
+
+/* hero section on mobile */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 50px 20px;
+  }
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+}
+
+/* about content on mobile */
+@media (max-width: 768px) {
+  .about-content {
+    margin: 40px auto;
+  }
+
+  .about-text h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* team section on mobile */
+@media (max-width: 768px) {
+  .team-section {
+    padding: 50px 20px;
+  }
+
+  .team-section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* CTA section on mobile */
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 50px 20px;
+    margin-bottom: 30px;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-buttons {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* footer on mobile */
+@media (max-width: 768px) {
+  footer {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .footer-section h3 {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .footer-section li {
+    margin-left: 0;
+  }
+
+  .footer-logo img {
+    margin: 0 auto;
+  }
+}
+
+/* Additional tablet breakpoint */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .about-grid {
+    gap: 40px;
+  }
+
+  .cta-buttons {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-section p {
+    font-size: 0.9rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .about-text p {
+    font-size: 0.9rem;
+  }
+
+  .team-member {
+    padding: 20px;
+  }
+
+  .modal {
+    width: 98%;
+    padding: 1rem;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
   }
 }
