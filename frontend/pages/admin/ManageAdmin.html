@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Administrators - Reliant Rental Admin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f9f9f9;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ff7b00;
+            margin-bottom: 40px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #ff7b00;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            padding: 12px 16px;
+            margin-bottom: 4px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #666;
+            font-size: 15px;
+            text-decoration: none; /* Remove underline */
+        }
+
+        .nav-item:hover {
+            background: #f0f0f0;
+        }
+
+        .nav-item.active {
+            background: #fff5eb;
+            color: #ff7b00;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-text {
+            margin-top: auto;
+            font-size: 12px;
+            color: #999;
+            padding: 16px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px 40px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-welcome {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff7b00 0%, #e56c00 100%);
+            position: relative;
+        }
+
+        .user-avatar::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border: 2px solid white;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .logout-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #f9f9f9;
+            transform: scale(1.05);
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #222;
+        }
+
+        .add-btn {
+            padding: 12px 24px;
+            background: #ff7b00;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #e56c00;
+            transform: scale(1.05);
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .search-box {
+            position: relative;
+            width: 300px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            width: 18px;
+            height: 18px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 12px 10px 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: #ff7b00;
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .admin-table thead {
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .admin-table th {
+            text-align: left;
+            padding: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .admin-table td {
+            padding: 20px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .admin-table tbody tr:hover {
+            background: #fafafa;
+        }
+
+        .actions-cell {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .edit-btn, .delete-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s;
+        }
+
+        .edit-btn {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .edit-btn:hover {
+            background: #e5e5e5;
+            transform: scale(1.05);
+        }
+
+        .delete-btn {
+            background: #ef4444;
+            color: white;
+        }
+
+        .delete-btn:hover {
+            background: #dc2626;
+            transform: scale(1.05);
+        }
+
+        .role-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .role-admin {
+            background: #fff5eb;
+            color: #ff7b00;
+        }
+
+        .role-editor {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .role-viewer {
+            background: #f3e8ff;
+            color: #6b21a8;
+        }
+
+        .visily-badge {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .visily-logo {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #ff7b00 0%, #e56c00 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        .form-input:focus, .form-select:focus {
+            border-color: #ff7b00;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+
+        .cancel-btn, .save-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .cancel-btn {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .cancel-btn:hover {
+            background: #e5e5e5;
+            transform: scale(1.05);
+        }
+
+        .save-btn {
+            background: #ff7b00;
+            color: white;
+        }
+
+        .save-btn:hover {
+            background: #e56c00;
+            transform: scale(1.05);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            background: #10b981;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.error {
+            background: #ef4444;
+        }
+
+        .spinner {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #ff7b00;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">R</div>
+            <span>Reliant Rental Admin</span>
+        </div>
+        
+        <ul class="nav-menu">
+            <a href="Dashboard.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                Dashboard
+            </a>
+            <a href="ManageAdmin.html" class="nav-item active">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+                Manage Admins
+            </a>
+            <a href="ManageVehicles.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/>
+                </svg>
+                Manage Products
+            </a>
+            <a href="UserDetails.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+                Manage Users
+            </a>
+            <a href="ManagePayment.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                </svg>
+                Manage Payments
+            </a>
+            <a href="ViewBookings.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                View Bookings
+            </a>
+            <a href="SystemSetting.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                System Settings
+            </a>
+        </ul>
+        
+        <div class="footer-text">
+            © 2025 Reliant Rental Admin. All rights reserved.
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <div class="logo-icon">R</div>
+                <span style="font-weight: 600; font-size: 18px; color: #ff7b00;">Reliant Rental Admin</span>
+            </div>
+            <div class="top-bar-right">
+                <span class="user-welcome">Welcome, Admin User</span>
+                <div class="user-avatar"></div>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h1>Manage Administrators</h1>
+            <button class="add-btn" onclick="openAddModal()">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                </svg>
+                Add Administrator
+            </button>
+        </div>
+
+        <div class="content-card">
+            <div class="card-header">
+                <h2 class="card-title">Current Administrators</h2>
+                <div class="search-box">
+                    <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    <input type="text" class="search-input" placeholder="Search administrators..." id="searchInput" onkeyup="searchAdmins()">
+                </div>
+            </div>
+
+            <table class="admin-table" id="adminTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="adminTableBody">
+                    <!-- Table rows will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <h2 class="modal-header" id="modalTitle">Add Administrator</h2>
+            <form id="adminForm" onsubmit="saveAdmin(event)">
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-input" id="adminName" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="adminEmail" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Role</label>
+                    <select class="form-select" id="adminRole" required>
+                        <option value="Admin">Admin</option>
+                        <option value="Editor">Editor</option>
+                        <option value="Viewer">Viewer</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="save-btn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+
+    <script>
+    // API Configuration
+    const API_BASE_URL = 'http://localhost:5000/api';
+    let admins = [];
+    let editingId = null;
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        checkAuth();
+        loadAdmins();
+        setupEventListeners();
+    });
+
+    // API Service Functions
+    const apiService = {
+        // Generic request handler
+        async request(url, options = {}) {
+            const token = localStorage.getItem('token');
+            
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token ? `Bearer ${token}` : ''
+                },
+                ...options
+            };
+
+            try {
+                console.log('📤 Making request to:', url);
+                const response = await fetch(url, config);
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || `HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('API Request failed:', error);
+                throw error;
+            }
+        },
+
+            // Admin CRUD operations
+    async getAdmins() {
+        return this.request(`${API_BASE_URL}/admin`);
+    },
+
+    async getAdmin(id) {
+        return this.request(`${API_BASE_URL}/admin/${id}`);
+    },
+
+    async createAdmin(adminData) {
+        return this.request(`${API_BASE_URL}/admin`, {
+            method: 'POST',
+            body: JSON.stringify(adminData)
+        });
+    },
+
+    async updateAdmin(id, adminData) {
+        return this.request(`${API_BASE_URL}/admin/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(adminData)
+        });
+    },
+
+    async deleteAdmin(id) {
+        return this.request(`${API_BASE_URL}/admin/${id}`, {
+            method: 'DELETE'
+        });
+    },
+
+    async searchAdmins(query) {
+        try {
+            // First try the search endpoint
+            return await this.request(`${API_BASE_URL}/admin/search?query=${encodeURIComponent(query)}`);
+        } catch (error) {
+            console.log('❌ Search endpoint failed, using client-side filtering');
+            throw error; // This will trigger the fallback in searchAdmins function
+        }
+    }
+    };
+
+    // Authentication functions
+    function checkAuth() {
+        const token = localStorage.getItem('token');
+        const userRole = localStorage.getItem('userRole');
+        
+        if (!token || userRole !== 'admin') {
+            showToast('Admin access required. Please login as admin.', 'error');
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000);
+            return false;
+        }
+
+        // Update welcome message with admin name
+        const userName = localStorage.getItem('userName');
+        if (userName) {
+            const welcomeElement = document.querySelector('.user-welcome');
+            if (welcomeElement) {
+                welcomeElement.textContent = `Welcome, ${userName}`;
+            }
+        }
+
+        return true;
+    }
+
+    async function handleLogout() {
+        if (confirm('Are you sure you want to logout?')) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userName');
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('userRole');
+            showToast('Logged out successfully');
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1500);
+        }
+    }
+
+    // Admin management functions
+    async function loadAdmins() {
+        try {
+            showLoadingState(true);
+            console.log('🔄 Loading admins...');
+            const response = await apiService.getAdmins();
+            console.log('📥 Admins response:', response);
+            admins = response.data || [];
+            renderAdmins();
+        } catch (error) {
+            console.error('Failed to load admins:', error);
+            showToast(error.message || 'Failed to load administrators', 'error');
+            renderAdmins(); // Will show empty state
+        } finally {
+            showLoadingState(false);
+        }
+    }
+
+        // Fixed Search function
+    async function searchAdmins() {
+        const searchTerm = document.getElementById('searchInput').value.trim();
+        
+        console.log('🔍 Searching for:', searchTerm);
+        
+        if (searchTerm === '') {
+            loadAdmins();
+            return;
+        }
+
+        try {
+            showLoadingState(true);
+            console.log('📤 Sending search request...');
+            
+            // Use the search endpoint
+            const response = await apiService.searchAdmins(searchTerm);
+            console.log('📥 Search response:', response);
+            
+            admins = response.data || [];
+            console.log('📊 Search results:', admins.length, 'admins found');
+            renderAdmins();
+        } catch (error) {
+            console.error('Search failed:', error);
+            
+            // If search endpoint fails, fall back to client-side filtering
+            console.log('🔄 Falling back to client-side search...');
+            await loadAdmins(); // Load all admins first
+            filterAdminsClientSide(searchTerm);
+        } finally {
+            showLoadingState(false);
+        }
+    }
+
+    // Client-side fallback search function
+    function filterAdminsClientSide(searchTerm) {
+        const filteredAdmins = admins.filter(admin => {
+            const searchLower = searchTerm.toLowerCase();
+            return (
+                admin.name.toLowerCase().includes(searchLower) ||
+                admin.email.toLowerCase().includes(searchLower) ||
+                admin.role.toLowerCase().includes(searchLower)
+            );
+        });
+        
+        console.log('🔍 Client-side filtered results:', filteredAdmins.length, 'admins');
+        admins = filteredAdmins;
+        renderAdmins();
+    }
+
+    // Update the search event listener for better performance
+    function setupEventListeners() {
+        // Modal close events
+        document.getElementById('adminModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Keyboard events
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Logout button
+        const logoutBtn = document.querySelector('.logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', handleLogout);
+        }
+
+        // Improved debounced search with better UX
+        let searchTimeout;
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.trim();
+                
+                // Clear previous timeout
+                clearTimeout(searchTimeout);
+                
+                // If empty, load all admins immediately
+                if (searchTerm === '') {
+                    loadAdmins();
+                    return;
+                }
+                
+                // Show searching indicator for better UX
+                const tbody = document.getElementById('adminTableBody');
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align: center; padding: 40px;">
+                            <div class="spinner"></div> Searching administrators...
+                        </td>
+                    </tr>
+                `;
+                
+                // Set new timeout for search
+                searchTimeout = setTimeout(() => {
+                    searchAdmins();
+                }, 500); // Increased delay for better performance
+            });
+            
+            // Add Enter key support for search
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    clearTimeout(searchTimeout);
+                    searchAdmins();
+                }
+            });
+        }
+
+        // Form submission
+        const adminForm = document.getElementById('adminForm');
+        if (adminForm) {
+            adminForm.addEventListener('submit', saveAdmin);
+        }
+    }
+
+    function renderAdmins() {
+        const tbody = document.getElementById('adminTableBody');
+        
+        if (admins.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="4" class="no-results">
+                        No administrators found. Click "Add Administrator" to create one.
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+        
+        tbody.innerHTML = admins.map(admin => `
+            <tr>
+                <td>${escapeHtml(admin.name)}</td>
+                <td>${escapeHtml(admin.email)}</td>
+                <td><span class="role-badge ${getRoleClass(admin.role)}">${admin.role}</span></td>
+                <td>
+                    <div class="actions-cell">
+                        <button class="edit-btn" onclick="editAdmin(${admin.id})">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                            Edit
+                        </button>
+                        <button class="delete-btn" onclick="deleteAdmin(${admin.id}, '${escapeHtml(admin.name)}')">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                            </svg>
+                            Delete
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    function getRoleClass(role) {
+        if (role === 'Admin') return 'role-admin';
+        if (role === 'Editor') return 'role-editor';
+        return 'role-viewer';
+    }
+
+    // Modal functions
+    function openAddModal() {
+        editingId = null;
+        document.getElementById('modalTitle').textContent = 'Add Administrator';
+        document.getElementById('adminName').value = '';
+        document.getElementById('adminEmail').value = '';
+        document.getElementById('adminRole').value = 'Viewer';
+        document.getElementById('adminModal').classList.add('active');
+    }
+
+    async function editAdmin(id) {
+        try {
+            showLoadingState(true, 'modal');
+            const response = await apiService.getAdmin(id);
+            const admin = response.data;
+            
+            editingId = id;
+            document.getElementById('modalTitle').textContent = 'Edit Administrator';
+            document.getElementById('adminName').value = admin.name;
+            document.getElementById('adminEmail').value = admin.email;
+            document.getElementById('adminRole').value = admin.role;
+            document.getElementById('adminModal').classList.add('active');
+        } catch (error) {
+            console.error('Failed to load admin:', error);
+            showToast(error.message || 'Failed to load administrator data', 'error');
+        } finally {
+            showLoadingState(false, 'modal');
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('adminModal').classList.remove('active');
+        editingId = null;
+    }
+
+    async function saveAdmin(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('adminName').value.trim();
+        const email = document.getElementById('adminEmail').value.trim();
+        const role = document.getElementById('adminRole').value;
+
+        // Validation
+        if (!name || !email || !role) {
+            showToast('Please fill in all fields', 'error');
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            showToast('Please enter a valid email address', 'error');
+            return;
+        }
+
+        const adminData = { name, email, role };
+
+        try {
+            showLoadingState(true, 'save');
+            
+            if (editingId) {
+                await apiService.updateAdmin(editingId, adminData);
+                showToast('Administrator updated successfully');
+            } else {
+                await apiService.createAdmin(adminData);
+                showToast('Administrator added successfully');
+            }
+            
+            closeModal();
+            await loadAdmins(); // Reload the list
+        } catch (error) {
+            console.error('Save failed:', error);
+            showToast(error.message || 'Failed to save administrator', 'error');
+        } finally {
+            showLoadingState(false, 'save');
+        }
+    }
+
+    async function deleteAdmin(id, name) {
+        if (!confirm(`Are you sure you want to delete "${name}"? This action cannot be undone.`)) {
+            return;
+        }
+
+        try {
+            showLoadingState(true);
+            await apiService.deleteAdmin(id);
+            showToast('Administrator deleted successfully');
+            await loadAdmins(); // Reload the list
+        } catch (error) {
+            console.error('Delete failed:', error);
+            showToast(error.message || 'Failed to delete administrator', 'error');
+        } finally {
+            showLoadingState(false);
+        }
+    }
+
+    // Utility functions
+    function showLoadingState(show, context = 'table') {
+        if (context === 'table') {
+            const tbody = document.getElementById('adminTableBody');
+            if (show) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align: center; padding: 40px;">
+                            <div class="spinner"></div> Loading administrators...
+                        </td>
+                    </tr>
+                `;
+            }
+        } else if (context === 'save') {
+            const saveBtn = document.querySelector('.save-btn');
+            if (saveBtn) {
+                saveBtn.disabled = show;
+                saveBtn.innerHTML = show ? 
+                    '<div class="spinner"></div> Saving...' : 
+                    'Save';
+            }
+        } else if (context === 'modal') {
+            const formInputs = document.querySelectorAll('#adminForm input, #adminForm select, #adminForm button');
+            formInputs.forEach(input => {
+                input.disabled = show;
+            });
+        }
+    }
+
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.className = `toast ${type} show`;
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    // Event listeners setup
+    function setupEventListeners() {
+        // Modal close events
+        document.getElementById('adminModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Keyboard events
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Logout button
+        const logoutBtn = document.querySelector('.logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', handleLogout);
+        }
+
+        // Debounced search
+        let searchTimeout;
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    searchAdmins();
+                }, 300);
+            });
+        }
+
+        // Form submission
+        const adminForm = document.getElementById('adminForm');
+        if (adminForm) {
+            adminForm.addEventListener('submit', saveAdmin);
+        }
+    }
+</script>
+</body>
+</html>

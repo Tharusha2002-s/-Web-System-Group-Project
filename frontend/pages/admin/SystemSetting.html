@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Settings - Reliant Rental Admin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f9f9f9;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ff7b00;
+            margin-bottom: 40px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #ff7b00;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            padding: 12px 16px;
+            margin-bottom: 4px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #666;
+            font-size: 15px;
+            text-decoration: none; /* Remove underline */
+        }
+
+        .nav-item:hover {
+            background: #f0f0f0;
+        }
+
+        .nav-item.active {
+            background: #fff5eb;
+            color: #ff7b00;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-text {
+            margin-top: auto;
+            font-size: 12px;
+            color: #999;
+            padding: 16px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px 40px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-welcome {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff7b00 0%, #e56c00 100%);
+            position: relative;
+        }
+
+        .user-avatar::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border: 2px solid white;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .logout-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #f9f9f9;
+            transform: scale(1.05);
+        }
+
+        .page-header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .page-description {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+
+        .section-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 24px;
+        }
+
+        .section-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .settings-group {
+            margin-bottom: 32px;
+        }
+
+        .settings-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .setting-item {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .setting-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .setting-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .setting-value {
+            font-size: 15px;
+            color: #666;
+        }
+
+        .setting-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        .setting-input:focus {
+            border-color: #ff7b00;
+        }
+
+        .logo-preview {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            border: 1px dashed #e0e0e0;
+        }
+
+        .logo-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 6px;
+        }
+
+        .logo-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .logo-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s;
+        }
+
+        .logo-btn:hover {
+            background: #f9f9f9;
+            transform: scale(1.05);
+        }
+
+        .logo-btn.primary {
+            background: #ff7b00;
+            color: white;
+            border-color: #ff7b00;
+        }
+
+        .logo-btn.primary:hover {
+            background: #e56c00;
+            transform: scale(1.05);
+        }
+
+        .currency-select {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            cursor: pointer;
+            background: white;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 36px;
+        }
+
+        .language-select, .timezone-select {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            cursor: pointer;
+            background: white;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 36px;
+        }
+
+        .save-btn {
+            padding: 12px 24px;
+            background: #ff7b00;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .save-btn:hover {
+            background: #e56c00;
+            transform: scale(1.05);
+        }
+
+        .divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 32px 0;
+        }
+
+        .visily-badge {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .visily-logo {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #ff7b00 0%, #e56c00 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        .file-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">R</div>
+            <span>Reliant Rental Admin</span>
+        </div>
+        
+        <ul class="nav-menu">
+            <a href="Dashboard.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                Dashboard
+            </a>
+            <a href="ManageAdmin.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+                Manage Admins
+            </a>
+            <a href="ManageVehicles.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/>
+                </svg>
+                Manage Products
+            </a>
+            <a href="UserDetails.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+                Manage Users
+            </a>
+            <a href="ManagePayment.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                </svg>
+                Manage Payments
+            </a>
+            <a href="ViewBookings.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                View Bookings
+            </a>
+            <a href="SystemSetting.html" class="nav-item active">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                System Settings
+            </a>
+        </ul>
+        
+        <div class="footer-text">
+            © 2025 Reliant Rental Admin. All rights reserved.
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <div class="logo-icon">R</div>
+                <span style="font-weight: 600; font-size: 18px; color: #ff7b00;">Reliant Rental Admin</span>
+            </div>
+            <div class="top-bar-right">
+                <span class="user-welcome">Welcome, Admin User</span>
+                <div class="user-avatar"></div>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h1>Reliant Rental Admin</h1>
+            <p class="page-description">Manage your company's core settings, branding, and operational parameters.</p>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-header">Company Information</h2>
+            <p class="section-description">Update your company's name and logo.</p>
+            
+            <div class="settings-group">
+                <div class="setting-item">
+                    <label class="setting-label">Company Name</label>
+                    <input type="text" class="setting-input" value="Reliant Rental">
+                </div>
+                
+                <div class="setting-item">
+                    <label class="setting-label">Company Logo</label>
+                    <div class="logo-preview" id="logoPreview">
+                        <span style="color: #999;">No logo</span>
+                    </div>
+                    <div class="logo-actions">
+                        <input type="file" id="logoUpload" class="file-input" accept="image/*">
+                        <button class="logo-btn primary" onclick="document.getElementById('logoUpload').click()">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                            </svg>
+                            Upload New Logo
+                        </button>
+                        <button class="logo-btn" onclick="removeLogo()">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                            </svg>
+                            Remove Logo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-header">Contact Details</h2>
+            <p class="section-description">Provide essential contact information for your business.</p>
+            
+            <div class="settings-group">
+                <div class="setting-item">
+                    <label class="setting-label">Contact Email</label>
+                    <input type="email" class="setting-input" value="contact@Reliant Rental.com">
+                </div>
+                
+                <div class="setting-item">
+                    <label class="setting-label">Phone Number</label>
+                    <input type="tel" class="setting-input" value="+1 (555) 123-4567">
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-header">Pricing & Rates</h2>
+            <p class="section-description">Set up default rental rates and currency.</p>
+            
+            <div class="settings-group">
+                <div class="setting-item">
+                    <label class="setting-label">Base Daily Rental Rate</label>
+                    <input type="text" class="setting-input" value="$ 45.00">
+                </div>
+                
+                <div class="setting-item">
+                    <label class="setting-label">Currency</label>
+                    <select class="currency-select">
+                        <option value="USD">USD - United States Dollar</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="CAD">CAD - Canadian Dollar</option>
+                        <option value="AUD">AUD - Australian Dollar</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-header">System Preferences</h2>
+            <p class="section-description">Configure general application settings.</p>
+            
+            <div class="settings-group">
+                <div class="setting-item">
+                    <label class="setting-label">Default Language</label>
+                    <select class="language-select">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="it">Italian</option>
+                    </select>
+                </div>
+                
+                <div class="setting-item">
+                    <label class="setting-label">Timezone</label>
+                    <select class="timezone-select">
+                        <option value="UTC-5">UTC-5 (Eastern Standard Time)</option>
+                        <option value="UTC-8">UTC-8 (Pacific Standard Time)</option>
+                        <option value="UTC+0">UTC+0 (Greenwich Mean Time)</option>
+                        <option value="UTC+1">UTC+1 (Central European Time)</option>
+                        <option value="UTC+8">UTC+8 (China Standard Time)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: right; margin-top: 32px;">
+            <button class="save-btn" onclick="saveSettings()">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Save Settings
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Handle logo upload
+        document.getElementById('logoUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const logoPreview = document.getElementById('logoPreview');
+                    logoPreview.innerHTML = `<img src="${event.target.result}" alt="Company Logo">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Remove logo
+        function removeLogo() {
+            const logoPreview = document.getElementById('logoPreview');
+            logoPreview.innerHTML = '<span style="color: #999;">No logo</span>';
+        }
+
+        // Save settings
+        function saveSettings() {
+            alert('Settings saved successfully!');
+        }
+
+        // Handle logout
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                alert('Logged out successfully');
+            }
+        });
+    </script>
+</body>
+</html>

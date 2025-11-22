@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Reliant Rental</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/about.css" />
+  </head>
+
+  <body>
+    <!-- Navigation bar -->
+    <nav id="navbar">
+      <a href="../pages/Home.html" class="logo">
+        <img
+          src="../assets/images/logo.png"
+          alt="Company Logo"
+          class="company-logo"
+        />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+        <li><a href="../pages/about.html">About</a></li>
+        <li><a href="../pages/services.html">Services</a></li>
+        <li><a href="../pages/faq.html">FAQ</a></li>
+        <li><a href="../pages/contact.html">Contact</a></li>
+
+        <div class="mobile-auth-buttons">
+          <button class="btn btn-signin" onclick="openModal('signin')">
+            Sign In
+          </button>
+          <button class="btn btn-signup" onclick="openModal('signup')">
+            Sign Up
+          </button>
+        </div>
+      </ul>
+      <div class="auth-buttons" id="authButtons">
+        <button class="btn btn-signin" onclick="openModal('signin')">
+          Sign In
+        </button>
+        <button class="btn btn-signup" onclick="openModal('signup')">
+          Sign Up
+        </button>
+      </div>
+      <div class="user-profile" id="userProfile">
+        <div class="profile-pic" id="userInitial">U</div>
+        <span id="userName">User</span>
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-item">My Bookings</div>
+          <div class="dropdown-item">Settings</div>
+          <div class="dropdown-item logout" onclick="logout()">Logout</div>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Hero section -->
+    <section class="hero-section">
+      <h4>Journey</h4>
+      <h1>Wheels of freedom</h1>
+      <p>
+        We started with a simple dream of making vehicle rental easy and
+        accessible for everyone.
+      </p>
+    </section>
+
+    <!-- About content -->
+    <div class="about-content">
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>Reliability</h3>
+          <h2>Modern vehicles you can trust</h2>
+          <p>
+            Our fleet is meticulously maintained to the highest standards,
+            ensuring reliability and quality in every journey. We believe that
+            our customers deserve nothing less than perfect performance and
+            safety.
+          </p>
+          <p>
+            Every vehicle in our collection undergoes regular inspections and
+            maintenance by certified professionals, giving you peace of mind on
+            every trip.
+          </p>
+        </div>
+        <div class="about-image">
+          <img
+            src="../assets/images/about/modern vehicle.jpg"
+            alt="Modern vehicles"
+          />
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-image">
+          <img
+            src="../assets/images/about/booking.jpg"
+            alt="Customer service"
+          />
+        </div>
+        <div class="about-text">
+          <h3>Convenience</h3>
+          <h2>Seamless booking experience</h2>
+          <p>
+            We've designed our platform to make renting a vehicle as simple as
+            possible. From browsing our fleet to picking up your keys, every
+            step is streamlined for your convenience.
+          </p>
+          <p>
+            Our 24/7 support team is always ready to assist you, ensuring that
+            your rental experience is smooth from start to finish.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>Support</h3>
+          <h2>Always here to help</h2>
+          <p>
+            Your satisfaction is our priority. Our dedicated support team is
+            available around the clock to answer your questions and resolve any
+            issues that may arise during your rental period.
+          </p>
+          <p>
+            Whether you need roadside assistance or have questions about your
+            booking, we're just a phone call away.
+          </p>
+        </div>
+        <div class="about-image">
+          <img
+            src="../assets/images/about/Customer support.jpg"
+            alt="Customer support"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Team section -->
+    <section class="team-section">
+      <h3>Team</h3>
+      <h2>Our team</h2>
+      <p>
+        Meet the passionate professionals behind our vehicle rental service.
+      </p>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="../assets/images/about/jack.jpg" alt="Jack Reynolds" />
+          </div>
+          <h4>Jack Reynolds</h4>
+          <div class="role">CEO / Founder</div>
+          <p>
+            A visionary leader with 15 years of experience in the automotive
+            industry.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="../assets/images/about/sarah.jpg" alt="Sarah Mitchell" />
+          </div>
+          <h4>Sarah Mitchell</h4>
+          <div class="role">Operations Manager</div>
+          <p>
+            An organizational expert who ensures exceptional customer service
+            every single day.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="../assets/images/about/michel.jpg" alt="Michael Chen" />
+          </div>
+          <h4>Michael Chen</h4>
+          <div class="role">Fleet Director</div>
+          <p>
+            Manages our diverse fleet and ensures every vehicle is pristine for
+            our customers.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="../assets/images/about/Emma.jpg" alt="Emma Rodriguez" />
+          </div>
+          <h4>Emma Rodriguez</h4>
+          <div class="role">Customer Experience</div>
+          <p>
+            She makes it a priority to help support and educate our growing
+            community.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cta section -->
+    <section class="cta-section">
+      <h2>We're hiring!</h2>
+      <p>
+        Join our dynamic team and help us revolutionize the vehicle rental
+        industry.
+      </p>
+      <div class="cta-buttons">
+        <button class="btn-primary">Open positions</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <!-- Newsletter Section -->
+        <div class="footer-section">
+          <a class="footer-logo"
+            ><img
+              src="../assets/images/Reliant_white-logo.png"
+              alt="company logo"
+          /></a>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="email" required />
+            <button type="submit">subscribe</button>
+          </form>
+          <p class="newsletter-note">
+            By subscribing, you agree to receive updates and promotional offers.
+          </p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+            <li><a href="../pages/services.html">Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links Section -->
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="../about/about.html">About Us</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media Links Section -->
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul class="social-links">
+            <li>
+              <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
+            </li>
+            <li>
+              <a href="#instagram"
+                ><i class="fab fa-instagram"></i> instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom - Copyright & Legal -->
+      <div class="footer-bottom">
+        <p>&copy; 2024 vehicle rentals. all rights reserved.</p>
+        <ul class="footer-legal">
+          <li><a href="#privacy">privacy policy</a></li>
+          <li><a href="#terms">terms of service</a></li>
+          <li><a href="#cookies">cookie settings</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Modal and Pages Linking Section -->
+
+    <!-- Sign-In Modal -->
+    <div class="modal-overlay" id="signinModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign In</h2>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="signinEmail" placeholder="Enter your email" />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="signinPassword"
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgot'); closeModal('signin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <button class="btn-primary" onclick="handleSignIn()">Sign In</button>
+
+        <div class="divider"><span>OR</span></div>
+
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign in with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign in with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+
+        <div class="switch-mode">
+          Don't have an account?
+          <a href="#" onclick="switchModal('signup')">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign-Up Modal -->
+    <div class="modal-overlay" id="signupModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signup')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign Up</h2>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="signupEmail" placeholder="Enter your email" />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Create a password"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="handleSignUp()">Sign Up</button>
+
+        <div class="divider"><span>OR</span></div>
+
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign up with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign up with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+
+        <div class="switch-mode">
+          Already have an account?
+          <a href="#" onclick="switchModal('signin')">Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal-overlay" id="adminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('admin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Admin Login</h2>
+
+        <div class="input-group">
+          <label>Admin Username</label>
+          <input
+            type="text"
+            id="adminUsername"
+            placeholder="Enter admin username"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter admin password"
+          />
+        </div>
+
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgotAdmin'); closeModal('admin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <button class="btn-primary" onclick="handleAdminLogin()">Login</button>
+      </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal-overlay" id="forgotModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgot')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Password</h2>
+        <p class="modal-description">
+          Enter your email to receive a verification code
+        </p>
+
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" id="forgotEmail" placeholder="Enter your email" />
+        </div>
+
+        <button class="btn-primary" onclick="sendVerificationCode()">
+          Send Verification Code
+        </button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('signin')">Back to Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Admin Password Modal -->
+    <div class="modal-overlay" id="forgotAdminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgotAdmin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Admin Password</h2>
+        <p class="modal-description">
+          Enter your admin email to receive a verification code
+        </p>
+
+        <div class="input-group">
+          <label>Admin Email Address</label>
+          <input
+            type="email"
+            id="forgotAdminEmail"
+            placeholder="Enter your admin email"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="sendAdminVerificationCode()">
+          Send Verification Code
+        </button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('admin')">Back to Admin Login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code Verification Modal -->
+    <div class="modal-overlay" id="verifyCodeModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('verifyCode')">
+          &times;
+        </button>
+        <h2 class="modal-title">Enter Verification Code</h2>
+        <p class="modal-description">
+          We've sent a code to <strong id="sentToEmail"></strong>
+        </p>
+
+        <div class="input-group">
+          <label>Verification Code</label>
+          <input
+            type="text"
+            id="verificationCode"
+            placeholder="Enter 6-digit code"
+            maxlength="6"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="verifyCode()">Verify Code</button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="resendCode()">Resend Code</a> |
+          <a href="#" onclick="switchModal('forgot')">Change Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal-overlay" id="resetPasswordModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('resetPassword')">
+          &times;
+        </button>
+        <h2 class="modal-title">Create New Password</h2>
+        <p class="modal-description">Enter your new password</p>
+
+        <div class="input-group">
+          <label>New Password</label>
+          <input
+            type="password"
+            id="newPassword"
+            placeholder="Enter new password"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm new password"
+          />
+        </div>
+
+        <div class="password-requirements">
+          <p style="margin-bottom: 0.5rem">Password must contain:</p>
+          <ul>
+            <li>At least 8 characters</li>
+            <li>One uppercase letter</li>
+            <li>One lowercase letter</li>
+            <li>One number</li>
+          </ul>
+        </div>
+
+        <button class="btn-primary" onclick="resetPassword()">
+          Reset Password
+        </button>
+      </div>
+    </div>
+
+    <!-- Password Reset Successful Modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal">
+        <div style="text-align: center">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h2 class="modal-title">Password Reset Successful!</h2>
+          <p class="modal-description">
+            Your password has been successfully reset.
+          </p>
+          <button class="btn-primary" onclick="handleSuccessComplete()">
+            Sign In Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/about.js"></script>
+  </body>
+</html>

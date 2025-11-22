@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <title>City Bike Details - Reliant Rental</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../css/vehicle-details.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+      <a href="../../pages/Home.html" class="logo">
+        <img
+          src="../../assets/images/logo.png"
+          alt="Company Logo"
+          class="company-logo"
+        />
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../../pages/vehicle-collection.html">Vehicles</a></li>
+        <li><a href="../../pages/about.html">About</a></li>
+        <li><a href="../../pages/services.html">Services</a></li>
+        <li><a href="../../pages/faq.html">FAQ</a></li>
+        <li><a href="../../pages/contact.html">Contact</a></li>
+        <div class="mobile-auth-buttons">
+          <button class="btn btn-signin" onclick="openModal('signin')">
+            Sign In
+          </button>
+          <button class="btn btn-signup" onclick="openModal('signup')">
+            Sign Up
+          </button>
+        </div>
+      </ul>
+
+      <div class="auth-buttons" id="authButtons">
+        <button class="btn btn-signin" onclick="openModal('signin')">
+          Sign In
+        </button>
+        <button class="btn btn-signup" onclick="openModal('signup')">
+          Sign Up
+        </button>
+      </div>
+
+      <div class="user-profile" id="userProfile" onclick="toggleDropdown()">
+        <div class="profile-pic" id="userInitial">U</div>
+        <span id="userName">User</span>
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-item">Profile</div>
+          <div class="dropdown-item">Settings</div>
+          <div class="dropdown-item logout" onclick="logout()">Logout</div>
+        </div>
+      </div>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="vehicle-hero">
+        <h1>Electric Scooter</h1>
+        <p class="subtitle">Perfect for urban exploration and daily commutes</p>
+      </section>
+
+      <!-- Vehicle Overview -->
+      <section class="vehicle-overview">
+        <!-- Vehicle Media Section with Auto-play -->
+        <div class="vehicle-media">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            width="500px"
+            height="400px"
+            class="vmedia"
+          >
+            <source src="../../assets/video/electric-scooter.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="vehicle-info">
+          <div class="price-section">
+            <div class="price">
+              $15<span style="font-size: 20px; color: #666">/day</span>
+            </div>
+            <div class="star-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="features-section">
+            <div class="box">
+              <div class="box_head">
+                <i class="fas fa-check-circle"></i>
+                <span> Includes: </span>
+              </div>
+
+              <ul class="features-list">
+                <li><i class="fas fa-bicycle"></i> Lightweight frame</li>
+                <li><i class="fas fa-cog"></i> Multi-speed gears</li>
+                <li>
+                  <i class="fas fa-shield-alt"></i> Safety helmet included
+                </li>
+                <li><i class="fas fa-lock"></i> Secure bike lock</li>
+                <li><i class="fas fa-shopping-basket"></i> Front basket</li>
+                <li><i class="fas fa-lightbulb"></i> LED lights</li>
+                <li><i class="fas fa-bell"></i> Safety bell</li>
+                <li><i class="fas fa-wrench"></i> Maintenance kit</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <a href="../rental-book.html" class="action-btn primary"
+              >Book Vehicle</a
+            >
+            <button class="action-btn">Check Availability</button>
+          </div>
+
+          <p class="guarantee-note">Guaranteed quality rental</p>
+        </div>
+      </section>
+
+      <!-- Vehicle Details -->
+      <section class="details-section">
+        <h2><i class="fas fa-check-circle"></i> Vehicle Details</h2>
+        <div class="details-grid">
+          <div class="detail-card">
+            <i class="fas fa-bicycle"></i>
+            <h3>Lightweight Design</h3>
+            <p>
+              Aluminum alloy frame for easy handling. Perfect balance between
+              durability and weight. Smooth riding experience on city streets.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-cog"></i>
+            <h3>Gear System</h3>
+            <p>
+              Multiple speed options for various terrains. Easy gear shifting
+              mechanism. Optimized for both flat roads and hills.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Safety Features</h3>
+            <p>
+              Reliable braking system for quick stops. Reflective elements for
+              visibility. Quality helmet included with every rental. Safety
+              tested components.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-tools"></i>
+            <h3>Comfort & Ergonomics</h3>
+            <p>
+              Adjustable seat height for all riders. Ergonomic handlebar design.
+              Cushioned saddle for long rides. Shock-absorbing features.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-leaf"></i>
+            <h3>Eco-Friendly Transport</h3>
+            <p>
+              Zero emissions for clean city travel. Promotes healthy lifestyle.
+              Reduces traffic congestion. Sustainable transportation option.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-wrench"></i>
+            <h3>Maintenance & Care</h3>
+            <p>
+              Regular professional maintenance. Well-maintained chain and gears.
+              Pre-rental safety inspection. Emergency repair kit included.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>City Navigation</h3>
+            <p>
+              Ideal for exploring urban areas. Compact size for easy parking.
+              Maneuverable in traffic. Perfect for short to medium distances.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <i class="fas fa-shopping-basket"></i>
+            <h3>Practical Features</h3>
+            <p>
+              Front basket for carrying items. Sturdy kickstand included. Water
+              bottle holder available. Rear rack for additional storage.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Info Sections -->
+      <section class="info-sections">
+        <div class="info-block">
+          <div class="info-image">
+            <img
+              src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=600&fit=crop"
+              alt="City Bike Experience"
+            />
+          </div>
+          <div class="info-content">
+            <h3>Experience the freedom of cycling through the city</h3>
+            <p>
+              High-quality bikes designed for comfort and performance. Explore
+              your city at your own pace with reliable equipment.
+            </p>
+            <div class="info-actions">
+              <a href="#" class="info-btn primary">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-block reverse">
+          <div class="info-image">
+            <img
+              src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop"
+              alt="Affordable Rental"
+            />
+          </div>
+          <div class="info-content">
+            <h4>Affordable</h4>
+            <h3>Budget-friendly rates for everyone</h3>
+            <p>
+              Daily rates starting from just $15. Weekly and monthly packages
+              available. No hidden fees or surprise charges.
+            </p>
+            <div class="info-actions">
+              <a href="../../pages/rental-book.html" class="info-btn primary"
+                >Book Now</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <h2>Ready to start your cycling adventure</h2>
+        <p>
+          Easy booking process to get you riding in minutes. Join thousands of
+          satisfied customers.
+        </p>
+        <div class="cta-buttons">
+          <a href="../../pages/rental-book.html" class="info-btn primary"
+            >Rent Now</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <a class="footer-logo"
+            ><img
+              src="../../assets/images/Reliant_white-logo.png"
+              alt="company logo"
+          /></a>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="email" required />
+            <button type="submit">subscribe</button>
+          </form>
+          <p class="newsletter-note">
+            By subscribing, you agree to receive updates and promotional offers.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <div class="footer-page">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="../vehicle-collection.html">Vehicles</a></li>
+              <li><a href="../services.html">Services</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <div class="footer-page">
+            <h3>Company</h3>
+            <ul class="footer-links">
+              <li><a href="../about.html">About Us</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <div class="footer-page">
+            <h3>Connect</h3>
+            <ul class="social-links">
+              <li>
+                <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
+              </li>
+              <li>
+                <a href="#instagram"
+                  ><i class="fab fa-instagram"></i> instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 vehicle rentals. all rights reserved.</p>
+        <ul class="footer-legal">
+          <li><a href="#privacy">privacy policy</a></li>
+          <li><a href="#terms">terms of service</a></li>
+          <li><a href="#cookies">cookie settings</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Sign In Modal -->
+    <div class="modal-overlay" id="signinModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign In</h2>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="signinEmail" placeholder="Enter your email" />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="signinPassword"
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgot'); closeModal('signin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <button class="btn-primary" onclick="handleSignIn()">Sign In</button>
+
+        <div class="divider"><span>OR</span></div>
+
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign in with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign in with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+
+        <div class="switch-mode">
+          Don't have an account?
+          <a href="#" onclick="switchModal('signup')">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal-overlay" id="signupModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signup')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign Up</h2>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="signupEmail" placeholder="Enter your email" />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Create a password"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="handleSignUp()">Sign Up</button>
+
+        <div class="divider"><span>OR</span></div>
+
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign up with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign up with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+
+        <div class="switch-mode">
+          Already have an account?
+          <a href="#" onclick="switchModal('signin')">Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal-overlay" id="adminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('admin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Admin Login</h2>
+
+        <div class="input-group">
+          <label>Admin Username</label>
+          <input
+            type="text"
+            id="adminUsername"
+            placeholder="Enter admin username"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter admin password"
+          />
+        </div>
+
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgotAdmin'); closeModal('admin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <button class="btn-primary" onclick="handleAdminLogin()">Login</button>
+      </div>
+    </div>
+
+    <!-- Forgot Password User Modal -->
+    <div class="modal-overlay" id="forgotModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgot')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Password</h2>
+        <p class="modal-description">
+          Enter your email to receive a verification code
+        </p>
+
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" id="forgotEmail" placeholder="Enter your email" />
+        </div>
+
+        <button class="btn-primary" onclick="sendVerificationCode()">
+          Send Verification Code
+        </button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('signin')">Back to Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Password Admin Modal -->
+    <div class="modal-overlay" id="forgotAdminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgotAdmin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Admin Password</h2>
+        <p class="modal-description">
+          Enter your admin email to receive a verification code
+        </p>
+
+        <div class="input-group">
+          <label>Admin Email Address</label>
+          <input
+            type="email"
+            id="forgotAdminEmail"
+            placeholder="Enter your admin email"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="sendAdminVerificationCode()">
+          Send Verification Code
+        </button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('admin')">Back to Admin Login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verification Code Modal -->
+    <div class="modal-overlay" id="verifyCodeModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('verifyCode')">
+          &times;
+        </button>
+        <h2 class="modal-title">Enter Verification Code</h2>
+        <p class="modal-description">
+          We've sent a code to <strong id="sentToEmail"></strong>
+        </p>
+
+        <div class="input-group">
+          <label>Verification Code</label>
+          <input
+            type="text"
+            id="verificationCode"
+            placeholder="Enter 6-digit code"
+            maxlength="6"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="verifyCode()">Verify Code</button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="resendCode()">Resend Code</a> |
+          <a href="#" onclick="switchModal('forgot')">Change Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal-overlay" id="resetPasswordModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('resetPassword')">
+          &times;
+        </button>
+        <h2 class="modal-title">Create New Password</h2>
+        <p class="modal-description">Enter your new password</p>
+
+        <div class="input-group">
+          <label>New Password</label>
+          <input
+            type="password"
+            id="newPassword"
+            placeholder="Enter new password"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm new password"
+          />
+        </div>
+
+        <div class="password-requirements">
+          <p style="margin-bottom: 0.5rem">Password must contain:</p>
+          <ul>
+            <li>At least 8 characters</li>
+            <li>One uppercase letter</li>
+            <li>One lowercase letter</li>
+            <li>One number</li>
+          </ul>
+        </div>
+
+        <button class="btn-primary" onclick="resetPassword()">
+          Reset Password
+        </button>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal">
+        <div style="text-align: center">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h2 class="modal-title">Password Reset Successful!</h2>
+          <p class="modal-description">
+            Your password has been successfully reset.
+          </p>
+          <button class="btn-primary" onclick="handleSuccessComplete()">
+            Sign In Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/vehicle-details.js"></script>
+  </body>
+</html>

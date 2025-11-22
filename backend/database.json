@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "1763748060060",
+      "email": "fathimanza@gmail.com",
+      "password": "$2b$10$EKkU0kkL4Gpn6oPS4Ty/n.b/4tiI3ppD9.1.WMylHRLvVEo2tZMU2",
+      "name": "Nusna",
+      "createdAt": "2025-11-21T18:01:00.060Z",
+      "lastLogin": "2025-11-21T18:01:00.060Z"
+    },
+    {
+      "id": "1763782827778",
+      "email": "22cse0376@ms.sab.ac.lk",
+      "password": "$2b$10$KfixBUdCK7ZVsFBedEs4ZuKUyPwy95uU5dx0hC0GgPmLDuR1tCBRO",
+      "name": "Nuzha",
+      "createdAt": "2025-11-22T03:40:27.786Z",
+      "lastLogin": "2025-11-22T03:43:58.499Z"
+    }
+  ],
+  "admins": [
+    {
+      "id": "1763747946236",
+      "name": "System Administrator",
+      "email": "admin@gmail.com",
+      "password": "$2b$10$dU95luDPP08UtI1eZ36XyOiqGLjOHW9bar65Bb/UNnjXC8FrjnedS",
+      "role": "admin",
+      "permissions": [
+        "all"
+      ],
+      "createdAt": "2025-11-21T17:59:06.237Z",
+      "lastLogin": "2025-11-22T03:33:41.012Z"
+    }
+  ]
+}
