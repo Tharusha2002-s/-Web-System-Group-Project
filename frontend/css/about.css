@@ -42,7 +42,7 @@
       color: #ff7a00;
     }
 
-    .navbar ul {
+    .navbar nav {
       display: flex;
       list-style: none;
       gap: 25px;
