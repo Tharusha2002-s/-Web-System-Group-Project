@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="\frontend\css\Admin Dashbord Design css\add_admin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    </head>
+    <body>
+         <!-------------Navigation Bar--------------->
+        <nav>
+
+        </nav>
+
+        <!-------------Main Content--------------->
+        <div class="container">
+            <div class="container1">
+                <ul>
+                    <li>
+                        <a href="/admin_dashboard">
+                            <i class="fa fa-dashboard" ></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="active-link">
+                        <a href="/manage_users">
+                            <i class="fa fa-users" style="color: white"></i>
+                            <span style="color: white">Manage Admins</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="manage_vehicle.html">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Manage Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/manage_orders">
+                            <i class="fa fa-user-plus"></i>
+                            <span>Manage Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/manage_inventory">
+                            <i class="fa fa-boxes"></i>
+                            <span>Manage Payments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/view_reports">
+                            <i class="fa fa-file-alt"></i>
+                            <span>View Bookings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/settings">
+                            <i class="fa fa-cog"></i>
+                            <span>System Settings</span>
+                        </a>
+                    </li>
+                </ul>
+
+
+            
+                <h6>&copy; 2025 ReliantRental Admin. All rights reserved.</h6>
+            </div>
+
+            <div class="container2">
+                <h2>Add New Administrator</h2>
+                <p>Create new admin accounts and assign roles within the ReliantRental Admin system.</p>
+                <br>
+                <div class="form">
+                    <form action="/add_admin" method="post">
+                        <h2>Add Admin Details</h2>
+                        <p>Fill in the details to create a new administrator account.</p>
+                        <label for="username">Name:</label>
+                        <input type="text" id="username" name="username" placeholder="Saman Perera" size="65" required><br><br>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="perera.22@gmail.com" size="65" required><br><br>
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" size="65" required><br><br>
+
+                        <label for="role">Role:</label>
+                        <select id="role" name="role" required >
+                            <option  value="" disabled selected>Select a role</option>
+                            <option value="super_admin">Super Admin</option>
+                            <option value="editor">Editor</option>
+                            <option value="viewer">Viewer</option>
+                        </select>
+
+                        <div class="form_btn">
+                            <button type="reset" class="f_btn" id="cansel">Cancel</button>
+                            <button type="submit" class="f_btn">Add Admin</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>

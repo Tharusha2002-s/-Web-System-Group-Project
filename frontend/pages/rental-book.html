@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rental Details - Reliant Rental</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="../Favicon.png" />
+    <link rel="stylesheet" href="../css/rental-book.css" />
+  </head>
+  <body>
+    <!-- ======================================== NAVIGATION BAR ======================================== -->
+    <nav id="navbar">
+      <a href="../pages/Home.html" class="logo">
+        <img
+          src="../assets/images/logo.png"
+          alt="Company Logo"
+          class="company-logo"
+        />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+        <li><a href="../pages/about.html">About</a></li>
+        <li><a href="../pages/services.html">Services</a></li>
+        <li><a href="../pages/faq.html">FAQ</a></li>
+        <li><a href="../pages/contact.html">Contact</a></li>
+        <div class="mobile-auth-buttons">
+          <button class="btn btn-signin" onclick="openModal('signin')">
+            Sign In
+          </button>
+          <button class="btn btn-signup" onclick="openModal('signup')">
+            Sign Up
+          </button>
+        </div>
+      </ul>
+      <div class="auth-buttons" id="authButtons">
+        <button class="btn btn-signin" onclick="openModal('signin')">
+          Sign In
+        </button>
+        <button class="btn btn-signup" onclick="openModal('signup')">
+          Sign Up
+        </button>
+      </div>
+      <div class="user-profile" id="userProfile">
+        <div class="profile-pic" id="userInitial">U</div>
+        <span id="userName">User</span>
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-item">Profile</div>
+          <div class="dropdown-item">Settings</div>
+          <div class="dropdown-item logout" onclick="logout()">Logout</div>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </nav>
+
+    <!-- ======================================== RENTAL DETAILS FORM ======================================== -->
+    <div class="head">
+      <p>Connect</p>
+      <h1>Rental Details</h1>
+    </div>
+
+    <div class="form">
+      <form action="#" method="get">
+        <div class="line">
+          <div class="fname">
+            <label for="f_name">First Name:</label>
+            <input type="text" id="f_name" name="f_name" required />
+          </div>
+          <div class="lname">
+            <label for="l_name">Last Name:</label>
+            <input type="text" id="l_name" name="l_name" required />
+          </div>
+        </div>
+
+        <div class="line">
+          <div class="email">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="phone">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+        </div>
+
+        <div class="line2">
+          <label for="card_num">National ID/ Driving License Number:</label>
+          <input type="text" id="card_num" name="card_num" required />
+        </div>
+
+        <div class="line">
+          <div class="fname">
+            <label for="pickup_date">Pick-up Date:</label>
+            <input type="date" id="pickup_date" name="pickup_date" required />
+          </div>
+          <div class="lname">
+            <label for="pickup_time">Pick-up Time:</label>
+            <input type="time" id="pickup_time" name="pickup_time" required />
+          </div>
+        </div>
+
+        <div class="line">
+          <div class="fname">
+            <label for="return_date">Return Date:</label>
+            <input type="date" id="return_date" name="return_date" required />
+          </div>
+          <div class="lname">
+            <label for="return_time">Return Time:</label>
+            <input type="time" id="return_time" name="return_time" required />
+          </div>
+        </div>
+
+        <div class="line">
+          <div class="fname">
+            <label for="num_days">Number of Days:</label>
+            <input
+              type="number"
+              id="num_days"
+              name="num_days"
+              min="1"
+              required
+            />
+          </div>
+          <div class="lname">
+            <label for="total_cost">Total Cost:</label>
+            <input type="text" id="total_cost" name="total_cost" readonly />
+          </div>
+        </div>
+
+        <div class="line3">
+          <div class="btn1">
+            <button type="submit" class="cbtn">Confirm</button>
+          </div>
+          <div class="btn2">
+            <button type="button" class="cnbtn" onclick="window.history.back()">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- ============================================
+         FOOTER SECTION
+         ============================================ -->
+    <footer>
+      <div class="footer-content">
+        <!-- Newsletter Section -->
+        <div class="footer-section">
+          <a class="footer-logo"
+            ><img
+              src="../assets/images/Reliant_white-logo.png"
+              alt="company logo"
+          /></a>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="email" required />
+            <button type="submit">subscribe</button>
+          </form>
+          <p class="newsletter-note">
+            By subscribing, you agree to receive updates and promotional offers.
+          </p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+            <li><a href="../pages/services.html">Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links Section -->
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/about.html">About Us</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media Links Section -->
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul class="social-links">
+            <li>
+              <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
+            </li>
+            <li>
+              <a href="#instagram"
+                ><i class="fab fa-instagram"></i> instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom - Copyright & Legal -->
+      <div class="footer-bottom">
+        <p>&copy; 2024 vehicle rentals. all rights reserved.</p>
+        <ul class="footer-legal">
+          <li><a href="#privacy">privacy policy</a></li>
+          <li><a href="#terms">terms of service</a></li>
+          <li><a href="#cookies">cookie settings</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- ======================================== MODALS - SIGN IN ======================================== -->
+    <div class="modal-overlay" id="signinModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign In</h2>
+        <div class="input-group">
+          <label>Email</label
+          ><input
+            type="email"
+            id="signinEmail"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="input-group">
+          <label>Password</label
+          ><input
+            type="password"
+            id="signinPassword"
+            placeholder="Enter your password"
+          />
+        </div>
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgot'); closeModal('signin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+        <button class="btn-primary" onclick="handleSignIn()">Sign In</button>
+        <div class="divider"><span>OR</span></div>
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign in with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign in with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+        <div class="switch-mode">
+          Don't have an account?
+          <a href="#" onclick="switchModal('signup')">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================== MODALS - SIGN UP ======================================== -->
+    <div class="modal-overlay" id="signupModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signup')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign Up</h2>
+        <div class="input-group">
+          <label>Email</label
+          ><input
+            type="email"
+            id="signupEmail"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="input-group">
+          <label>Password</label
+          ><input
+            type="password"
+            id="signupPassword"
+            placeholder="Create a password"
+          />
+        </div>
+        <button class="btn-primary" onclick="handleSignUp()">Sign Up</button>
+        <div class="divider"><span>OR</span></div>
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign up with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign up with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+        <div class="switch-mode">
+          Already have an account?
+          <a href="#" onclick="switchModal('signin')">Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================== MODALS - ADMIN LOGIN ======================================== -->
+    <div class="modal-overlay" id="adminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('admin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Admin Login</h2>
+        <div class="input-group">
+          <label>Admin Username</label
+          ><input
+            type="text"
+            id="adminUsername"
+            placeholder="Enter admin username"
+          />
+        </div>
+        <div class="input-group">
+          <label>Password</label
+          ><input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter admin password"
+          />
+        </div>
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgotAdmin'); closeModal('admin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+        <button class="btn-primary" onclick="handleAdminLogin()">Login</button>
+      </div>
+    </div>
+
+    <!-- ======================================== MODALS - FORGOT PASSWORD ======================================== -->
+    <div class="modal-overlay" id="forgotModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgot')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Password</h2>
+        <p class="modal-description">
+          Enter your email to receive a verification code
+        </p>
+        <div class="input-group">
+          <label>Email Address</label
+          ><input
+            type="email"
+            id="forgotEmail"
+            placeholder="Enter your email"
+          />
+        </div>
+        <button class="btn-primary" onclick="sendVerificationCode()">
+          Send Verification Code
+        </button>
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('signin')">Back to Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================== MODALS - FORGOT ADMIN PASSWORD ======================================== -->
+    <div class="modal-overlay" id="forgotAdminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgotAdmin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Admin Password</h2>
+        <p class="modal-description">
+          Enter your admin email to receive a verification code
+        </p>
+        <div class="input-group">
+          <label>Admin Email Address</label
+          ><input
+            type="email"
+            id="forgotAdminEmail"
+            placeholder="Enter your admin email"
+          />
+        </div>
+        <button class="btn-primary" onclick="sendAdminVerificationCode()">
+          Send Verification Code
+        </button>
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('admin')">Back to Admin Login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================== MODALS - VERIFY CODE ======================================== -->
+    <div class="modal-overlay" id="verifyCodeModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('verifyCode')">
+          &times;
+        </button>
+        <h2 class="modal-title">Enter Verification Code</h2>
+        <p class="modal-description">
+          We've sent a code to <strong id="sentToEmail"></strong>
+        </p>
+        <div class="input-group">
+          <label>Verification Code</label
+          ><input
+            type="text"
+            id="verificationCode"
+            placeholder="Enter 6-digit code"
+            maxlength="6"
+          />
+        </div>
+        <button class="btn-primary" onclick="verifyCode()">Verify Code</button>
+        <div class="switch-mode">
+          <a href="#" onclick="resendCode()">Resend Code</a> |
+          <a href="#" onclick="switchModal('forgot')">Change Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================== MODALS - RESET PASSWORD ======================================== -->
+    <div class="modal-overlay" id="resetPasswordModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('resetPassword')">
+          &times;
+        </button>
+        <h2 class="modal-title">Create New Password</h2>
+        <p class="modal-description">Enter your new password</p>
+        <div class="input-group">
+          <label>New Password</label
+          ><input
+            type="password"
+            id="newPassword"
+            placeholder="Enter new password"
+          />
+        </div>
+        <div class="input-group">
+          <label>Confirm Password</label
+          ><input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm new password"
+          />
+        </div>
+        <div class="password-requirements">
+          <p style="margin-bottom: 0.5rem">Password must contain:</p>
+          <ul>
+            <li>At least 8 characters</li>
+            <li>One uppercase letter</li>
+            <li>One lowercase letter</li>
+            <li>One number</li>
+          </ul>
+        </div>
+        <button class="btn-primary" onclick="resetPassword()">
+          Reset Password
+        </button>
+      </div>
+    </div>
+
+    <!-- ======================================== MODALS - SUCCESS ======================================== -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal">
+        <div style="text-align: center">
+          <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+          <h2 class="modal-title">Password Reset Successful!</h2>
+          <p class="modal-description">
+            Your password has been successfully reset.
+          </p>
+          <button class="btn-primary" onclick="handleSuccessComplete()">
+            Sign In Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/rental-book.js"></script>
+  </body>
+</html>

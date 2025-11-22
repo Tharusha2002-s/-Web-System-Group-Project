@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* Navigation Bar Styles */
+    nav {
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      padding: 0px;
+    }
+
+    .company-logo {
+      height: 50px;
+      width: auto;
+      margin-left: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .mobile-auth-buttons {
+      display: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      font-weight: bold;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #e56c00;
+      transition: width 0.15s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Authentication Buttons */
+    .auth-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-signin {
+      background: transparent;
+      color: #e56c00;
+      border: 2px solid #e56c00;
+    }
+
+    .btn-signin:hover {
+      background: #e56c00;
+      color: white;
+    }
+
+    .btn-signup {
+      background: #e56c00;
+      color: white;
+    }
+
+    .btn-signup:hover {
+      background: #d66000;
+    }
+
+    /* User Profile */
+    .user-profile {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .user-profile.active {
+      display: flex;
+    }
+
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e56c00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    .profile-dropdown {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      min-width: 200px;
+      overflow: hidden;
+    }
+
+    .profile-dropdown.show {
+      display: block;
+    }
+
+    .dropdown-item {
+      padding: 1rem;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+      background: #f8f8f8;
+    }
+
+    .dropdown-item.logout {
+      color: #e74c3c;
+      border-bottom: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* Tablet Responsive */
+    @media (max-width: 1024px) {
+      .company-logo {
+        margin-left: 20px;
+        height: 45px;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.8rem 1rem;
+      }
+
+      .company-logo {
+        margin-left: 0;
+        height: 40px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 0;
+        align-items: stretch;
+        z-index: 99;
+      }
+
+      .nav-links li {
+        border-bottom: 1px solid #f0f0f0;
+        width: 100%;
+      }
+
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        width: 100%;
+      }
+
+      .nav-links.mobile-active {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+        padding: 0.5rem;
+      }
+
+      .auth-buttons {
+        display: none;
+      }
+
+      .mobile-auth-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+        border-top: 2px solid #f0f0f0;
+        margin-top: 0;
+      }
+
+      .mobile-auth-buttons .btn {
+        width: 100%;
+        padding: 0.8rem;
+      }
+
+      /* User Profile Mobile */
+      .user-profile {
+        font-size: 0.85rem;
+        gap: 0.3rem;
+      }
+
+      .profile-pic {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+      }
+
+      .profile-dropdown {
+        right: -10px;
+        min-width: 180px;
+      }
+    }
+  </style>
+  <body>
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+      <a href="../pages/Home.html" class="logo">
+        <img
+          src="../assets/images/logo.png"
+          alt="Company Logo"
+          class="company-logo"
+        />
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+        <li><a href="../pages/about.html">About</a></li>
+        <li><a href="../pages/services.html">Services</a></li>
+        <li><a href="../pages/faq.html">FAQ</a></li>
+        <li><a href="../pages/contact.html">Contact</a></li>
+        <div class="mobile-auth-buttons">
+          <button class="btn btn-signin" onclick="openModal('signin')">
+            Sign In
+          </button>
+          <button class="btn btn-signup" onclick="openModal('signup')">
+            Sign Up
+          </button>
+        </div>
+      </ul>
+
+      <div class="auth-buttons" id="authButtons">
+        <button class="btn btn-signin" onclick="openModal('signin')">
+          Sign In
+        </button>
+        <button class="btn btn-signup" onclick="openModal('signup')">
+          Sign Up
+        </button>
+      </div>
+
+      <div class="user-profile" id="userProfile" onclick="toggleDropdown()">
+        <div class="profile-pic" id="userInitial">U</div>
+        <span id="userName">User</span>
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-item">Profile</div>
+          <div class="dropdown-item">Settings</div>
+          <div class="dropdown-item logout" onclick="logout()">Logout</div>
+        </div>
+      </div>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </nav>
+  </body>
+</html>

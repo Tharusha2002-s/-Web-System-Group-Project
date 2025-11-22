@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reliant Rental</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <link rel="stylesheet" href="../css/home.css" />
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+      <a href="../pages/Home.html" class="logo">
+        <img
+          src="../assets/images/Logo/logo.png"
+          alt="Company Logo"
+          class="company-logo"
+        />
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+        <li><a href="../pages/about.html">About</a></li>
+        <li><a href="../pages/services.html">Services</a></li>
+        <li><a href="../pages/faq.html">FAQ</a></li>
+        <li><a href="../pages/contact.html">Contact</a></li>
+        <div class="mobile-auth-buttons">
+          <button class="btn btn-signin" onclick="openModal('signin')">
+            Sign In
+          </button>
+          <button class="btn btn-signup" onclick="openModal('signup')">
+            Sign Up
+          </button>
+        </div>
+      </ul>
+
+      <div class="auth-buttons" id="authButtons">
+        <button class="btn btn-signin" onclick="openModal('signin')">
+          Sign In
+        </button>
+        <button class="btn btn-signup" onclick="openModal('signup')">
+          Sign Up
+        </button>
+      </div>
+
+      <div class="user-profile" id="userProfile" onclick="toggleDropdown()">
+        <div class="profile-pic" id="userInitial">U</div>
+        <span id="userName">User</span>
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="dropdown-item">Profile</div>
+          <div class="dropdown-item">Settings</div>
+          <div class="dropdown-item logout" onclick="logout()">Logout</div>
+        </div>
+      </div>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </nav>
+    <!-- Navigation Bar Ends-->
+
+    <!-- Hero section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>DRIVE FREEDOM, RENT WITH EASE</h1>
+        <p>
+          Unlock your next adventure with our flexible vehicle rental options.
+          Choose from cars, vans, bikes, and three-wheelers for your perfect
+          journey.
+        </p>
+        <div class="hero-buttons">
+          <button class="book-btn" onclick="openModal('signin')">
+            Book Now
+          </button>
+          <button
+            class="explore-btn"
+            onclick="document.querySelector('.vehicles').scrollIntoView({behavior: 'smooth'})"
+          >
+            Explore Fleet
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vehicle section -->
+    <section class="vehicles section" id="vehicles">
+      <h2>Vehicles</h2>
+      <h3>Your ride, your way</h3>
+      <p>Discover the perfect vehicle for every adventure</p>
+
+      <div class="vehicle-cards">
+        <div class="vehicle-card">
+          <img src="../assets/images/home/car.jpeg" alt="Car" />
+          <h4>Cars</h4>
+          <p>Comfortable cars for city and highway.</p>
+          <a href="../pages/vehicle-collection.html"><button>View</button></a>
+        </div>
+        <div class="vehicle-card">
+          <img src="../assets/images/home/van.jpeg" alt="Van" />
+          <h4>Vans</h4>
+          <p>Spacious vans for group travel and cargo.</p>
+          <a href="../pages/vehicle-collection.html"><button>View</button></a>
+        </div>
+        <div class="vehicle-card">
+          <img src="../assets/images/home/bike.jpeg" alt="Bike" />
+          <h4>Bikes</h4>
+          <p>Two-wheeled freedom for urban explorers.</p>
+          <a href="../pages/vehicle-collection.html"><button>View</button></a>
+        </div>
+        <div class="vehicle-card">
+          <img
+            src="../assets/images/home/Three wheeler.jpeg"
+            alt="Three Wheeler"
+          />
+          <h4>Three-wheelers</h4>
+          <p>Unique and stable transport for short trips.</p>
+          <a href="../pages/vehicle-collection.html"><button>View</button></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured section -->
+    <section class="featured section">
+      <h2>Featured</h2>
+      <h3>Ride of the Month</h3>
+      <p>Check out our top recommended vehicle</p>
+
+      <div class="ride-feature">
+        <div class="ride-text">
+          <h4>Luxury Sedan</h4>
+          <h5>
+            Experience comfort and style in our premium sedan. Smooth handling
+            meets elegant design.
+          </h5>
+          <p>
+            Ride in style and comfort with our Luxury Sedan. Sleek design, plush
+            interiors, and smooth performance make it the perfect choice for any
+            occasion. Experience premium driving at the best rental value this
+            month!
+          </p>
+          <div class="ride-buttons">
+            <a
+              href="../pages/vehicle_details/luxury_sedan.html"
+              class="boook-btn"
+              >Rent</a
+            >
+          </div>
+        </div>
+        <div class="ride-image">
+          <img src="../assets/images/home/trend car.jpeg" alt="Luxury Sedan" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Process section -->
+    <section class="process section">
+      <h2>Process</h2>
+      <h3>How it Works</h3>
+      <p>Renting made simple and straightforward</p>
+
+      <div class="steps">
+        <div class="step">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3039/3039393.png"
+            alt="Select"
+          />
+          <h4>Select</h4>
+          <p>Browse our diverse fleet and choose your perfect vehicle.</p>
+        </div>
+        <div class="step">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png"
+            alt="Book"
+          />
+          <h4>Book</h4>
+          <p>
+            Complete your reservation online in minutes with secure payment.
+          </p>
+        </div>
+        <div class="step">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2554/2554978.png"
+            alt="Drive"
+          />
+          <h4>Drive</h4>
+          <p>Pick up your vehicle and start your adventure right away.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer stories section -->
+    <section class="customer-stories section">
+      <h2>Customer Stories</h2>
+      <h3>What our travelers say about us</h3>
+      <p>Real experiences from real customers</p>
+
+      <div class="stories">
+        <div class="story">
+          <p class="stars">★★★★★</p>
+          <p>
+            The rental process was smooth and the car was in perfect condition.
+          </p>
+          <h4>Sarah Johnson</h4>
+          <span>Marketing Director</span>
+        </div>
+        <div class="story">
+          <p class="stars">★★★★★</p>
+          <p>I saved money and got exactly the vehicle I needed for my trip.</p>
+          <h4>Michael Chen</h4>
+          <span>Small Business Owner</span>
+        </div>
+        <div class="story">
+          <p class="stars">★★★★★</p>
+          <p>
+            Friendly service and great vehicle selection made my journey
+            memorable.
+          </p>
+          <h4>Emma Rodriguez</h4>
+          <span>Travel Blogger</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <a class="footer-logo"
+            ><img
+              src="../assets/images/Logo/Reliant_white-logo.png"
+              alt="company logo"
+          /></a>
+          <p>Stay updated with the latest vehicle rentals and travel tips</p>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="email" required />
+            <button type="submit">subscribe</button>
+          </form>
+          <p class="newsletter-note">
+            By subscribing, you agree to receive updates and promotional offers.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/vehicle-collection.html">Vehicles</a></li>
+            <li><a href="../pages/services.html">Services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/about.html">About Us</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul class="social-links">
+            <li>
+              <a href="#facebook"><i class="fab fa-facebook"></i> facebook</a>
+            </li>
+            <li>
+              <a href="#instagram"
+                ><i class="fab fa-instagram"></i> instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 vehicle rentals. all rights reserved.</p>
+        <ul class="footer-legal">
+          <li><a href="#privacy">privacy policy</a></li>
+          <li><a href="#terms">terms of service</a></li>
+          <li><a href="#cookies">cookie settings</a></li>
+        </ul>
+      </div>
+    </footer>
+    <!-- Footer Section Ends -->
+
+    <!-- Modal and Pages Linking Section -->
+
+    <!-- Sign-In Modal -->
+    <div class="modal-overlay" id="signinModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign In</h2>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="signinEmail" placeholder="Enter your email" />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="signinPassword"
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgot'); closeModal('signin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <button class="btn-primary" onclick="handleSignIn()">Sign In</button>
+
+        <div class="divider"><span>OR</span></div>
+
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign in with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign in with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+
+        <div class="switch-mode">
+          Don't have an account?
+          <a href="#" onclick="switchModal('signup')">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign-Up Modal -->
+    <div class="modal-overlay" id="signupModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('signup')">
+          &times;
+        </button>
+        <h2 class="modal-title">Sign Up</h2>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="signupEmail" placeholder="Enter your email" />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Create a password"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="handleSignUp()">Sign Up</button>
+
+        <div class="divider"><span>OR</span></div>
+
+        <div class="social-login">
+          <button
+            class="social-btn google"
+            onclick="alert('Sign up with Google')"
+          >
+            <i class="fab fa-google"></i> Google
+          </button>
+          <button
+            class="social-btn facebook"
+            onclick="alert('Sign up with Facebook')"
+          >
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+        </div>
+
+        <div class="switch-mode">
+          Already have an account?
+          <a href="#" onclick="switchModal('signin')">Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal-overlay" id="adminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('admin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Admin Login</h2>
+
+        <div class="input-group">
+          <label>Admin Username</label>
+          <input
+            type="text"
+            id="adminUsername"
+            placeholder="Enter admin username"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter admin password"
+          />
+        </div>
+
+        <div class="forgot-password">
+          <a
+            href="#"
+            onclick="openModal('forgotAdmin'); closeModal('admin'); return false;"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <button class="btn-primary" onclick="handleAdminLogin()">Login</button>
+      </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal-overlay" id="forgotModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgot')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Password</h2>
+        <p class="modal-description">
+          Enter your email to receive a verification code
+        </p>
+
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" id="forgotEmail" placeholder="Enter your email" />
+        </div>
+
+        <button class="btn-primary" onclick="sendVerificationCode()">
+          Send Verification Code
+        </button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('signin')">Back to Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Admin Password Modal -->
+    <div class="modal-overlay" id="forgotAdminModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('forgotAdmin')">
+          &times;
+        </button>
+        <h2 class="modal-title">Reset Admin Password</h2>
+        <p class="modal-description">
+          Enter your admin email to receive a verification code
+        </p>
+
+        <div class="input-group">
+          <label>Admin Email Address</label>
+          <input
+            type="email"
+            id="forgotAdminEmail"
+            placeholder="Enter your admin email"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="sendAdminVerificationCode()">
+          Send Verification Code
+        </button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="switchModal('admin')">Back to Admin Login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code Verification Modal -->
+    <div class="modal-overlay" id="verifyCodeModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('verifyCode')">
+          &times;
+        </button>
+        <h2 class="modal-title">Enter Verification Code</h2>
+        <p class="modal-description">
+          We've sent a code to <strong id="sentToEmail"></strong>
+        </p>
+
+        <div class="input-group">
+          <label>Verification Code</label>
+          <input
+            type="text"
+            id="verificationCode"
+            placeholder="Enter 6-digit code"
+            maxlength="6"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="verifyCode()">Verify Code</button>
+
+        <div class="switch-mode">
+          <a href="#" onclick="resendCode()">Resend Code</a> |
+          <a href="#" onclick="switchModal('forgot')">Change Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal-overlay" id="resetPasswordModal">
+      <div class="modal">
+        <button class="close-modal" onclick="closeModal('resetPassword')">
+          &times;
+        </button>
+        <h2 class="modal-title">Create New Password</h2>
+        <p class="modal-description">Enter your new password</p>
+
+        <div class="input-group">
+          <label>New Password</label>
+          <input
+            type="password"
+            id="newPassword"
+            placeholder="Enter new password"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm new password"
+          />
+        </div>
+
+        <div class="password-requirements">
+          <p style="margin-bottom: 0.5rem">Password must contain:</p>
+          <ul>
+            <li>At least 8 characters</li>
+            <li>One uppercase letter</li>
+            <li>One lowercase letter</li>
+            <li>One number</li>
+          </ul>
+        </div>
+
+        <button class="btn-primary" onclick="resetPassword()">
+          Reset Password
+        </button>
+      </div>
+    </div>
+
+    <!-- Password Reset Successful Modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal">
+        <div style="text-align: center">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h2 class="modal-title">Password Reset Successful!</h2>
+          <p class="modal-description">
+            Your password has been successfully reset.
+          </p>
+          <button class="btn-primary" onclick="handleSuccessComplete()">
+            Sign In Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/home.js"></script>
+  </body>
+</html>
