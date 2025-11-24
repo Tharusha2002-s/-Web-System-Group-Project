@@ -16,13 +16,18 @@ const config = require("./config/config");
 // Create Express app
 const app = express();
 
-// Security Middleware
-app.use(helmet());
+// Security Middleware - Disable CSP for local development
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+    crossOriginEmbedderPolicy: false,
+  })
+);
 
-// CORS Configuration
+// CORS Configuration - Allow all origins for development
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5500', 'http://127.0.0.1:5500', 'http://localhost:5501', 'http://127.0.0.1:5501'],
+    origin: "*",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
@@ -30,31 +35,54 @@ app.use(
 );
 
 // Logging Middleware
-app.use(morgan("combined"));
+app.use(morgan("dev"));
 
 // Body Parsing Middleware
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
-// Serve Static Files from correct directories
+// ============================================
+// STATIC FILE SERVING
+// ============================================
+
+console.log("📂 Setting up static file serving...");
+console.log("📍 __dirname:", __dirname);
+
+// Serve the ENTIRE frontend folder first
+const frontendPath = path.join(__dirname, "../frontend");
+console.log("📂 Checking frontend path:", frontendPath);
+
+if (fs.existsSync(frontendPath)) {
+  app.use(express.static(frontendPath));
+  console.log("✅ Serving static files from:", frontendPath);
+} else {
+  console.error("❌ Frontend directory not found:", frontendPath);
+}
+
+// Serve specific subdirectories
 const staticPaths = [
-  "../", // Root directory
-  "../pages", // Pages directory
-  "../admin", // Admin directory
-  "../vehicles", // Vehicles directory
+  { path: "../frontend/pages", route: "/" },
+  { path: "../frontend/css", route: "/css" },
+  { path: "../frontend/js", route: "/js" },
+  { path: "../frontend/assets", route: "/assets" },
+  { path: "../frontend/pages/admin", route: "/admin" },
+  { path: "../frontend/pages/vehicle_details", route: "/vehicle_details" },
+  { path: "../frontend/pages/rental-booking", route: "/rental-booking" },
 ];
 
-staticPaths.forEach((staticPath) => {
+staticPaths.forEach(({ path: staticPath, route }) => {
   const fullPath = path.join(__dirname, staticPath);
   if (fs.existsSync(fullPath)) {
-    app.use(express.static(fullPath));
-    console.log(`✅ Serving static files from: ${staticPath}`);
+    app.use(route, express.static(fullPath));
+    console.log(`✅ Mounted ${staticPath} at ${route}`);
   } else {
     console.log(`⚠️  Directory not found: ${staticPath}`);
   }
 });
 
-// API Routes
+// ============================================
+// API ROUTES
+// ============================================
 app.use("/api/auth", require("./routes/auth.routes"));
 app.use("/api/admin", require("./routes/admin.routes"));
 app.use("/api/users", require("./routes/user.routes"));
@@ -83,41 +111,54 @@ app.get("/api", (req, res) => {
       users: "/api/users",
       vehicles: "/api/vehicles",
       bookings: "/api/bookings",
-      payments: "/api/payments",
-      contact: "/api/contact",
     },
     documentation: "See API documentation for details",
   });
 });
 
-// Serve specific HTML files for common routes
+// ============================================
+// HTML PAGE ROUTES
+// ============================================
+
+// Root route - serve Home.html
 app.get("/", (req, res) => {
+  console.log("🏠 Request for root path received");
+
   const possiblePaths = [
-    path.join(__dirname, "../Home.html"),
-    path.join(__dirname, "../index.html"),
+    path.join(__dirname, "../frontend/pages/Home.html"),
+    path.join(__dirname, "../frontend/Home.html"),
     path.join(__dirname, "../pages/Home.html"),
+    path.join(__dirname, "../../frontend/pages/Home.html"),
   ];
 
+  console.log("🔍 Searching for Home.html in:");
   for (const filePath of possiblePaths) {
+    console.log(`   ${fs.existsSync(filePath) ? "✅" : "❌"} ${filePath}`);
     if (fs.existsSync(filePath)) {
+      console.log(`✅ Serving Home.html from: ${filePath}`);
       return res.sendFile(filePath);
     }
   }
 
-  // If no HTML file found, return API info
-  res.json({
-    success: true,
-    message: "Reliant Rental Backend API is running",
-    note: "Frontend files not found in expected locations",
-    api_endpoints: "Use /api for available endpoints",
+  // If no HTML file found
+  console.error("❌ Home.html not found in any expected location!");
+  res.status(404).json({
+    success: false,
+    message: "Home.html not found",
+    note: "Please check your folder structure",
+    searchedPaths: possiblePaths,
+    currentDir: __dirname,
   });
 });
+
+// ============================================
+// ERROR HANDLERS
+// ============================================
 
 // Global Error Handler
 app.use((error, req, res, next) => {
   console.error("💥 Global Error Handler:", error.message);
 
-  // Don't log 404 errors for static files
   if (error.status === 404 && error.code === "ENOENT") {
     return next();
   }
@@ -129,9 +170,11 @@ app.use((error, req, res, next) => {
   });
 });
 
-// Catch-all handler - MUST BE LAST
+// 404 Handler - Must be LAST
 app.use((req, res) => {
-  // If it's an API request that reached here, return 404
+  console.log("❓ 404 - Not found:", req.path);
+
+  // If it's an API request
   if (req.path.startsWith("/api/")) {
     return res.status(404).json({
       success: false,
@@ -139,27 +182,16 @@ app.use((req, res) => {
     });
   }
 
-  // Try to serve the requested file
-  const requestedPath = req.path === "/" ? "/Home.html" : req.path;
-  const possiblePaths = [
-    path.join(__dirname, "..", requestedPath),
-    path.join(__dirname, "../pages", requestedPath),
-    path.join(__dirname, "../admin", requestedPath),
-  ];
-
-  for (const filePath of possiblePaths) {
-    if (fs.existsSync(filePath)) {
-      return res.sendFile(filePath);
-    }
-  }
-
-  // If file not found, return simple 404 message
+  // For other requests
   res.status(404).json({
     success: false,
-    message: "Endpoint not found: " + req.path,
-    note: "This is a backend API server. Frontend should be served separately.",
+    message: "Page not found: " + req.path,
   });
 });
+
+// ============================================
+// SERVER CLASS
+// ============================================
 
 class Server {
   constructor() {
@@ -177,7 +209,7 @@ class Server {
       console.log("📊 Connecting to MySQL Database...");
       await database.connect();
 
-      // Setup Database Tables (with updated vehicles table)
+      // Setup Database Tables
       console.log("🗃️ Setting up database schema...");
       await setupDatabase.setupTables();
 
@@ -190,19 +222,18 @@ class Server {
         console.log(`📊 Environment: ${config.NODE_ENV}`);
         console.log(`🕒 Started at: ${new Date().toISOString()}`);
         console.log("✨ ========================================");
-        console.log("🔗 Available API Endpoints:");
+        console.log("🔗 Try accessing:");
+        console.log(`   🏠 Homepage:  http://localhost:${this.port}/`);
+        console.log(`   📍 API:       http://localhost:${this.port}/api`);
         console.log(
-          `   📍 POST   http://localhost:${this.port}/api/auth/register`
+          `   ❤️  Health:   http://localhost:${this.port}/api/health`
         );
-        console.log(
-          `   📍 POST   http://localhost:${this.port}/api/auth/login`
-        );
-        console.log(
-          `   📍 POST   http://localhost:${this.port}/api/auth/admin-login`
-        );
-        console.log(`   📍 GET    http://localhost:${this.port}/api/admin`);
-        console.log(`   📍 GET    http://localhost:${this.port}/api/vehicles`);
-        console.log(`   📍 GET    http://localhost:${this.port}/api/health`);
+        console.log("✨ ========================================");
+        console.log("🔗 API Endpoints:");
+        console.log(`   📍 POST   /api/auth/register`);
+        console.log(`   📍 POST   /api/auth/login`);
+        console.log(`   📍 POST   /api/auth/admin-login`);
+        console.log(`   📍 GET    /api/vehicles`);
         console.log("✨ ========================================");
         console.log("👤 Default Admin Login:");
         console.log(`   📧 Email: admin@reliantrental.com`);
