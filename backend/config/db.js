@@ -14,18 +14,18 @@ class Database {
         return new Promise((resolve, reject) => {
             try {
                 this.pool = mysql.createPool({
-                    host: config.DB_HOST,
-                    port: config.DB_PORT,
-                    user: config.DB_USER,
-                    password: config.DB_PASSWORD,
-                    database: config.DB_NAME,
-                    waitForConnections: true,
-                    connectionLimit: 10,
-                    queueLimit: 0,
-                    acquireTimeout: 60000,
-                    timeout: 60000,
-                    reconnect: true
-                });
+    host: config.DB_HOST,
+    user: config.DB_USER,
+    password: config.DB_PASSWORD,
+    database: config.DB_NAME,
+    port: config.DB_PORT || 3306,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0,
+    connectTimeout: 10000, // ✅ Use this instead of 'timeout'
+    // Remove: acquireTimeout
+    // Remove: reconnect
+});
 
                 // Test connection
                 this.pool.getConnection((err, connection) => {
