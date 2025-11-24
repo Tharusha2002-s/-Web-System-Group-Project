@@ -1,5 +1,5 @@
 // ============================================
-// server.js - Server Entry Point (UPDATED)
+// server.js - Server Entry Point (FIXED)
 // ============================================
 require('dotenv').config();
 const express = require('express');
@@ -36,10 +36,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Serve Static Files from correct directories
 const staticPaths = [
-    '../', // Root directory
-    '../pages', // Pages directory
-    '../admin', // Admin directory
-    '../vehicles' // Vehicles directory
+    '../frontend', // Frontend directory
 ];
 
 staticPaths.forEach(staticPath => {
@@ -59,7 +56,6 @@ app.use('/api/users', require('./routes/user.routes'));
 app.use('/api/vehicles', require('./routes/vehicle.routes'));
 app.use('/api/bookings', require('./routes/booking.routes'));
 
-
 // Health Check Route
 app.get('/api/health', (req, res) => {
     res.status(200).json({
@@ -71,25 +67,15 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// API Welcome Route
-app.get('/api', (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: 'Reliant Rental API Server',
-        endpoints: {
-            auth: '/api/auth',
-            admin: '/api/admin',
-            users: '/api/users',
-            vehicles: '/api/vehicles',
-            bookings: '/api/bookings',
-            payments: '/api/payments',
-            contact: '/api/contact'
-        },
-        documentation: 'See API documentation for details'
+// API 404 Handler - Only for undefined API endpoints
+app.use('/api', (req, res) => {
+    res.status(404).json({
+        success: false,
+        message: 'API endpoint not found: ' + req.originalUrl
     });
 });
 
-// Serve specific HTML files for common routes
+// Root route handler
 app.get('/', (req, res) => {
     const possiblePaths = [
         path.join(__dirname, '../Home.html'),
@@ -112,22 +98,13 @@ app.get('/', (req, res) => {
     });
 });
 
-// 404 Handler for API routes
-app.use('/api/*', (req, res) => {
-    res.status(404).json({
-        success: false,
-        message: 'API endpoint not found',
-        path: req.originalUrl
-    });
-});
-
 // Global Error Handler
 app.use((error, req, res, next) => {
     console.error('💥 Global Error Handler:', error.message);
     
     // Don't log 404 errors for static files
     if (error.status === 404 && error.code === 'ENOENT') {
-        return next(); // Let the 404 handler below catch this
+        return next();
     }
     
     res.status(error.status || 500).json({
@@ -137,9 +114,9 @@ app.use((error, req, res, next) => {
     });
 });
 
-// Catch-all handler for HTML5 history mode (for SPA)
-app.get('*', (req, res) => {
-    // If it's an API request that reached here, return 404
+// Final 404 handler for non-existent routes (MUST BE LAST)
+app.use((req, res) => {
+    // If it's an API request, return JSON 404
     if (req.path.startsWith('/api/')) {
         return res.status(404).json({
             success: false,
