@@ -30,13 +30,13 @@ class AdminModel {
     }
 
         async findById(id) {
-        const sql = 'SELECT id, name, email, role, created_at, updated_at FROM admins WHERE id = ?';
+        const sql = 'SELECT id, name, email, role, status, created_at, updated_at FROM admins WHERE id = ?';
         const results = await database.query(sql, [id]);
         return results[0];
     }
 
     async findAll() {
-        const sql = 'SELECT id, name, email, role, created_at, updated_at FROM admins ORDER BY created_at DESC';
+        const sql = 'SELECT id, name, email, role, status, created_at, updated_at FROM admins ORDER BY created_at DESC';
         return await database.query(sql);
     }
 
@@ -59,7 +59,7 @@ class AdminModel {
 
     async search(query) {
         const searchTerm = `%${query}%`;
-        const sql = `SELECT id, name, email, role, created_at, updated_at 
+        const sql = `SELECT id, name, email, role, status, created_at, updated_at 
                      FROM admins 
                      WHERE name LIKE ? OR email LIKE ? OR role LIKE ?
                      ORDER BY created_at DESC`;
