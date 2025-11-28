@@ -54,6 +54,14 @@ staticPaths.forEach((staticPath) => {
   }
 });
 
+// Pre-cache home page path at startup to avoid synchronous file checks per request
+const HOME_PAGE_PATHS = [
+  path.join(__dirname, "../Home.html"),
+  path.join(__dirname, "../index.html"),
+  path.join(__dirname, "../pages/Home.html"),
+];
+const cachedHomePath = HOME_PAGE_PATHS.find(p => fs.existsSync(p)) || null;
+
 // API Routes
 app.use("/api/auth", require("./routes/auth.routes"));
 app.use("/api/admin", require("./routes/admin.routes"));
@@ -90,18 +98,10 @@ app.get("/api", (req, res) => {
   });
 });
 
-// Serve specific HTML files for common routes
+// Serve specific HTML files for common routes - using cached path
 app.get("/", (req, res) => {
-  const possiblePaths = [
-    path.join(__dirname, "../Home.html"),
-    path.join(__dirname, "../index.html"),
-    path.join(__dirname, "../pages/Home.html"),
-  ];
-
-  for (const filePath of possiblePaths) {
-    if (fs.existsSync(filePath)) {
-      return res.sendFile(filePath);
-    }
+  if (cachedHomePath) {
+    return res.sendFile(cachedHomePath);
   }
 
   // If no HTML file found, return API info

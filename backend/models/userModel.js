@@ -8,8 +8,8 @@ class UserModel {
     async create(userData) {
         const { firstName, lastName, email, password, phone, dateOfBirth } = userData;
         
-        // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        // Hash password with 12 rounds for consistency with adminModel
+        const hashedPassword = await bcrypt.hash(password, 12);
         
         const sql = `INSERT INTO users (first_name, last_name, email, password, phone, date_of_birth) 
                      VALUES (?, ?, ?, ?, ?, ?)`;

@@ -143,7 +143,7 @@ class DatabaseSetup {
             const existingAdmin = await database.query(checkSql, ['admin@reliantrental.com']);
             
             if (existingAdmin.length === 0) {
-                const hashedPassword = await bcrypt.hash('admin123', 10);
+                const hashedPassword = await bcrypt.hash('admin123', 12);
                 const insertSql = `
                     INSERT INTO admins (name, email, password, role) 
                     VALUES (?, ?, ?, ?)

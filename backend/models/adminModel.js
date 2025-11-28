@@ -40,17 +40,6 @@ class AdminModel {
         return await database.query(sql);
     }
 
-    async search(query) {
-        const searchTerm = `%${query}%`;
-        const sql = `SELECT id, name, email, role, created_at, updated_at 
-                     FROM admins 
-                     WHERE name LIKE ? OR email LIKE ? OR role LIKE ?
-                     ORDER BY created_at DESC`;
-        
-        return await database.query(sql, [searchTerm, searchTerm, searchTerm]);
-    }
-    
-
     async update(id, adminData) {
         const { name, email, role } = adminData;
         
@@ -70,7 +59,7 @@ class AdminModel {
 
     async search(query) {
         const searchTerm = `%${query}%`;
-        const sql = `SELECT id, name, email, role, status, created_at, updated_at 
+        const sql = `SELECT id, name, email, role, created_at, updated_at 
                      FROM admins 
                      WHERE name LIKE ? OR email LIKE ? OR role LIKE ?
                      ORDER BY created_at DESC`;
@@ -85,18 +74,11 @@ class AdminModel {
 
     async comparePassword(candidatePassword, hashedPassword) {
         try {
-            console.log('🔐 Comparing passwords...');
-            console.log('📝 Candidate password:', candidatePassword);
-            console.log('🔒 Hashed password length:', hashedPassword ? hashedPassword.length : 'null');
-            
             if (!hashedPassword) {
-                console.log('❌ No hashed password provided');
                 return false;
             }
             
-            const isValid = await bcrypt.compare(candidatePassword, hashedPassword);
-            console.log('✅ Password comparison result:', isValid);
-            return isValid;
+            return await bcrypt.compare(candidatePassword, hashedPassword);
         } catch (error) {
             console.error('💥 Password comparison error:', error);
             return false;

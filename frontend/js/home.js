@@ -11,6 +11,28 @@ let verificationData = {
 // API Base URL
 const API_BASE_URL = 'http://localhost:5000/api';
 
+// Modal type to ID mapping (defined once)
+const MODAL_TYPES = {
+  signin: "signinModal",
+  signup: "signupModal",
+  admin: "adminModal",
+  forgot: "forgotModal",
+  forgotAdmin: "forgotAdminModal",
+  verifyCode: "verifyCodeModal",
+  resetPassword: "resetPasswordModal",
+  success: "successModal",
+};
+
+// Cache DOM elements to avoid repeated lookups
+let cachedElements = {};
+
+function getCachedElement(id) {
+  if (!cachedElements[id]) {
+    cachedElements[id] = document.getElementById(id);
+  }
+  return cachedElements[id];
+}
+
 /* Global Variables Section Ends */
 
 /* ----------------------------------------------------------------------- */
@@ -90,48 +112,24 @@ function switchTab(tab) {
 
 function openModal(type) {
   console.log('📦 Opening modal:', type);
-  const modals = {
-    signin: "signinModal",
-    signup: "signupModal",
-    admin: "adminModal",
-    forgot: "forgotModal",
-    forgotAdmin: "forgotAdminModal",
-    verifyCode: "verifyCodeModal",
-    resetPassword: "resetPasswordModal",
-    success: "successModal",
-  };
-  if (modals[type]) {
-    document.getElementById(modals[type]).classList.add("active");
+  const modalId = MODAL_TYPES[type];
+  if (modalId) {
+    getCachedElement(modalId)?.classList.add("active");
   }
 }
 
 function closeModal(type) {
   console.log('📦 Closing modal:', type);
-  const modals = {
-    signin: "signinModal",
-    signup: "signupModal",
-    admin: "adminModal",
-    forgot: "forgotModal",
-    forgotAdmin: "forgotAdminModal",
-    verifyCode: "verifyCodeModal",
-    resetPassword: "resetPasswordModal",
-    success: "successModal",
-  };
-  if (modals[type]) {
-    document.getElementById(modals[type]).classList.remove("active");
+  const modalId = MODAL_TYPES[type];
+  if (modalId) {
+    getCachedElement(modalId)?.classList.remove("active");
   }
 }
 
 function switchModal(type) {
   console.log('🔄 Switching modal to:', type);
-  closeModal("signin");
-  closeModal("signup");
-  closeModal("admin");
-  closeModal("forgot");
-  closeModal("forgotAdmin");
-  closeModal("verifyCode");
-  closeModal("resetPassword");
-  closeModal("success");
+  // Close all modals using the defined types
+  Object.keys(MODAL_TYPES).forEach(modalType => closeModal(modalType));
   openModal(type);
 }
 
@@ -721,25 +719,17 @@ document.addEventListener("keypress", (e) => {
 // Handle Escape key to close modals
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    const confirmationModal = document.getElementById('logoutConfirmationModal');
+    const confirmationModal = getCachedElement('logoutConfirmationModal');
     if (confirmationModal && confirmationModal.classList.contains('active')) {
       closeConfirmationModal();
     }
     
     const activeModal = document.querySelector('.modal-overlay.active');
     if (activeModal && activeModal.id !== 'logoutConfirmationModal') {
-      const modalTypes = {
-        'signinModal': 'signin',
-        'signupModal': 'signup',
-        'forgotModal': 'forgot',
-        'forgotAdminModal': 'forgotAdmin',
-        'verifyCodeModal': 'verifyCode',
-        'resetPasswordModal': 'resetPassword',
-        'successModal': 'success'
-      };
-      
-      if (modalTypes[activeModal.id]) {
-        closeModal(modalTypes[activeModal.id]);
+      // Find the modal type by its ID using the MODAL_TYPES constant
+      const modalType = Object.keys(MODAL_TYPES).find(key => MODAL_TYPES[key] === activeModal.id);
+      if (modalType) {
+        closeModal(modalType);
       }
     }
   }

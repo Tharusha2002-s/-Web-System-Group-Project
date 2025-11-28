@@ -52,16 +52,9 @@ class Database {
 
     query(sql, params = []) {
         return new Promise((resolve, reject) => {
-            console.log('📊 Executing SQL query:', sql.substring(0, 100) + '...');
-            if (params.length > 0) {
-                console.log('📋 Query params:', params);
-            }
-
             this.pool.execute(sql, params, (error, results, fields) => {
                 if (error) {
-                    console.error('💥 Database query error:', error);
-                    console.error('📝 SQL:', sql);
-                    console.error('🔧 Params:', params);
+                    console.error('💥 Database query error:', error.message);
                     reject(error);
                     return;
                 }

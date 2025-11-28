@@ -8,6 +8,18 @@ let verificationData = {
   isAdmin: false,
 };
 
+// Modal type to ID mapping (defined once)
+const MODAL_TYPES = {
+  signin: "signinModal",
+  signup: "signupModal",
+  admin: "adminModal",
+  forgot: "forgotModal",
+  forgotAdmin: "forgotAdminModal",
+  verifyCode: "verifyCodeModal",
+  resetPassword: "resetPasswordModal",
+  success: "successModal",
+};
+
 /* Global Variables Section Ends */
 
 /* ----------------------------------------------------------------------- */
@@ -62,18 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
  * @param {string} type - Modal type identifier
  */
 function openModal(type) {
-  const modals = {
-    signin: "signinModal",
-    signup: "signupModal",
-    admin: "adminModal",
-    forgot: "forgotModal",
-    forgotAdmin: "forgotAdminModal",
-    verifyCode: "verifyCodeModal",
-    resetPassword: "resetPasswordModal",
-    success: "successModal",
-  };
-  if (modals[type]) {
-    document.getElementById(modals[type]).classList.add("active");
+  const modalId = MODAL_TYPES[type];
+  if (modalId) {
+    document.getElementById(modalId)?.classList.add("active");
   }
 }
 
@@ -82,18 +85,9 @@ function openModal(type) {
  * @param {string} type - Modal type identifier
  */
 function closeModal(type) {
-  const modals = {
-    signin: "signinModal",
-    signup: "signupModal",
-    admin: "adminModal",
-    forgot: "forgotModal",
-    forgotAdmin: "forgotAdminModal",
-    verifyCode: "verifyCodeModal",
-    resetPassword: "resetPasswordModal",
-    success: "successModal",
-  };
-  if (modals[type]) {
-    document.getElementById(modals[type]).classList.remove("active");
+  const modalId = MODAL_TYPES[type];
+  if (modalId) {
+    document.getElementById(modalId)?.classList.remove("active");
   }
 }
 
@@ -101,14 +95,8 @@ function closeModal(type) {
  * @param {string} type - Modal type to open
  */
 function switchModal(type) {
-  closeModal("signin");
-  closeModal("signup");
-  closeModal("admin");
-  closeModal("forgot");
-  closeModal("forgotAdmin");
-  closeModal("verifyCode");
-  closeModal("resetPassword");
-  closeModal("success");
+  // Close all modals using the defined types
+  Object.keys(MODAL_TYPES).forEach(modalType => closeModal(modalType));
   openModal(type);
 }
 

@@ -3,21 +3,21 @@
 // ============================================
 const database = require('../config/db');
 
+// Define vehicle columns once to avoid repetition
+const VEHICLE_COLUMNS = `
+    id, name, type, brand, model, year, capacity,
+    fuel_type, transmission, price_per_day, price_per_hour,
+    color, license_plate, daily_rate, hourly_rate,
+    is_available, location, description, features, images,
+    created_at, updated_at
+`;
+
 class VehicleModel {
     async findAll() {
         try {
             console.log('📋 Fetching all vehicles');
             
-            const sql = `
-                SELECT 
-                    id, name, type, brand, model, year, capacity,
-                    fuel_type, transmission, price_per_day, price_per_hour,
-                    color, license_plate, daily_rate, hourly_rate,
-                    is_available, location, description, features, images,
-                    created_at, updated_at
-                FROM vehicles 
-                ORDER BY created_at DESC
-            `;
+            const sql = `SELECT ${VEHICLE_COLUMNS} FROM vehicles ORDER BY created_at DESC`;
             
             const results = await database.query(sql);
             console.log(`✅ Found ${results.length} vehicles`);
@@ -30,16 +30,7 @@ class VehicleModel {
 
     async findById(id) {
         try {
-            const sql = `
-                SELECT 
-                    id, name, type, brand, model, year, capacity,
-                    fuel_type, transmission, price_per_day, price_per_hour,
-                    color, license_plate, daily_rate, hourly_rate,
-                    is_available, location, description, features, images,
-                    created_at, updated_at
-                FROM vehicles 
-                WHERE id = ?
-            `;
+            const sql = `SELECT ${VEHICLE_COLUMNS} FROM vehicles WHERE id = ?`;
             const results = await database.query(sql, [id]);
             return results[0] || null;
         } catch (error) {
@@ -248,12 +239,7 @@ class VehicleModel {
             console.log(`🔍 Searching vehicles for: ${query}`);
 
             const sql = `
-                SELECT 
-                    id, name, type, brand, model, year, capacity,
-                    fuel_type, transmission, price_per_day, price_per_hour,
-                    color, license_plate, daily_rate, hourly_rate,
-                    is_available, location, description, features, images,
-                    created_at, updated_at
+                SELECT ${VEHICLE_COLUMNS}
                 FROM vehicles 
                 WHERE 
                     name LIKE ? OR 
@@ -281,12 +267,7 @@ class VehicleModel {
     async findAvailable() {
         try {
             const sql = `
-                SELECT 
-                    id, name, type, brand, model, year, capacity,
-                    fuel_type, transmission, price_per_day, price_per_hour,
-                    color, license_plate, daily_rate, hourly_rate,
-                    is_available, location, description, features, images,
-                    created_at, updated_at
+                SELECT ${VEHICLE_COLUMNS}
                 FROM vehicles 
                 WHERE is_available = 1
                 ORDER BY created_at DESC
